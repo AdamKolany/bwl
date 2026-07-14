@@ -1,0 +1,270 @@
+  @font-face{  font-family: "TeX Gyre Bonum Web"; src: local("TeX Gyre Bonum"), url("/fonts/texgyrebonum-regular.woff2") format("woff2"); font-weight: 400; font-style: normal;  }
+  /* html,body { height: 100%; -webkit-text-size-adjust: none; text-size-adjust: none;} */
+
+  html, body { margin: 0;  padding: 0;  overflow-x: hidden; }
+
+  body {  font-family: sans-serif;  padding: 1rem;  background: #f5f5f5; }
+
+  .debugline {  color: gray;  font-size: 0.7em;  overflow-wrap: anywhere;  word-break: break-word;  }
+
+  #appscale {
+    width: 100%;
+    overflow: auto;
+  }
+
+  #appcontent {
+    width: 1200px;
+    transform-origin: top left;
+  }
+
+
+  fieldset { border: 1px solid #ddd; padding: 1%; font-size: 1.5em;}
+  
+  legend { padding: 0 6px; }
+  
+  textarea.open { width: 100%; font-size: 1.25em; padding: 8px; border: 1px solid #ddd; border-radius: 6px; }
+  
+
+  pre { background:#f7f7f7; padding:10px; border:1px solid #eee; overflow:auto; }
+  label.ans { display:block; margin: 8px 0; cursor:pointer; }
+  label.ans input { margin-right: 10px; transform: scale(1.2); }
+  mjx-container[jax="CHTML"][display="true"] { margin: 0.8em 0; }
+  
+
+  body, textarea, .render { font-family: "TeX Gyre Bonum Web", serif; font-size:21px; }
+  select {  font-family: "TeX Gyre Bonum Web", "TeX Gyre Bonum", serif; font-size: 24px; line-height: 1.2; padding: 6px 10px;  }
+  select option { font-family: "TeX Gyre Bonum Web", serif; font-size: 22px; }
+  input[name="n"] { font-family: inherit; font-size: 26px; }
+  a { text-decoration: none; }
+  h4{ margin-top: -20px; font-size:2em;}
+  .line { display: flex; }
+  .right { margin-left: auto; }
+  .box   { max-width: none; width: 100%; }
+  .row   { margin: 12px 0; }
+  .warn  { color: #a00; font-weight: 700; }
+  .small { color: #666; font-size: 1.2em; }
+  .btn   { padding: 5px 12px; font-family: "TeX Gyre Bonum", "Helvetica", Arial, sans-serif; font-size: 22px; }
+  
+  .q     { font-size: 2.0rem; margin-top: 0px; line-height:3.0rem; }
+
+  .sep   { margin: 10px 0; border-top: 1px solid #eee; }
+  .skip  { margin-left:0; text-align: right;}	
+  .tiny  { font-size: 1.0em;}
+  .kexpr { display: inline-block;  line-height: 1;  vertical-align: middle;  }
+  .kexpr sup, .kexpr sub{ font-size: 0.65em; line-height: 0; position: relative; }
+  .kexpr sup{ top: -0.55em; }
+  .kexpr sub{ top:  0.25em; }
+  .xmsub{ position: relative;  display: inline-block;  line-height: 1;  padding-right: 0.9em; vertical-align: middle; }
+  .xmsub .base{  display: inline-block; font-size: 0.80em; }
+  .xmsub .sup, .xmsub .sub{ position: absolute;  left: 1.2em; font-size: 0.65em; line-height: 1.00; white-space: nowrap; }
+  .xmsub .sup{ top: -0.25em; }   /* w górę */
+  .xmsub .sub{ top:  0.75em; }   /* w dół */
+
+  .pbtn .xmfakefrac{  display:inline-block;  line-height:1.2;  vertical-align:middle; }
+  .pbtn .xmfakefrac .num, .pbtn .xmfakefrac .den, .pbtn .xmfakefrac .slash{  display:inline-block; font-size:0.8em;}
+  .pbtn .xmfakefrac .num{  transform: translate(+0.20em, -0.30em); }
+  .pbtn .xmfakefrac .den{  transform: translate(-0.10em, 0.22em); }
+  .pbtn .xmfakefrac .slash{  margin: 0 0.06em;  transform: translateY(0.02em) scaleY(1.05); }
+
+  .k-ovrarr{ position: relative; display: inline-block; line-height: 1; padding-top: 0.35em; }
+  .k-ovrarr::before { content: "\2192"; position: absolute; left: 0; right: 0; top:  -0.15em; text-align: center; font-size: 0.60em; }
+  .k-ovline{ position: relative; display: inline-block; line-height: 1; padding-top: 0.35em; }
+  .k-ovline::before { content: "\2014"; position: absolute; left: 0; right: 0; top:  -0.15em; text-align: center; font-size: 0.60em; }
+
+  .cpRow{ display: inline-flex;  gap: 0.25em;  justify-content: center; }
+  .cpRow > button[data-cmd="copy"],   .cpRow > button[data-cmd="paste" ] { font-size: 0.75em; padding: 0.10em 0.25em; line-height: 1; white-space: nowrap; }
+  .cpRow > button[data-cmd="move_L"], .cpRow > button[data-cmd="move_R"] { font-size: 1.00em; padding: 0.10em 0.25em; line-height: 1; white-space: nowrap; }
+  
+  .btnrow { display: flex;  flex-wrap: nowrap;  gap: 4px;  overflow: visible;  white-space: nowrap; }
+
+  .mathbtn { display: inline-block; line-height: 1; font-size: 2.1vw; transform: scale(1.0);}    .mathbtn.tr { font-size: 0.7em; }
+
+  .pbtn { 
+    font-family: "TeX Gyre Bonum Web"; 
+    font-size: 2.1vw; padding: .15vh .25vw .15vh .25vw; border: 1px solid #ccc; border-radius: 4px; background: #f7f7f7; cursor: pointer; line-height: 1.2;
+   }
+  .pbtn1 { 
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.1vw; padding: .15vh .25vw .15vh .25vw; border: 1px solid #ccc; border-radius: 4px; background: #f7f7f7; cursor: pointer; line-height: 1.2;
+   }
+
+  .pbtn  { display: inline-flex; align-items: center; justify-content: center; }  
+  /* .pbtn1 { display: inline-flex; align-items: center; justify-content: center; }   */
+
+
+  .pbtn .m {
+  font-family: "KaTeX_Main", "KaTeX_Math", serif !important;
+  line-height: 1.15em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  /* 
+  .pbtn1 .m {
+  font-family: "KaTeX_Main", "KaTeX_Math", serif !important;
+  line-height: 1.15em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  } 
+  */
+
+  .pbtn:focus  { outline: none; }
+  .pbtn1:focus { outline: none; }
+
+  .palette .pbtn.new {background: #ecd3d3;}
+  .palette .pbtn.new:hover { background: rgb(173, 211, 214) !important; }
+
+  /* 
+  .palette .pbtn1.new {background: #ecd3d3;}
+  .palette .pbtn1.new:hover { background: rgb(173, 211, 214) !important; } 
+  */
+
+
+  .pbtn  .ktx { padding: 0px 0px 0px 0px; }  
+  .pbtn1 .ktx { padding: 0px 0px 0px 0px; }  
+
+  .btnimg { display: block; width: 64px; height: auto;}
+
+  .palette { display: flex; flex-wrap: wrap; gap: 5px 6px; align-items: center; margin-top: 1.2rem; }
+
+  .palette .pbtn{ margin: 0; background: #eceae7;}
+  .palette .pbtn:hover{ margin: 0; background: #ddf1cc;} /* */
+
+  .palette .pbtn1{ margin: 0; background: #eceae7;}
+  .palette .pbtn1:hover{ margin: 0; background: #ddf1cc;} /* */
+
+  .palette .br{ flex-basis: 100%; height: 0; }
+
+  .imgouter{ margin:10px 0; display:flex; }
+  .imgouter.left  { justify-content:flex-start; }
+  .imgouter.center{ justify-content:center; }
+  .imgouter.right { justify-content:flex-end; }
+
+  .qimg{ max-width:100%; height:auto; display:block; }
+  .imgcap{ margin-top:6px; font-size:0.95em; opacity:0.85; text-align:center; }
+
+  figure.imgbox{ margin:0; }
+
+ 
+  .answerRow { display: flex; align-items: flex-start; gap: 1%; width: 100%; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+  .mf-scroll { flex: 1 1 auto; overflow-x: auto; overflow-y: hidden; max-width: none; border: 1px solid #ccc; padding: 4px; box-sizing: border-box; }
+  .mf-scroll math-field.ml { display: block; width: 100%; min-width: 0; box-sizing: border-box; }
+  .weiterCol { display: flex; flex-direction: column; gap: 0.25em; width: auto; align-items: center; position: static; flex: 0 0 auto;}
+
+  
+
+  math-field.ml { width: 85%; font-size: 1.75rem; padding: 5px 4px 4px 10px ; border: 10px solid #e4dede; border-radius: 6px; min-height: 2.0em;}
+  math-field.ml { font-family: "KaTeX_Main", "KaTeX_Math", serif !important; }
+
+  math-field::part(menu-toggle) { display: none !important; }
+
+  math-virtual-keyboard, #mathlive-virtual-keyboard, .ML__virtual-keyboard, .ML__keyboard {  display: none !important; pointer-events: none !important;}
+
+  math-field::part(menu-toggle),
+  math-field::part(virtual-keyboard-toggle),
+  math-field::part(keyboard-toggle),
+  math-field::part(controls) {  display: none !important; }
+
+  math-field::part(content) .ML__contains-highlight {
+    opacity: 0.45 !important;   /* zmniejsz = jaśniej */
+    background: rgba(152, 177, 135, 1.00) !important;
+  }
+
+  math-field .ML__contains-highlight { opacity: 0.05 !important; }
+
+  .lma { font-size: 1.0vw; text-align: left; font-family: ui-monospace, "DejaVu Sans Mono", monospace;line-height: 1.3; white-space: pre-wrap; margin-left: 4%;}
+  
+  .lma .ltx { background: #3d8549;}
+  .lma .mjs { background: #3d8085;}
+  .lma .ast { background: #857a3d;}
+
+  #mj_pre { white-space: pre; overflow: auto; font-family: ui-monospace, "DejaVu Sans Mono", monospace; }   /* */ 
+  #mj_dialog { position:fixed; top: 10%; height: 80%; left: 10%; width: 80%; padding: 0; border: 3px solid #250feb; border-radius: 20px; } /* */ 
+  /*dialog:modal#mj_dialog{ top:  10% !important; left: 15% !important; margin: 0 !important; width:  75% !important; height: 60% !important; font-size: 0.6em;} /* */ 
+  
+  #mj_close { float: right; top: 10%; right: 30%; }
+  .mjx-hide { visibility: hidden; }
+  
+
+/* iPAD */
+
+@supports (-webkit-touch-callout: none) {
+  @media only screen
+    and (orientation: landscape)
+    and (pointer: coarse)
+    and (min-width: 900px)
+    and (max-width: 1200px) {
+
+    #appcontent {
+      width: 100%;
+    }
+
+    .palette {
+      gap: 2px 2px;
+      margin-top: 0.4rem;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .btnrow {
+      flex-wrap: wrap;
+      max-width: 100%;
+      white-space: normal;
+    }
+
+    .pbtn {
+      font-size: 1.5rem;
+      padding: 0.02rem 0.06rem;
+      min-width: 1.35rem;
+    }
+
+    .pbtn1 {
+      font-size: 2.2rem;
+      padding: auto /* 0.02rem 0.06rem*/;
+      min-width: 1.35rem;
+      width: 1.60rem;
+      height: 2.5rem;
+    }
+
+    .mathbtn {
+      font-size: 1.4rem;
+    }
+
+    .mathbtn.tr {
+      font-size: 1.5rem;
+    }
+
+    math-field.ml {
+      width: 85%;
+      font-size: 1.75rem;
+      padding: 5px 4px 4px 10px;
+      border: 10px solid #e4dede;
+      border-radius: 6px;
+      min-height: 2.0em;
+      box-sizing: border-box;
+      font-family: initial !important;
+    }
+
+    fieldset {
+      border: 1px solid #ddd;
+      padding: 1%;
+      font-size: 2.0rem;
+    }
+
+    legend {
+      background: transparent;
+    }
+
+    .q {
+      font-size: 2.0rem;
+      margin-top: 0;
+      line-height: 3rem;
+    }
+
+    mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.4em 0;
+    }
+  }
+}
