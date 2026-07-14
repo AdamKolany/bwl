@@ -84,14 +84,19 @@ sub run {
       ), br();
     print qq{<div class="sep"></div>};
 
-    my $cnt; my $n_suggest = $Common::DEFAULT_N;
+    my $cnt = 0; my $n_suggest = $Common::DEFAULT_N;
     if ($chosen_kap ne '' && $chosen_thm ne '') {
       ($cnt) = $DB::dbh->selectrow_array(  q{SELECT count(*) FROM fragen WHERE "kap_kürzel" = ? AND "th_kürzel" = ?}, undef, $chosen_kap, $chosen_thm );
-      $n_suggest = $cnt if defined $cnt;
-      $n_suggest = ($Common::DEFAULT_N<$cnt )?$Common::DEFAULT_N:$cnt;
+      $cnt ||= 0;
+      $n_suggest = ($Common::DEFAULT_N < $cnt) ? $Common::DEFAULT_N : $cnt;
+      $n_suggest = 1 if $cnt > 0 && $n_suggest < 1;
     }
-    
-    print "Anzahl der Fragen: ", textfield(-name=>'n', -default=> sprintf("% 3d",$n_suggest), -size=>3, -override=>1 ), br();
+
+    if (($Common::cgi->param('err') // '') eq 'invalid_n' && $cnt > 0) {
+      print p({class=>'warn'}, "Bitte eine gültige Anzahl der Fragen angeben (1 bis $cnt).");
+    }
+
+    print qq{Anzahl der Fragen: <input type="number" name="n" min="1" max="$cnt" step="1" value="$n_suggest" size="3">}, br();
     
     my $disabled = ($chosen_kap ne '' && $chosen_thm ne '') ? '' : 'disabled';
 

@@ -10,16 +10,17 @@ require './Modules/DB.pm';
 sub run {
   my $kapitel = $Common::cgi->param('kapitel') // die "kein Kapitel";
   my $thema = $Common::cgi->param('thema') // die "kein Thema";
-  
+
   my ($cnt) = $DB::dbh->selectrow_array(  q{SELECT count(*) FROM fragen WHERE "kap_kürzel" = ? AND "th_kürzel" = ? }, undef, $kapitel, $thema );
-  
-  # my $n     = $Common::cgi->param('n')     // $Common::DEFAULT_N;
+  $cnt ||= 0;
 
-  my $n     = ($Common::DEFAULT_N<$cnt )?$Common::DEFAULT_N:$cnt;
+  my $n = $Common::cgi->param('n') // '';
+  $n =~ s/^\s+|\s+$//g;
 
-  # $n = ($cnt ||= $Common::DEFAULT_N) if defined $cnt ;
-
-  $n =~ s/\D//g; $n ||= $Common::DEFAULT_N;
+  if ($n !~ /^\d+$/ || $n < 1 || $n > $cnt) {
+    my $dbg = $Common::cgi->param('debug') ? "&debug=1" : "";
+    Common::send_redirect(qs => "action=menu&kapitel=$kapitel&thema=$thema&err=invalid_n$dbg");
+  }
 
   my $cookie; if (!$Common::sid) { $Common::sid = Common::new_sid(); $cookie = Common::sid_cookie($Common::sid); }
 
