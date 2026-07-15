@@ -177,7 +177,6 @@ my $thema = $rows_themen->[0]->[0] // '';
 
     print end_form;
     print "</div>";
-    print "</div>";
   }
 }
 
