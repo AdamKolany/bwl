@@ -68,9 +68,38 @@ print "<body>";
 
 my $chosen_kap = 'TSTA'; #'JuHa';
 my $chosen_thm = $Common::cgi->param('thema')   // '';
+
+my $rows_thm =
+    $DB::dbh->selectall_arrayref(
+          q{ select th_kürzel, thema, cnt from (select kap_kürzel, th_kürzel,thema,count(frage_id) as cnt 
+            from kapitel_themen_fragen group by kap_kürzel,th_kürzel,thema) where cnt>0 and kap_kürzel=? }, undef, $chosen_kap 
+    );
+my @thm_values; my %thm_labels;
+if ($rows_thm && @$rows_thm) {
+  @thm_values = ('');
+  %thm_labels = ( '' =>  ' -- Wähle das Thema -- ');
+  for my $r (@$rows_thm) {
+    my ($code, $name,$cnt) = @$r;
+    next unless defined $code;
+    $name = '' unless defined $name;
+    push @thm_values, $code;
+    $thm_labels{$code} = "$name ($cnt Fragen)";
+  }
+}
+
+my $thema_picker =
+    start_form(-method=>'$method', -action=>$Common::SELF, -style=>'display:inline-block;')
+  . hidden(-name=>'kapitel', -value=>$chosen_kap)
+  . popup_menu(
+      -style => 'font-size: 0.9em; font-family: "TeX Gyre Bonus";',
+      -name=>'thema', -values  => \@thm_values, -labels   => \%thm_labels, -default  => '', -override => 1,
+      -onchange => 'this.form.submit()'
+    )
+  . end_form;
+
 my $menu=qq{
     <span style="display: block; margin-left: auto; text-align: right;">
-      <a href='?action=menu' class='small' style='text-decoration: none; margin-left: 20px; '>Menu</a>
+      $thema_picker
     </span>
   };
 
@@ -134,28 +163,9 @@ my $thema = $rows_themen->[0]->[0] // '';
 
   print $menu;
 
-} else {  
-  my $rows_thm = 
-      $DB::dbh->selectall_arrayref( 
-            q{ select th_kürzel, thema, cnt from (select kap_kürzel, th_kürzel,thema,count(frage_id) as cnt 
-              from kapitel_themen_fragen group by kap_kürzel,th_kürzel,thema) where cnt>0 and kap_kürzel=? }, undef, $chosen_kap 
-      );
-  my @thm_values; my %thm_labels;
-  if ($rows_thm && @$rows_thm) {
-    @thm_values = (''); #my $r = pop @$rows_thm; $n_suggest= $$r[2]; $chosen_thm=$$r[0];
-    %thm_labels = ( '' =>  ' -- Wähle das Thema -- '); # "$$r[1] ($chosen_thm: $n_suggest Fragen)" ); # 
-    for my $r (@$rows_thm) {
-      my ($code, $name,$cnt) = @$r;
-      next unless defined $code;
-      $name = '' unless defined $name;
-      push @thm_values, $code;
-      $thm_labels{$code} = "$name ($cnt Fragen)"; #"$name ($code)";
-    }
-  }
-
+} else {
   if ($chosen_kap ne '' && @thm_values) {
     print start_form(-method=>'$method', -action=>$Common::SELF, -class=>'row');
-    # print hidden(-name=>'debug', -value=>1) if $Common::cgi->param('debug');
     print hidden(-name=>'kapitel', -value=>$chosen_kap);
     print "Thema: ", 
       popup_menu( 
@@ -166,7 +176,6 @@ my $thema = $rows_themen->[0]->[0] // '';
     print end_form;
     print "</div>";
   }
-
 }
 
 print qq{ <script src="/js/abitur/prettyPrimes.js"></script> };
