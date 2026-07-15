@@ -75,9 +75,14 @@ my $rows_thm =
             from kapitel_themen_fragen group by kap_kürzel,th_kürzel,thema) where cnt>0 and kap_kürzel=? }, undef, $chosen_kap 
     );
 my @thm_values; my %thm_labels;
+
+my ($max_thema_len) = $DB::dbh->selectrow_array(q{ SELECT max(length(thema)) FROM themen });
+my $band = int($max_thema_len/2);
+# $max_thema_len -= length(' -- Wähle das Thema -- ');
+
 if ($rows_thm && @$rows_thm) {
   @thm_values = ('');
-  %thm_labels = ( '' =>  ' -- Wähle das Thema -- ');
+  %thm_labels = ( '' =>  ( (' 'x$band) . ' -- Wähle das Thema -- '. (' 'x$band ) ) );
   for my $r (@$rows_thm) {
     my ($code, $name,$cnt) = @$r;
     next unless defined $code;
@@ -111,13 +116,11 @@ my $thema = $rows_themen->[0]->[0] // '';
 
   print qq{<div style="font-weight: bold; font-size: 2.2em;">$thema</div>};
 
-  print $menu;
-
+  
   print br();
 
   my $rows_fragen = 
       $DB::dbh->selectall_arrayref( q{ select frage, frage_id, status from fragen where kap_kürzel=? and th_kürzel=? order by frage_id}, undef, $chosen_kap, $chosen_thm  );
-  
 
   print "<hr>";
   my $cnt=1; for my $r (@$rows_fragen) {
@@ -161,19 +164,19 @@ my $thema = $rows_themen->[0]->[0] // '';
     $cnt++;
   }
 
-  print $menu;
-
 } else {
   if ($chosen_kap ne '' && @thm_values) {
+    print "<div style='display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top:10%;'>";
     print start_form(-method=>'$method', -action=>$Common::SELF, -class=>'row');
     print hidden(-name=>'kapitel', -value=>$chosen_kap);
-    print "Thema: ", 
+    print "Thema: <br>", 
       popup_menu( 
-        -style => 'font-size: 1em; font-family: "TeX Gyre Bonus"; ',
+        -style => 'font-size: 1em; font-family: "TeX Gyre Bonus"; margin-left: 5.0em; margin-top: 1.0em;',
         -name=>'thema', -values  => \@thm_values, -labels   => \%thm_labels, -default  => $chosen_thm, -onchange => 'this.form.submit()' ), br();
     print qq{<div class="sep"></div>};
 
     print end_form;
+    print "</div>";
     print "</div>";
   }
 }
