@@ -74,7 +74,7 @@ my $menu=qq{
     </span>
   };
 
-if ( $Common::cgi->param('action') eq 'start' ) {
+if ( $chosen_thm ne '' ) {
 
 my $rows_themen =  $DB::dbh->selectall_arrayref( q{ select thema from themen where kapitel=? and th_kürzel=? }, undef, $chosen_kap, $chosen_thm  );
   
@@ -163,18 +163,6 @@ my $thema = $rows_themen->[0]->[0] // '';
         -name=>'thema', -values  => \@thm_values, -labels   => \%thm_labels, -default  => $chosen_thm, -onchange => 'this.form.submit()' ), br();
     print qq{<div class="sep"></div>};
 
-    my $cnt; my $n_suggest = $Common::DEFAULT_N;
-    if ($chosen_kap ne '' && $chosen_thm ne '') {
-      ($cnt) = $DB::dbh->selectrow_array(  q{SELECT count(*) FROM fragen WHERE "kap_kürzel" = ? AND "th_kürzel" = ?}, undef, $chosen_kap, $chosen_thm );
-      $n_suggest = $cnt if defined $cnt;
-    }
-    
-    print br();
-    
-    my $disabled = ($chosen_kap ne '' && $chosen_thm ne '') ? '' : 'disabled';
-
-    print "Anzahl der Fragen: ", textfield(-name=>'n', -default=> sprintf("% 3d",$n_suggest), -size=>2, -override=>1 ), br();
-    print qq{<button class="btn" type="submit" name="action" value="start" style="margin: 2vh auto auto 25vw; padding: 15px 30px 15px 30px;" $disabled>Start</button>};
     print end_form;
     print "</div>";
   }
