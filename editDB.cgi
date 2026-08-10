@@ -216,11 +216,13 @@ my $thema = $rows_themen->[0]->[0] // '';
 
     print qq{<div><b>Status:</b> };
     print popup_menu(
-      -name=>'status',
+      -name=>'status_display',
       -values => ['E','M','O','F'],
       -labels => { E=>'E – Einzelauswahl', M=>'M – Mehrfachauswahl', O=>'O – Freitext', F=>'F – Formel' },
       -default=> $status,
+      -disabled=>1,
     );
+    print hidden(-name=>'status', -value=>$status);
     print qq{</div>};
 
     print qq{<div><b>Antworten:</b></div>};
@@ -229,8 +231,10 @@ my $thema = $rows_themen->[0]->[0] // '';
       my $richtig = $DB::dbh->selectrow_array(q{ select richtig from antworte where antwort_id=? }, undef, $antwort_id);
       my $chk = (defined $richtig && $richtig eq 'J') ? 'checked' : '';
       print qq{<div class="editans">};
-      print qq{<label><input type="checkbox" name="richtig_$antwort_id" $chk> richtig</label>};
-      print qq{<input type="text" class="a-text" name="antwort_$antwort_id" value="} . CGI::escapeHTML($antwort // '') . qq{" placeholder="Antworttext">};
+      print qq{<label><input type="checkbox" disabled $chk> richtig</label>};
+      print hidden(-name=>"richtig_$antwort_id", -value=>1) if $chk;
+      print qq{<input type="text" class="a-text" value="} . CGI::escapeHTML($antwort // '') . qq{" placeholder="Antworttext" disabled>};
+      print hidden(-name=>"antwort_$antwort_id", -value=>$antwort // '');
       print qq{<input type="text" class="a-latex" name="latex_$antwort_id" value="} . CGI::escapeHTML($antwort_latex // '') . qq{" placeholder="LaTeX">};
       print qq{</div>};
     }
