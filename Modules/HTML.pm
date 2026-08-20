@@ -21,7 +21,7 @@ sub page_header {
 
     <script defer src="/js/mathlive/mathlive.js"></script>
 
-    <link rel="stylesheet" href="/css/abitur/Abitur.css">
+    <link rel="stylesheet" href="/css/bwl/Abitur.css">
     <script src="/js/abitur/Initialize.js"></script>
     <script src="/js/abitur/auxFunctions.js"></script>
     <script defer src="/js/abitur/topLevelNormalization.js"></script>
