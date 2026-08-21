@@ -181,31 +181,35 @@ print qq{</div>};
 
       # --- neue kompakte Tastatur (v2) ---------------------------------
       my $navicons=
+        qq{<span class="navgrp">}.
         qq{<button type="button" class="pbtn pbtn1" data-cmd="bs"     title="Backspace"><span class="tiny">⌫</span></button>}.
         qq{<button type="button" class="pbtn pbtn1" data-cmd="del"    title="Löschen">⌦</button>}.
-        qq{<button type="button" class="pbtn pbtn1" data-cmd="clearAll" title="Alles löschen">⊠</button>}.
-        $skipp.
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="clear" title="Auswahl löschen">⊠</button>}.
+        qq{</span>}.
+        qq{<span class="navgrp">}.
         qq{<button type="button" class="pbtn pbtn1" data-cmd="selL"><span class="tiny">◀</span></button>}.
         qq{<button type="button" class="pbtn pbtn1" data-cmd="selR"><span class="tiny">▶</span></button>}.
         qq{<button type="button" class="pbtn pbtn1" data-cmd="selectAll"><span style="font-size:0.75em;">★</span></button>}.
-        $skipp.
+        qq{</span>}.
+        qq{<span class="navgrp">}.
         qq{<button type="button" class="pbtn pbtn1" data-cmd="undo">↺</button>}.
-        qq{<button type="button" class="pbtn pbtn1" data-cmd="redo">↻</button>};
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="redo">↻</button>}.
+        qq{</span>};
 
       my $capsel= qq{<button type="button" class="pbtn" data-cmd="capsel"><span class='m'>az ↔ AZ</span></button>};
 
       # Zeile 1: Umschalter + Navigations-/Editier-Icons
-      print "<div class='btnrow'>";
-      print $capsel; print $skipp; print $navicons;
+      print "<div class='btnrow navrow'>";
+      print $capsel; print $navicons;
       print "</div>"; break();
 
       # Zeile 2: Kleinbuchstaben, feste Großbuchstaben, Ziffern
-      print "<div class='btnrow'>";
-      for my $l ('a'..'z') { print qq{<button type="button" class="pbtn" data-ins="$l" data-search="$l"><i>$l</i></button>}; }
+      print "<div class='btnrow letterrow'>";
+      for my $l ('a'..'z') { print qq{<button type="button" class="pbtn" data-ins="$l"><i>$l</i></button>}; }
       skipp(3);
-      for my $l (qw(A B C F I P X Y)) { print qq{<button type="button" class="pbtn const" data-ins="$l" data-search="$l"><i>$l</i></button>}; }
+      for my $l (qw(A B C F I P X Y)) { print qq{<button type="button" class="pbtn const" data-ins="$l"><i>$l</i></button>}; }
       skipp(3);
-      for my $l (0..9) { print qq{<button type="button" class="pbtn" data-ins="$l" data-search="$l">$l</button>}; }
+      for my $l (0..9) { print qq{<button type="button" class="pbtn" data-ins="$l">$l</button>}; }
       print "</div>"; break();
 
       # Zeile 3: Grundrechenarten, Potenzen/Wurzeln, Beträge/Normen
@@ -215,7 +219,7 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="-"><span class='mathbtn' data-tex="-"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="·"><span class='mathbtn' data-tex="\\cdot"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins=":"><span class='mathbtn' data-tex="\\colon"></span></button>};
-      print qq{<button type="button" class="pbtn" style="position:center;" data-ins="\\frac{#0}{{#?}}" data-search="bruch">
+      print qq{<button type="button" class="pbtn" style="position:center;" data-ins="\\frac{#0}{{#?}}">
 	      <span class="xmfakefrac"> <span class="num">&#9633;</span><span class="slash">/</span><span class="den">&#9633;</span> </span>
 	      </button>
       };
@@ -224,7 +228,7 @@ print qq{</div>};
 
       print qq{<button type="button" class="pbtn" data-ins="#0^{#?}"><span class="xmsub"><span class="base">□</span><span class="sup">□</span></span></button>};
 
-      print qq{<button type="button" class="pbtn" data-ins="#0^{\\nicefrac{#?}{#?}}"><span class="xmsub"><span class="base">□</span><span class="sup nicefrac"><span class="n">□</span><span class="slash">⁄</span><span class="d">□</span></span></span></button>&nbsp;&nbsp;};
+      print qq{<button type="button" class="pbtn" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">□</span><span class="sup nicefrac"><span class="n">□</span><span class="slash">/</span><span class="d">□</span></span></span></button>&nbsp;&nbsp;};
       
       print qq{<button type="button" class="pbtn" data-ins="\\sqrt[2]{#0}"><span class="m">²√</span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\sqrt[3]{#0}"><span class="m">³√</span></button>};
@@ -234,7 +238,7 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\big\\|"><span class='mathbtn' data-tex="\\big\\|"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="#0_{#?}"><span class="xmsub"><span class="base">□</span><span class="sub">m</span></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\overline{#0}"><span class="k-ovline" style="font-size:0.80em;">□</span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\hat{#0}"><span class='mathbtn' data-tex="\\hat{\\Box}"></span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="\\hat{#0}"><span class="k-hat" style="font-size:0.80em;">□</span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big(#?\\big|\#0\\big)"><span class='mathbtn' data-tex="(\\cdot|\\cdot)"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\left\\langle#0\\,,\\;#?\\right\\rangle"><span class='mathbtn tr' data-tex="\\left\\langle\\cdot\\,,\\;\\cdot\\right\\rangle"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\bullet"><span class='mathbtn' data-tex="\\bullet"></span></button>};
@@ -298,16 +302,16 @@ print qq{</div>};
       skipp(3);
       for my $g (['\\alpha','alpha'],['\\beta','beta'],['\\gamma','gamma'],['\\varepsilon','epsilon']) {
         my ($ins,$srch)=@$g;
-        print qq{<button type="button" class="pbtn hot" data-ins="$ins" data-search="$srch"><span class='mathbtn' data-tex="$ins"></span></button>};
+        print qq{<button type="button" class="pbtn hot" data-ins="$ins"><span class='mathbtn' data-tex="$ins"></span></button>};
       }
-      print qq{<button type="button" class="pbtn hot" data-ins="\\lambda" data-search="lambda"><span class='mathbtn' data-tex="\\lambda"></span></button>};
-      print qq{<button type="button" class="pbtn hot" data-ins="\\mu" data-search="mu"><span class='mathbtn' data-tex="\\mu"></span></button>};
-      print qq{<button type="button" class="pbtn hot" data-ins="\\sigma" data-search="sigma"><span class='mathbtn' data-tex="\\sigma"></span></button>};
-      print qq{<button type="button" class="pbtn hot" data-ins="\\tau" data-search="tau"><span class='mathbtn' data-tex="\\tau"></span></button>};
-      print qq{<button type="button" class="pbtn hot" data-ins="\\chi^2" data-search="chi2"><span class='mathbtn' data-tex="\\chi^2"></span></button>};
-      print qq{<button type="button" class="pbtn hot" data-ins="\\Delta" data-search="delta"><span class='mathbtn' data-tex="\\Delta"></span></button>};
-      print qq{<button type="button" class="pbtn hot" data-ins="\\Phi" data-search="phi"><span class='mathbtn' data-tex="\\Phi"></span></button>};
-      print qq{<button type="button" class="pbtn hot" data-ins="\\Omega" data-search="omega"><span class='mathbtn' data-tex="\\Omega"></span></button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\lambda"><span class='mathbtn' data-tex="\\lambda"></span></button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\mu"><span class='mathbtn' data-tex="\\mu"></span></button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\sigma"><span class='mathbtn' data-tex="\\sigma"></span></button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\tau"><span class='mathbtn' data-tex="\\tau"></span></button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\chi^2"><span class='mathbtn' data-tex="\\chi^2"></span></button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\Delta"><span class='mathbtn' data-tex="\\Delta"></span></button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\Phi"><span class='mathbtn' data-tex="\\Phi"></span></button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\Omega"><span class='mathbtn' data-tex="\\Omega"></span></button>};
       print "</div>"; break();
 
       # Zeile 6: Funktionen, Fakultät/Binomial, Konstanten, Summen/Integrale, Sonstiges
@@ -322,22 +326,23 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\ln\\left(#0\\right)">ln</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\log\\left(#0\\right)">log</button>};
       skipp(3);
-      print qq{<button type="button" class="pbtn hot" data-ins="#0!" data-search="fakultaet"><span class='mathbtn' data-tex="!"></span></button>};
-      print qq{<button type="button" class="pbtn hot" data-ins="\\binom{#0}{#?}" data-search="binomial">
+      print qq{<button type="button" class="pbtn hot" data-ins="#0!"><span class='mathbtn' data-tex="!"></span></button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\binom{#0}{#?}">
 	      <span class="xmbinom"><span class="paren">(</span><span class="stack"><span>&#9633;</span><span>&#9633;</span></span><span class="paren">)</span></span>
 	      </button>
       };
       skipp(3);
-      print qq{<button type="button" class="pbtn hot" data-ins="\\pi" data-search="pi"><span class='mathbtn' data-tex="\\pi"></span></button>};
-      print qq{<button type="button" class="pbtn hot" data-ins="e" data-search="e">e</button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\pi"><span class='mathbtn' data-tex="\\pi"></span></button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="e">e</button>};
       skipp(3);
       print qq{<button type="button" class="pbtn" data-ins="\\lim\\limits_\{n\\to\\infty\}">lim</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\int"><span class='mathbtn' data-tex="\\int"></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\,\\text{d}" data-search="d"><span class='mathbtn' data-tex="\\,\\text{d}"></span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="\\,\\text{d}"><span class='mathbtn' data-tex="\\,\\text{d}"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\sum"><span class='mathbtn' data-tex="\\sum"></span></button>};
       skipp(3);
-      print qq{<button type="button" class="pbtn" data-ins="\\euro" data-search="euro">€</button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\%" data-search="prozent">%</button>};
+      print qq{<button type="button" class="pbtn" data-ins="\\euro">€</button>};
+      print qq{<button type="button" class="pbtn" data-ins="\\%">%</button>};
+      print qq{<button type="button" class="pbtn" data-ins="‰">‰</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\ldots"><span class='mathbtn' data-tex="\\ldots"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="'"><span class='mathbtn' data-tex="'"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins='"'><span class='mathbtn' data-tex="``"></span></button>};
@@ -345,10 +350,9 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn m" data-ins=";">;</button>};
       print "</div>"; break();
 
-      # Zeile 7: Suchfeld + Navigations-/Editier-Icons (Spiegel von Zeile 1)
-      print "<div class='btnrow searchRow'>";
-      print qq{<input type="text" id="kbSearch" class="kbSearch" placeholder="" autocomplete="off">};
-      print $navicons;
+      # Zeile 7: Leerzeichen-Taste (mittleres Drittel, zentriert) + Navigations-/Editier-Icons (Spiegel von Zeile 1)
+      print "<div class='btnrow bottomRow'>";
+      print qq{<span class="navWrap"><button type="button" class="pbtn pbtn1 spacebar" data-ins="\\,"><span class="spaceGlyph">␣</span></button>$navicons</span>};
       print "</div>";
 
       # das Ende von der Palette
@@ -371,7 +375,8 @@ print qq{</div>};
       print qq{<div id="js_err" style="color:#a00; white-space:pre-wrap; font-size:14px;"></div>};
 
       print qq{ <script src="/js/abitur/prettyMathJSON.js"></script> };
-      print qq{ <script src="/js/bwl/DOMContentLoaded.js"></script> };
+      my $bwlJsV = (stat("/srv/wwwservers/www/tests/html/js/bwl/DOMContentLoaded.js"))[9] // time;
+      print qq{ <script src="/js/bwl/DOMContentLoaded.js?v=$bwlJsV"></script> };
   } # Formel
 
   if ($kind ne 'formel') {

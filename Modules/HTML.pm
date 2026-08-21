@@ -6,6 +6,10 @@ use CGI qw(:standard escapeHTML);
 sub page_header {
   my ($title) = @_;
   my $console = param('console') ? qq{<script src="/js/eruda.min.js"></script><script>try{ eruda.init(); }catch(e){}</script>}:'';
+  # Cache-Busting: /css/bwl ändert sich während der Entwicklung oft und hat keine
+  # Cache-Control-Header — ohne Versionsstempel können Browser (und verschiedene
+  # Tabs/Rechner) unterschiedlich alte Kopien behalten.
+  my $bwlCssV = (stat("/srv/wwwservers/www/tests/html/css/bwl/Abitur.css"))[9] // time;
   my $head = <<HEAD;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8"> $console
@@ -21,7 +25,7 @@ sub page_header {
 
     <script defer src="/js/mathlive/mathlive.js"></script>
 
-    <link rel="stylesheet" href="/css/bwl/Abitur.css">
+    <link rel="stylesheet" href="/css/bwl/Abitur.css?v=$bwlCssV">
     <script src="/js/abitur/Initialize.js"></script>
     <script src="/js/abitur/auxFunctions.js"></script>
     <script defer src="/js/abitur/topLevelNormalization.js"></script>
