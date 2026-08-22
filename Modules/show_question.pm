@@ -247,10 +247,10 @@ print qq{</div>};
 	      <span class="xmfakefrac"> <span class="num">$svg_box</span><span class="slash">/</span><span class="den">$svg_box</span> </span>
 	      </button>
       };
-      print qq{<button type="button" class="pbtn" data-ins="#0^2"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">2</span></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="#0^3"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">3</span></span></button>};
+      print qq{<button type="button" class="pbtn eqw" data-ins="#0^2"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">2</span></span></button>};
+      print qq{<button type="button" class="pbtn eqw" data-ins="#0^3"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">3</span></span></button>};
 
-      print qq{<button type="button" class="pbtn" data-ins="#0^{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup boxsup">$svg_box</span></span></button>};
+      print qq{<button type="button" class="pbtn eqw" data-ins="#0^{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup boxsup">$svg_box</span></span></button>};
 
       print qq{<button type="button" class="pbtn" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>&nbsp;&nbsp;};
       

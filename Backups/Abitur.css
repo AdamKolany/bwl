@@ -70,6 +70,13 @@
      Ziffern-.sup, um optisch auf derselben Höhe zu wirken. */
   .xmsub .sup.boxsup{ top: 0.10em; }
 
+  /* □², □³, □^□ auf dieselbe Breite wie das Bruch-Icon (□/□) bringen, und
+     den Inhalt trotz .xmsub' rechts reserviertem Platz für den Exponenten
+     (padding-right) optisch zentrieren: die Hälfte davon als margin-left
+     kompensieren, sonst sitzt das Kästchen links vom wahren Zentrum. */
+  .pbtn.eqw{ width: 1.95em; }
+  .pbtn.eqw .xmsub{ margin-left: 0.45em; }
+
   /* Zwei Kästchen nebeneinander, getrennt durch einen Schrägstrich —
      bewusst kein diagonales vertical-align-Layout mehr: das brach, seit
      die Kästchen SVGs (display:block) statt Textzeichen sind. */
