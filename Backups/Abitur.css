@@ -276,6 +276,14 @@
       justify-content: center;
     }
 
+    /* Zeile 5 (Klammern/Logik/griechische Buchstaben) bricht auf iPad kurz
+       vor der Griechisch-Gruppe um; mit halbiertem Gruppenabstand/Rand
+       passt sie knapp in eine Zeile. Nur hier, nicht auf dem Desktop. */
+    .btnrow.algebraRow.tightRow {
+      gap: 8px;
+      padding: 0 16px;
+    }
+
     .pbtn {
       font-size: 1.5rem;
       padding: 0.02rem 0.06rem;

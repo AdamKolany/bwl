@@ -345,7 +345,7 @@ print qq{</div>};
       print "</div>"; break();
 
       # Zeile 5: Klammern/Intervalle, Logik, griechische Buchstaben
-      print "<div class='btnrow algebraRow'>";
+      print "<div class='btnrow algebraRow tightRow'>";
 
       print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\left(#0\\right)"><span class='mathbtn tr' data-tex="\\left(\\cdot\\right)"></span></button>};
