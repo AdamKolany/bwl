@@ -196,7 +196,7 @@ print qq{</div>};
         qq{<button type="button" class="pbtn pbtn1" data-cmd="redo">↻</button>}.
         qq{</span>};
 
-      my $capsel= qq{<button type="button" class="pbtn" data-cmd="capsel"><span class='m'>az ↔ AZ</span></button>};
+      my $capsel= qq{<button type="button" class="pbtn capselBtn" data-cmd="capsel"><span class='m'>az ↔ AZ</span></button>};
 
       # Zeile 1: Umschalter + Navigations-/Editier-Icons
       print "<div class='btnrow navrow'>";
@@ -204,16 +204,16 @@ print qq{</div>};
       print "</div>"; break();
 
       # Zeile 2: Kleinbuchstaben, feste Großbuchstaben, Ziffern
-      print "<div class='btnrow letterrow'>";
-      for my $l ('a'..'z') { print qq{<button type="button" class="pbtn" data-ins="$l"><i>$l</i></button>}; }
-      skipp(3);
+      print "<div class='btnrow letterrow centeredRow'>";
+      for my $l ('a'..'z') { print qq{<button type="button" class="pbtn lower" data-ins="$l"><i>$l</i></button>}; }
+      skipp(4);
       for my $l (qw(A B C F I P X Y)) { print qq{<button type="button" class="pbtn const" data-ins="$l"><i>$l</i></button>}; }
-      skipp(3);
+      skipp(4);
       for my $l (0..9) { print qq{<button type="button" class="pbtn" data-ins="$l">$l</button>}; }
       print "</div>"; break();
 
       # Zeile 3: Grundrechenarten, Potenzen/Wurzeln, Beträge/Normen
-      print "<div class='btnrow'>";
+      print "<div class='btnrow centeredRow'>";
       print qq{<button type="button" class="pbtn" data-ins="="><span class='mathbtn' data-tex="="></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="+"><span class='mathbtn' data-tex="+"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="-"><span class='mathbtn' data-tex="-"></span></button>};
@@ -249,7 +249,7 @@ print qq{</div>};
       print "</div>"; break();
 
       # Zeile 4: Relationen, Mengenlehre, Zahlenbereiche
-      print "<div class='btnrow'>";
+      print "<div class='btnrow centeredRow'>";
       print qq{<button type="button" class="pbtn" data-ins="\\approx"><span class='mathbtn' data-tex="\\approx"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\ne"><span class='mathbtn' data-tex="\\neq"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\pm"><span class='mathbtn' data-tex="\\pm"></span></button>};
@@ -281,7 +281,7 @@ print qq{</div>};
       print "</div>"; break();
 
       # Zeile 5: Klammern/Intervalle, Logik, griechische Buchstaben
-      print "<div class='btnrow'>";
+      print "<div class='btnrow centeredRow'>";
       print qq{<button type="button" class="pbtn" data-ins="\\left(#0\\right)"><span class='mathbtn tr' data-tex="\\left(\\cdot\\right)"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\left[#0\\right]"><span class='mathbtn tr' data-tex="\\left[\\cdot\\right]"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\left\\{#0\\right\\}"><span class='mathbtn tr' data-tex="\\left\\{\\cdot\\right\\}"></span></button>};
@@ -315,7 +315,7 @@ print qq{</div>};
       print "</div>"; break();
 
       # Zeile 6: Funktionen, Fakultät/Binomial, Konstanten, Summen/Integrale, Sonstiges
-      print "<div class='btnrow'>";
+      print "<div class='btnrow centeredRow'>";
       print qq{<button type="button" class="pbtn" data-ins="\\sin\\left(#0\\right)">sin</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\cos\\left(#0\\right)">cos</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\tan\\left(#0\\right)">tan</button>};
