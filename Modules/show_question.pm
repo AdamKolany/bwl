@@ -182,14 +182,18 @@ print qq{</div>};
       # --- neue kompakte Tastatur (v2) ---------------------------------
       my $svgLine = qq{width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="k-icon"};
       my $svgFill = qq{width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="k-icon"};
-      my $svgBoxA = qq{width="0.62em" height="0.62em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="k-icon k-box"};
+      my $svgBoxA = qq{width="0.68em" height="0.68em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="k-icon k-box"};
+      my $svgAccA = qq{width="0.68em" height="0.79em" viewBox="0 0 24 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="k-icon k-box"};
 
       # Platzhalter-Kästchen (□) als SVG statt Unicode-Zeichen, damit es auf
       # allen Plattformen/Fonts gleich aussieht (dieselbe Ursache wie die
-      # ursprünglichen ⌫⌦⊠-Zeichen).
-      my $svg_box = qq{<svg $svgBoxA><rect x="4" y="4" width="16" height="16" rx="3"/></svg>};
-      my $svg_ovl = qq{<svg $svgBoxA><rect x="4" y="9" width="16" height="12" rx="2.5"/><line x1="4" y1="3" x2="20" y2="3"/></svg>};
-      my $svg_hat = qq{<svg $svgBoxA><rect x="4" y="9" width="16" height="12" rx="2.5"/><path d="M6 8L12 2L18 8"/></svg>};
+      # ursprünglichen ⌫⌦⊠-Zeichen). $svg_ovl/$svg_hat verwenden dieselbe
+      # Kästchengröße (18x18) wie $svg_box, nur in einer höheren Leinwand,
+      # damit oben Platz für den Akzent bleibt — beide mit demselben Abstand
+      # (Grundlinie bei y=5) zwischen Akzent und Kästchen.
+      my $svg_box = qq{<svg $svgBoxA><rect x="3" y="3" width="18" height="18" rx="3"/></svg>};
+      my $svg_ovl = qq{<svg $svgAccA><rect x="3" y="9" width="18" height="18" rx="3"/><line x1="3" y1="5" x2="21" y2="5"/></svg>};
+      my $svg_hat = qq{<svg $svgAccA><rect x="3" y="9" width="18" height="18" rx="3"/><path d="M6 5L12 1L18 5"/></svg>};
 
       my $svg_bs        = qq{<svg $svgLine><path d="M8 4H20A1 1 0 0 1 21 5V19A1 1 0 0 1 20 20H8L3 12L8 4Z"/><path d="M11 9L17 15"/><path d="M17 9L11 15"/></svg>};
       my $svg_del       = qq{<svg $svgLine><path d="M4 4H16L21 12L16 20H4A1 1 0 0 1 3 19V5A1 1 0 0 1 4 4Z"/><path d="M7 9L13 15"/><path d="M13 9L7 15"/></svg>};

@@ -60,13 +60,15 @@
   .kexpr sub{ top:  0.25em; }
   .xmsub{ position: relative;  display: inline-block;  line-height: 1;  padding-right: 0.9em; vertical-align: middle; }
   .xmsub .base{  display: inline-block; font-size: 0.80em; }
-  .xmsub .sup, .xmsub .sub{ position: absolute;  left: 1.2em; font-size: 0.65em; line-height: 1.00; white-space: nowrap; }
+  .xmsub .sup, .xmsub .sub{ position: absolute;  left: 0.85em; font-size: 0.65em; line-height: 1.00; white-space: nowrap; }
   .xmsub .sup{ top: -0.25em; }   /* w górę */
   .xmsub .sub{ top:  0.75em; }   /* w dół */
 
-  .xmsub .sup.nicefrac .n{ vertical-align: 0.42em; font-size: 0.60em; margin-right: -0.05em; }
-  .xmsub .sup.nicefrac .d{ vertical-align: -0.45em; font-size: 0.60em; margin-left: -0.28em; }
-  .xmsub .sup.nicefrac .slash{ margin: 0 0.02em 0 -0.02em; }
+  /* Zwei Kästchen nebeneinander, getrennt durch einen Schrägstrich —
+     bewusst kein diagonales vertical-align-Layout mehr: das brach, seit
+     die Kästchen SVGs (display:block) statt Textzeichen sind. */
+  .xmsub .sup.nicefrac .n, .xmsub .sup.nicefrac .d{ display: inline-block; font-size: 0.60em; }
+  .xmsub .sup.nicefrac .slash{ margin: 0 0.05em; }
 
   .pbtn .xmfakefrac{  display:inline-block;  line-height:1.2;  vertical-align:middle; }
   .pbtn .xmfakefrac .num, .pbtn .xmfakefrac .den, .pbtn .xmfakefrac .slash{  display:inline-block; font-size:0.8em;}
