@@ -290,6 +290,14 @@
       min-width: 1.35rem;
     }
 
+    /* (.|.) und <.,.> sind auf iPad zu schmal für ihren Inhalt (die
+       1.95em-Breite von .eqw passt für die Desktop-vw-Schriftgröße, nicht
+       für die hier fixe rem-Schriftgröße). Eigene, breitere Breite nur für
+       dieses Tastenpaar — unverifiziert, da kein echtes iPad zur Hand. */
+    .pbtn.eqwPairs {
+      width: 2.6rem;
+    }
+
     .capselBtn { padding-left: 0.5rem; padding-right: 0.5rem; }
 
     /* Zeile mit Kleinbuchstaben/Großbuchstaben/Ziffern darf NIE umbrechen —
