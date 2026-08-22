@@ -331,8 +331,14 @@ print qq{</div>};
 
       print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\xrightarrow[#0\\to#?]{}"><span class='mathbtn tr' data-tex="\\xrightarrow[n\\to\\infty]{}"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\mathbf{Dm}\\left(#0\\right)">Dm</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\mathbf{Rg}\\left(#0\\right)">Rg</button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\left((#0,#0)\\mapsto#?\\right)"><span class='mathbtn' data-tex="\\mapsto"></span></button>};
       print "</span>";
 
@@ -387,9 +393,15 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\sin\\left(#0\\right)">sin</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\cos\\left(#0\\right)">cos</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\tan\\left(#0\\right)">tan</button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\arcsin\\left(#0\\right)">asin</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\arccos\\left(#0\\right)">acos</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\arctan\\left(#0\\right)">atan</button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\exp\\left(#0\\right)">exp</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\ln\\left(#0\\right)">ln</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\log\\left(#0\\right)">log</button>};
