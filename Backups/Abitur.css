@@ -76,6 +76,10 @@
      kompensieren, sonst sitzt das Kästchen links vom wahren Zentrum. */
   .pbtn.eqw{ width: 1.95em; }
   .pbtn.eqw .xmsub{ margin-left: 0.45em; }
+  /* Das nicefrac-Icon hat einen breiteren Exponenten (□/□ statt einer
+     einzelnen Ziffer/eines Kästchens) — braucht daher weniger Ausgleich,
+     sonst rutscht der Inhalt zu weit nach rechts. */
+  .pbtn.eqwNF .xmsub{ margin-left: -0.19em; }
 
   /* Zwei Kästchen nebeneinander, getrennt durch einen Schrägstrich —
      bewusst kein diagonales vertical-align-Layout mehr: das brach, seit

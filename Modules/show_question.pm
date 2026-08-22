@@ -252,7 +252,7 @@ print qq{</div>};
 
       print qq{<button type="button" class="pbtn eqw" data-ins="#0^{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup boxsup">$svg_box</span></span></button>};
 
-      print qq{<button type="button" class="pbtn" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>&nbsp;&nbsp;};
+      print qq{<button type="button" class="pbtn eqw eqwNF" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>&nbsp;&nbsp;};
       
       print qq{<button type="button" class="pbtn" data-ins="\\sqrt[2]{#0}"><span class="m">²√</span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\sqrt[3]{#0}"><span class="m">³√</span></button>};
