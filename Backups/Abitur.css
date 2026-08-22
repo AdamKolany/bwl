@@ -113,9 +113,10 @@
    }
 
   .pbtn  { display: inline-flex; align-items: center; justify-content: center; }
+  .pbtn1 { display: inline-flex; align-items: center; justify-content: center; }
+  .k-icon { display: block; }
 
   .capselBtn { padding-left: 0.6vw; padding-right: 0.6vw; }
-  /* .pbtn1 { display: inline-flex; align-items: center; justify-content: center; }   */
 
 
   .pbtn .m {
@@ -294,10 +295,7 @@
 
     .pbtn1 {
       font-size: 1.5rem;
-      padding-top: 0.16rem;
-      padding-bottom: 0;
-      padding-left: 0;
-      padding-right: 0;
+      padding: 0;
       min-width: 0;
       width: 1.8rem;
       height: 1.8rem;
