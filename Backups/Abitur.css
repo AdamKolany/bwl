@@ -62,13 +62,13 @@
   .xmsub .base{  display: inline-block; font-size: 0.80em; }
   .xmsub .sup, .xmsub .sub{ position: absolute;  left: 0.85em; font-size: 0.65em; line-height: 1.00; white-space: nowrap; }
   .xmsub .sup{ top: -0.25em; }   /* w górę */
-  .xmsub .sub{ top:  0.75em; }   /* w dół */
+  .xmsub .sub{ top:  0.75em; left: 1.05em; }   /* w dół, etwas weiter rechts als .sup */
 
   /* Zwei Kästchen nebeneinander, getrennt durch einen Schrägstrich —
      bewusst kein diagonales vertical-align-Layout mehr: das brach, seit
      die Kästchen SVGs (display:block) statt Textzeichen sind. */
-  .xmsub .sup.nicefrac .n, .xmsub .sup.nicefrac .d{ display: inline-block; font-size: 0.60em; }
-  .xmsub .sup.nicefrac .slash{ margin: 0 0.05em; }
+  .xmsub .sup.nicefrac .n, .xmsub .sup.nicefrac .d{ display: inline-block; font-size: 0.90em; }
+  .xmsub .sup.nicefrac .slash{ margin: 0 0.02em; }
 
   .pbtn .xmfakefrac{  display:inline-block;  line-height:1.2;  vertical-align:middle; }
   .pbtn .xmfakefrac .num, .pbtn .xmfakefrac .den, .pbtn .xmfakefrac .slash{  display:inline-block; font-size:0.8em;}
