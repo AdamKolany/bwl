@@ -314,9 +314,15 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\setminus"><span class='mathbtn' data-tex="\\setminus"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\in"><span class='mathbtn' data-tex="\\in"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\notin"><span class="mathbtn" data-tex="\\notin"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\varnothing"><span class='mathbtn' data-tex="\\varnothing"></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\cup"><span class='mathbtn' data-tex="\\cup"></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\cap"><span class='mathbtn' data-tex="\\cap"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
+      print qq{<button type="button" class="pbtn" data-ins="\\bigcup"><span class='mathbtn' data-tex="\\bigcup"></span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="\\bigcap"><span class='mathbtn' data-tex="\\bigcap"></span></button>};
       print "</span>";
 
       print "<span class='algGrp'>";
@@ -325,6 +331,9 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\mathbb{Q}"><span class='mathbtn' data-tex="\\mathbb{Q}"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\mathbb{R}"><span class='mathbtn' data-tex="\\mathbb{R}"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\mathbb{C}"><span class='mathbtn' data-tex="\\mathbb{C}"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\imath"><span class='mathbtn' data-tex="\\imath"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\infty"><span class='mathbtn' data-tex="\\infty"></span></button>};
       print "</span>";
