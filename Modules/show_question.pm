@@ -388,6 +388,9 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn hot" data-ins="\\sigma"><span class='mathbtn' data-tex="\\sigma"></span></button>};
       print qq{<button type="button" class="pbtn hot" data-ins="\\tau"><span class='mathbtn' data-tex="\\tau"></span></button>};
       print qq{<button type="button" class="pbtn hot" data-ins="\\chi^2"><span class='mathbtn' data-tex="\\chi^2"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn hot" data-ins="\\Delta"><span class='mathbtn' data-tex="\\Delta"></span></button>};
       print qq{<button type="button" class="pbtn hot" data-ins="\\Phi"><span class='mathbtn' data-tex="\\Phi"></span></button>};
       print qq{<button type="button" class="pbtn hot" data-ins="\\Omega"><span class='mathbtn' data-tex="\\Omega"></span></button>};
@@ -418,6 +421,9 @@ print qq{</div>};
 
       print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn hot" data-ins="#0!"><span class='mathbtn' data-tex="!"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn hot" data-ins="\\binom{#0}{#?}">
 	      <span class="xmbinom"><span class="paren">(</span><span class="stack"><span>&#9633;</span><span>&#9633;</span></span><span class="paren">)</span></span>
 	      </button>
@@ -440,6 +446,9 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\euro">€</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\%">%</button>};
       print qq{<button type="button" class="pbtn" data-ins="‰">‰</button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\ldots"><span class='mathbtn' data-tex="\\ldots"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="'"><span class='mathbtn' data-tex="'"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins='"'><span class='mathbtn' data-tex="``"></span></button>};
