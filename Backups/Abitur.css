@@ -112,6 +112,17 @@
   .btnrow.centeredRow { flex: 0 0 99%; width: 99%; margin: 0 auto; justify-content: center; }
   .navgrp { display: inline-flex; gap: calc(2.6vw / 5); }
 
+  /* Thematisch gruppierte Zeile: kleiner Abstand zwischen Buttons derselben
+     Gruppe (algGrp), größerer Abstand zwischen den Gruppen (row gap), und
+     ein Rand links/rechts, der genau doppelt so groß ist wie der
+     Gruppenabstand. width:fit-content lässt die Zeile auf ihren Inhalt
+     schrumpfen, damit padding den Rand exakt vorgibt (statt vom Zufall
+     des übrigen Platzes in einer 99%-breiten Zeile abzuhängen);
+     max-width hält das Wrapping auf schmalen Bildschirmen (iPad-Regel
+     weiter unten) funktionsfähig. */
+  .btnrow.algebraRow { flex: 0 0 auto; width: fit-content; max-width: 99%; margin: 0 auto; gap: 16px; padding: 0 32px; }
+  .algGrp { display: inline-flex; gap: 4px; }
+
   .btnrow.letterrow .pbtn { font-size: 1.33vw; width: 1.89vw; box-sizing: border-box; }
   .btnrow.letterrow .pbtn:not(.const) { font-size: calc(1.33vw - 1pt); }
 

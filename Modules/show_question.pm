@@ -237,12 +237,17 @@ print qq{</div>};
       print "</div>"; break();
 
       # Zeile 3: Grundrechenarten, Potenzen/Wurzeln, Beträge/Normen
-      print "<div class='btnrow centeredRow'>";
+      print "<div class='btnrow algebraRow'>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="="><span class='mathbtn' data-tex="="></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="+"><span class='mathbtn' data-tex="+"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="-"><span class='mathbtn' data-tex="-"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="·"><span class='mathbtn' data-tex="\\cdot"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins=":"><span class='mathbtn' data-tex="\\colon"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" style="position:center;" data-ins="\\frac{#0}{{#?}}">
 	      <span class="xmfakefrac"> <span class="num">$svg_box</span><span class="slash">/</span><span class="den">$svg_box</span> </span>
 	      </button>
@@ -253,23 +258,39 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn eqw" data-ins="#0^{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup boxsup">$svg_box</span></span></button>};
 
       print qq{<button type="button" class="pbtn eqw eqwNF" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>&nbsp;&nbsp;};
-      
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\sqrt[2]{#0}"><span class="m">²√</span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\sqrt[3]{#0}"><span class="m">³√</span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\sqrt[#?]{#0}"><span class="m">ⁿ√</span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\left|#0\\right|"><span class='mathbtn' data-tex="\\left|\\cdot\\right|"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big|"><span class='mathbtn' data-tex="\\big|"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big\\|"><span class='mathbtn' data-tex="\\big\\|"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn eqw eqwSub" data-ins="#0_{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sub">$svg_box</span></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\overline{#0}">$svg_ovl</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\hat{#0}">$svg_hat</button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\big(#?\\big|\#0\\big)"><span class='mathbtn tr' data-tex="(\\cdot|\\cdot)"></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\left\\langle#0\\,,\\,#?\\right\\rangle"><span class='mathbtn tr' data-tex="\\left\\langle\\cdot\\,,\\,\\cdot\\right\\rangle"></span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="\\left\\langle#0\\,{,}\\,#?\\right\\rangle"><span class='mathbtn tr' data-tex="\\left\\langle\\cdot\\,{,}\\,\\cdot\\right\\rangle"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\bullet"><span class='mathbtn' data-tex="\\bullet"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\times"><span class='mathbtn' data-tex="\\times"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="#0^\\top"><span class='mathbtn' data-tex="{}^\\top"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\circ"><span class='mathbtn' data-tex="\\circ"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="#0^\\ast"><span class='mathbtn' data-tex="{}^\\ast"></span></button>};
+      print "</span>";
+
       print "</div>"; break();
 
       # Zeile 4: Relationen, Mengenlehre, Zahlenbereiche
