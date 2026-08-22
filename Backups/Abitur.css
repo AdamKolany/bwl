@@ -276,6 +276,15 @@
       justify-content: center;
     }
 
+    /* Zeile 6 hat inzwischen 13 Gruppen (12 Gruppenabstände) — auf iPad
+       reicht das nicht mehr für eine Zeile, die letzten zwei Tasten
+       rutschen um. Halbierter Gruppenabstand/Rand, nur hier, nur auf
+       iPad. */
+    .btnrow.algebraRow.tightRow {
+      gap: 8px;
+      padding: 0 16px;
+    }
+
     .pbtn {
       font-size: 1.5rem;
       padding: 0.02rem 0.06rem;

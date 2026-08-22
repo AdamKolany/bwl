@@ -399,7 +399,7 @@ print qq{</div>};
       print "</div>"; break();
 
       # Zeile 6: Funktionen, Fakultät/Binomial, Konstanten, Summen/Integrale, Sonstiges
-      print "<div class='btnrow algebraRow'>";
+      print "<div class='btnrow algebraRow tightRow'>";
 
       print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\sin\\left(#0\\right)">sin</button>};
