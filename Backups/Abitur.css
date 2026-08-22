@@ -1,0 +1,346 @@
+  @font-face{  font-family: "TeX Gyre Bonum Web"; src: local("TeX Gyre Bonum"), url("/fonts/texgyrebonum-regular.woff2") format("woff2"); font-weight: 400; font-style: normal;  }
+  /* html,body { height: 100%; -webkit-text-size-adjust: none; text-size-adjust: none;} */
+
+  html, body { margin: 0;  padding: 0;  overflow-x: hidden; }
+
+  body {  font-family: sans-serif;  padding: 0rem;  background: #f5f5f5; }
+
+  .debugline {  color: gray;  font-size: 0.7em;  overflow-wrap: anywhere;  word-break: break-word;  }
+
+  #appscale {
+    width: 100%;
+    overflow: auto;
+  }
+
+  #appcontent {
+    width: 1200px;
+    transform-origin: top left;
+  }
+
+
+  fieldset { border: 1px solid #ddd; padding: 1%; font-size: 1.5em; width: 99%; box-sizing: border-box; margin: 0 auto; }
+  
+  legend { padding: 0 6px; }
+  
+  textarea.open { width: 100%; font-size: 1.25em; padding: 8px; border: 1px solid #ddd; border-radius: 6px; }
+  
+
+  pre { background:#f7f7f7; padding:10px; border:1px solid #eee; overflow:auto; }
+  label.ans { display:block; margin: 8px 0; cursor:pointer; }
+  label.ans input { margin-right: 10px; transform: scale(1.2); }
+  mjx-container[jax="CHTML"][display="true"] { margin: 0.8em 0; }
+  
+
+  body, textarea, .render { font-family: "TeX Gyre Bonum Web", serif; font-size:21px; }
+  select {  font-family: "TeX Gyre Bonum Web", "TeX Gyre Bonum", serif; font-size: 24px; line-height: 1.2; padding: 6px 10px;  }
+  select option { font-family: "TeX Gyre Bonum Web", serif; font-size: 22px; }
+  input[name="n"] { font-family: inherit; font-size: 26px; }
+  a { text-decoration: none; }
+  h4{ margin-top: -31px; font-size:2em; margin-bottom: 1em; }
+  .line { display: flex; }
+  .right { margin-left: auto; }
+  .box   { max-width: none; width: 100%; box-sizing: border-box; padding: 0 1.2rem; }
+  .row   { margin: 12px 0; }
+  .warn  { color: #a00; font-weight: 700; }
+  .small { color: #666; font-size: 1.2em; }
+  .btn   {
+    -webkit-appearance: none; appearance: none;
+    padding: 5px 12px; font-family: "TeX Gyre Bonum", "Helvetica", Arial, sans-serif; font-size: 22px;
+    border: 1px solid #ccc; border-radius: 4px; background: #f7f7f7; color: #000; cursor: pointer;
+  }
+  
+  .q     { font-size: 2.0rem; margin-top: 0px; line-height:3.0rem; }
+
+  .sep   { margin: 10px 0; border-top: 1px solid #eee; }
+  .skip  { margin-left:0; text-align: right;}	
+  .tiny  { font-size: 1.0em;}
+  .kexpr { display: inline-block;  line-height: 1;  vertical-align: middle;  }
+  .kexpr sup, .kexpr sub{ font-size: 0.65em; line-height: 0; position: relative; }
+  .kexpr sup{ top: -0.55em; }
+  .kexpr sub{ top:  0.25em; }
+  .xmsub{ position: relative;  display: inline-block;  line-height: 1;  padding-right: 0.9em; vertical-align: middle; }
+  .xmsub .base{  display: inline-block; font-size: 0.80em; }
+  .xmsub .sup, .xmsub .sub{ position: absolute;  left: 1.2em; font-size: 0.65em; line-height: 1.00; white-space: nowrap; }
+  .xmsub .sup{ top: -0.25em; }   /* w górę */
+  .xmsub .sub{ top:  0.75em; }   /* w dół */
+
+  .xmsub .sup.nicefrac .n{ vertical-align: 0.42em; font-size: 0.60em; margin-right: -0.05em; }
+  .xmsub .sup.nicefrac .d{ vertical-align: -0.45em; font-size: 0.60em; margin-left: -0.28em; }
+  .xmsub .sup.nicefrac .slash{ margin: 0 0.02em 0 -0.02em; }
+
+  .pbtn .xmfakefrac{  display:inline-block;  line-height:1.2;  vertical-align:middle; }
+  .pbtn .xmfakefrac .num, .pbtn .xmfakefrac .den, .pbtn .xmfakefrac .slash{  display:inline-block; font-size:0.8em;}
+  .pbtn .xmfakefrac .num{  transform: translate(+0.20em, -0.30em); }
+  .pbtn .xmfakefrac .den{  transform: translate(-0.10em, 0.22em); }
+  .pbtn .xmfakefrac .slash{  margin: 0 0.06em;  transform: translateY(0.02em) scaleY(1.05); }
+
+  .pbtn .xmbinom{ display:inline-flex; align-items:center; line-height:1; }
+  .pbtn .xmbinom .paren{ font-size:1.3em; }
+  .pbtn .xmbinom .stack{ display:inline-flex; flex-direction:column; align-items:center; gap:1px; margin:0 0.08em; }
+  .pbtn .xmbinom .stack span{ display:block; font-size:0.62em; line-height:1; }
+
+  .k-ovrarr{ position: relative; display: inline-block; line-height: 1; padding-top: 0.35em; }
+  .k-ovrarr::before { content: "\2192"; position: absolute; left: 0; right: 0; top:  -0.15em; text-align: center; font-size: 0.60em; }
+  .k-ovline{ position: relative; display: inline-block; line-height: 1; padding-top: 0.35em; }
+  .k-ovline::before { content: "\2014"; position: absolute; left: 0; right: 0; top:  -0.15em; text-align: center; font-size: 0.60em; }
+  .k-hat{ position: relative; display: inline-block; line-height: 1; padding-top: 0.35em; }
+  .k-hat::before { content: "\02C6"; position: absolute; left: 0; right: 0; top:  -0.125em; text-align: center; font-size: 1.60em; }
+
+  .cpRow{ display: inline-flex;  gap: 0.25em;  justify-content: center; }
+  .cpRow > button[data-cmd="copy"],   .cpRow > button[data-cmd="paste" ] { font-size: 0.75em; padding: 0.10em 0.25em; line-height: 1; white-space: nowrap; }
+  .cpRow > button[data-cmd="move_L"], .cpRow > button[data-cmd="move_R"] { font-size: 1.00em; padding: 0.10em 0.25em; line-height: 1; white-space: nowrap; }
+  
+  .btnrow { display: flex;  flex-wrap: nowrap;  gap: 4px;  overflow: visible;  white-space: nowrap;  justify-content: center; }
+
+  .btnrow.navrow { width: calc(85% + 34px); justify-content: space-between; }
+  .btnrow.centeredRow { flex: 0 0 99%; width: 99%; margin: 0 auto; justify-content: center; }
+  .navgrp { display: inline-flex; gap: calc(2.6vw / 5); }
+
+  .btnrow.letterrow .pbtn { font-size: 1.33vw; width: 1.89vw; box-sizing: border-box; }
+  .btnrow.letterrow .pbtn:not(.const) { font-size: calc(1.33vw - 1pt); }
+
+  .mathbtn { display: inline-block; line-height: 1; font-size: 2.1vw; transform: scale(1.0);}    .mathbtn.tr { font-size: 0.7em; }
+
+  .pbtn {
+    -webkit-appearance: none; appearance: none;
+    font-family: "TeX Gyre Bonum Web";
+    font-size: 2.1vw; padding: .15vh .25vw .15vh .25vw; border: 1px solid #ccc; border-radius: 4px; background: #f7f7f7; color: #000; cursor: pointer; line-height: 1.2;
+   }
+  .pbtn1 {
+    -webkit-appearance: none; appearance: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.1vw; width: 2.6vw; height: 2.6vw; padding: 0; border: 1px solid #ccc; border-radius: 4px; background: #f7f7f7; color: #000; cursor: pointer; line-height: 1; box-sizing: border-box;
+   }
+
+  .pbtn  { display: inline-flex; align-items: center; justify-content: center; }
+
+  .capselBtn { padding-left: 0.6vw; padding-right: 0.6vw; }
+  /* .pbtn1 { display: inline-flex; align-items: center; justify-content: center; }   */
+
+
+  .pbtn .m {
+  font-family: "KaTeX_Main", "KaTeX_Math", serif !important;
+  line-height: 1.15em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  /* 
+  .pbtn1 .m {
+  font-family: "KaTeX_Main", "KaTeX_Math", serif !important;
+  line-height: 1.15em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  } 
+  */
+
+  .pbtn:focus  { outline: none; }
+  .pbtn1:focus { outline: none; }
+
+  .palette .pbtn.new {background: #ecd3d3;}
+  .palette .pbtn.new:hover { background: rgb(173, 211, 214) !important; }
+
+  /* 
+  .palette .pbtn1.new {background: #ecd3d3;}
+  .palette .pbtn1.new:hover { background: rgb(173, 211, 214) !important; } 
+  */
+
+
+  .pbtn  .ktx { padding: 0px 0px 0px 0px; }  
+  .pbtn1 .ktx { padding: 0px 0px 0px 0px; }  
+
+  .btnimg { display: block; width: 64px; height: auto;}
+
+  .palette { display: flex; flex-wrap: wrap; gap: 7px 6px; align-items: center; margin-top: 1.2rem; }
+
+  .palette .pbtn{ margin: 0; background: #eceae7;}
+  .palette .pbtn:hover{ margin: 0; background: #ddf1cc;} /* */
+
+  .palette .pbtn1{ margin: 0; background: #eceae7;}
+  .palette .pbtn1:hover{ margin: 0; background: #ddf1cc;} /* */
+
+  /* neue kompakte Tastatur (v2) -------------------------------------- */
+  .pbtn.hot   { font-weight: 700; }
+
+  .bottomRow { width: calc(85% + 34px); flex: none; display: grid; grid-template-columns: 1fr 2fr; align-items: center; }
+  .navWrap { grid-column: 2; display: flex; align-items: center; justify-content: space-between; }
+  .pbtn.spacebar { flex: 0 0 50%; }
+  .pbtn.spacebar .spaceGlyph { display: inline-block; transform: scaleX(3) translateY(-16%); }
+
+  .palette .br{ flex-basis: 100%; height: 0; }
+
+  .imgouter{ margin:10px 0; display:flex; }
+  .imgouter.left  { justify-content:flex-start; }
+  .imgouter.center{ justify-content:center; }
+  .imgouter.right { justify-content:flex-end; }
+
+  .qimg{ max-width:100%; height:auto; display:block; }
+  .imgcap{ margin-top:6px; font-size:0.95em; opacity:0.85; text-align:center; }
+
+  figure.imgbox{ margin:0; }
+
+ 
+  .answerRow { display: flex; align-items: flex-start; gap: 1%; width: 100%; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+  .mf-scroll { flex: 1 1 auto; overflow-x: auto; overflow-y: hidden; max-width: none; border: 1px solid #ccc; padding: 4px; box-sizing: border-box; }
+  .mf-scroll math-field.ml { display: block; width: 100%; min-width: 0; box-sizing: border-box; }
+  .weiterCol { display: flex; flex-direction: column; gap: 0.25em; width: auto; align-items: center; position: static; flex: 0 0 auto; margin-top: -0.8em; }
+
+  
+
+  math-field.ml { width: 85%; font-size: 1.75rem; padding: 5px 4px 4px 10px ; border: 10px solid #e4dede; border-radius: 6px; min-height: 2.0em;}
+  math-field.ml { font-family: "KaTeX_Main", "KaTeX_Math", serif !important; }
+  math-field.ml.limit-hit { border-color: #c0392b; }
+
+  math-field::part(menu-toggle) { display: none !important; }
+
+  math-virtual-keyboard, #mathlive-virtual-keyboard, .ML__virtual-keyboard, .ML__keyboard {  display: none !important; pointer-events: none !important;}
+
+  math-field::part(menu-toggle),
+  math-field::part(virtual-keyboard-toggle),
+  math-field::part(keyboard-toggle),
+  math-field::part(controls) {  display: none !important; }
+
+  math-field::part(content) .ML__contains-highlight {
+    opacity: 0.45 !important;   /* zmniejsz = jaśniej */
+    background: rgba(152, 177, 135, 1.00) !important;
+  }
+
+  math-field .ML__contains-highlight { opacity: 0.05 !important; }
+
+  .lma { font-size: 1.0vw; text-align: left; font-family: ui-monospace, "DejaVu Sans Mono", monospace;line-height: 1.3; white-space: pre-wrap; margin-left: 4%;}
+  
+  .lma .ltx { background: #3d8549;}
+  .lma .mjs { background: #3d8085;}
+  .lma .ast { background: #857a3d;}
+
+  #mj_pre { white-space: pre; overflow: auto; font-family: ui-monospace, "DejaVu Sans Mono", monospace; }   /* */ 
+  #mj_dialog { position:fixed; top: 10%; height: 80%; left: 10%; width: 80%; padding: 0; border: 3px solid #250feb; border-radius: 20px; } /* */ 
+  /*dialog:modal#mj_dialog{ top:  10% !important; left: 15% !important; margin: 0 !important; width:  75% !important; height: 60% !important; font-size: 0.6em;} /* */ 
+  
+  #mj_close { float: right; top: 10%; right: 30%; }
+  .mjx-hide { visibility: hidden; }
+  
+
+/* iPAD */
+
+@supports (-webkit-touch-callout: none) {
+  @media only screen
+    and (min-width: 900px)
+    and (max-width: 1400px) {
+
+    #appcontent {
+      width: 100%;
+    }
+
+    .palette {
+      gap: 5px 2px;
+      margin-top: 0.4rem;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .btnrow {
+      flex-wrap: wrap;
+      max-width: 100%;
+      white-space: normal;
+      justify-content: center;
+    }
+
+    .pbtn {
+      font-size: 1.5rem;
+      padding: 0.02rem 0.06rem;
+      min-width: 1.35rem;
+    }
+
+    .capselBtn { padding-left: 0.5rem; padding-right: 0.5rem; }
+
+    /* Zeile mit Kleinbuchstaben/Großbuchstaben/Ziffern darf NIE umbrechen —
+       Buttons dürfen sich stattdessen zusammendrücken (kein min-width). */
+    .btnrow.letterrow {
+      flex-wrap: nowrap !important;
+    }
+    .btnrow.letterrow .pbtn {
+      min-width: 0;
+      flex-shrink: 1;
+      padding-left: 0.03rem;
+      padding-right: 0.03rem;
+      font-size: 1.61vw;
+      width: 2.24vw;
+      box-sizing: border-box;
+    }
+    .btnrow.letterrow .pbtn.const {
+      font-size: calc(1.61vw - 1pt);
+      width: calc(2.24vw - 4pt);
+    }
+    .btnrow.letterrow .pbtn:not(.const) {
+      font-size: calc(1.61vw - 1pt);
+    }
+    /* Kleinbuchstaben und Ziffern: Breite an "m" (breitester Kleinbuchstabe
+       in dieser Schrift) statt an "A" ausrichten — schmaler als die
+       Großbuchstaben-Tasten (.const). */
+    .btnrow.letterrow .pbtn.lower,
+    .btnrow.letterrow .pbtn:not(.const):not(.lower) {
+      width: calc(1.62vw + 2pt);
+      padding-left: 1pt;
+      padding-right: 1pt;
+    }
+    /* Abstand um den Großbuchstaben-Block um 1/3 verkleinern: von 2 leeren
+       .skip-Elementen (3 Lücken) auf 1 (2 Lücken) je Seite. */
+    .btnrow.letterrow .skip:nth-of-type(2n) {
+      display: none;
+    }
+
+    .pbtn1 {
+      font-size: 1.5rem;
+      padding-top: 0.16rem;
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+      min-width: 0;
+      width: 1.8rem;
+      height: 1.8rem;
+      box-sizing: border-box;
+    }
+
+    .mathbtn {
+      font-size: 1.4rem;
+    }
+
+    .mathbtn.tr {
+      font-size: 1.5rem;
+    }
+
+    math-field.ml {
+      width: 85%;
+      font-size: 1.75rem;
+      padding: 5px 4px 4px 10px;
+      border: 10px solid #e4dede;
+      border-radius: 6px;
+      min-height: 2.0em;
+      box-sizing: border-box;
+      font-family: initial !important;
+    }
+
+    fieldset {
+      border: 1px solid #ddd;
+      padding: 1%;
+      font-size: 2.0rem;
+    }
+
+    legend {
+      background: transparent;
+    }
+
+    .q {
+      font-size: 2.0rem;
+      margin-top: 0;
+      line-height: 3rem;
+    }
+
+    mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.4em 0;
+    }
+  }
+}
