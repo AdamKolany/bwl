@@ -260,7 +260,7 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\left|#0\\right|"><span class='mathbtn' data-tex="\\left|\\cdot\\right|"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big|"><span class='mathbtn' data-tex="\\big|"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big\\|"><span class='mathbtn' data-tex="\\big\\|"></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="#0_{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sub">$svg_box</span></span></button>};
+      print qq{<button type="button" class="pbtn eqw eqwSub" data-ins="#0_{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sub">$svg_box</span></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\overline{#0}">$svg_ovl</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\hat{#0}">$svg_hat</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big(#?\\big|\#0\\big)"><span class='mathbtn' data-tex="(\\cdot|\\cdot)"></span></button>};

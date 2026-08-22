@@ -80,6 +80,7 @@
      einzelnen Ziffer/eines Kästchens) — braucht daher weniger Ausgleich,
      sonst rutscht der Inhalt zu weit nach rechts. */
   .pbtn.eqwNF .xmsub{ margin-left: -0.19em; }
+  .pbtn.eqwSub .xmsub{ margin-left: 0.45em; }
 
   /* Zwei Kästchen nebeneinander, getrennt durch einen Schrägstrich —
      bewusst kein diagonales vertical-align-Layout mehr: das brach, seit
