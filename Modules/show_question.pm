@@ -180,20 +180,32 @@ print qq{</div>};
      print qq{<div class="palette palette2" style="margin-top:-30px;" id="palette">};
 
       # --- neue kompakte Tastatur (v2) ---------------------------------
+      my $svgLine = qq{width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="k-icon"};
+      my $svgFill = qq{width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="k-icon"};
+
+      my $svg_bs        = qq{<svg $svgLine><path d="M8 4H20A1 1 0 0 1 21 5V19A1 1 0 0 1 20 20H8L3 12L8 4Z"/><path d="M11 9L17 15"/><path d="M17 9L11 15"/></svg>};
+      my $svg_del       = qq{<svg $svgLine><path d="M4 4H16L21 12L16 20H4A1 1 0 0 1 3 19V5A1 1 0 0 1 4 4Z"/><path d="M7 9L13 15"/><path d="M13 9L7 15"/></svg>};
+      my $svg_clear     = qq{<svg $svgLine><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8L16 16"/><path d="M16 8L8 16"/></svg>};
+      my $svg_selL      = qq{<svg $svgFill><path d="M16 4L6 12L16 20Z"/></svg>};
+      my $svg_selR      = qq{<svg $svgFill><path d="M8 4L18 12L8 20Z"/></svg>};
+      my $svg_selectAll = qq{<svg $svgFill><path d="M12 2L14.59 8.36L21.51 8.82L16.06 13.14L17.93 19.86L12 16.1L6.07 19.86L7.94 13.14L2.49 8.82L9.41 8.36Z"/></svg>};
+      my $svg_undo      = qq{<svg $svgLine><path d="M7 7H3V3"/><path d="M3 7C4.5 4 7.8 2 11.5 2C16.7 2 21 6.3 21 11.5C21 16.7 16.7 21 11.5 21C7.6 21 4.2 18.5 3 15"/></svg>};
+      my $svg_redo      = qq{<svg $svgLine><path d="M17 7H21V3"/><path d="M21 7C19.5 4 16.2 2 12.5 2C7.3 2 3 6.3 3 11.5C3 16.7 7.3 21 12.5 21C16.4 21 19.8 18.5 21 15"/></svg>};
+
       my $navicons=
         qq{<span class="navgrp">}.
-        qq{<button type="button" class="pbtn pbtn1" data-cmd="bs"     title="Backspace"><span class="tiny">⌫</span></button>}.
-        qq{<button type="button" class="pbtn pbtn1" data-cmd="del"    title="Löschen">⌦</button>}.
-        qq{<button type="button" class="pbtn pbtn1" data-cmd="clear" title="Auswahl löschen">⊠</button>}.
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="bs"     title="Backspace">$svg_bs</button>}.
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="del"    title="Löschen">$svg_del</button>}.
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="clear" title="Auswahl löschen">$svg_clear</button>}.
         qq{</span>}.
         qq{<span class="navgrp">}.
-        qq{<button type="button" class="pbtn pbtn1" data-cmd="selL"><span class="tiny">◀</span></button>}.
-        qq{<button type="button" class="pbtn pbtn1" data-cmd="selR"><span class="tiny">▶</span></button>}.
-        qq{<button type="button" class="pbtn pbtn1" data-cmd="selectAll"><span style="font-size:0.75em;">★</span></button>}.
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="selL">$svg_selL</button>}.
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="selR">$svg_selR</button>}.
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="selectAll">$svg_selectAll</button>}.
         qq{</span>}.
         qq{<span class="navgrp">}.
-        qq{<button type="button" class="pbtn pbtn1" data-cmd="undo">↺</button>}.
-        qq{<button type="button" class="pbtn pbtn1" data-cmd="redo">↻</button>}.
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="undo">$svg_undo</button>}.
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="redo">$svg_redo</button>}.
         qq{</span>};
 
       my $capsel= qq{<button type="button" class="pbtn capselBtn" data-cmd="capsel"><span class='m'>az ↔ AZ</span></button>};
