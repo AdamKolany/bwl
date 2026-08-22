@@ -290,14 +290,6 @@
       min-width: 1.35rem;
     }
 
-    /* (.|.) und <.,.> sind auf iPad zu schmal für ihren Inhalt (die
-       1.95em-Breite von .eqw passt für die Desktop-vw-Schriftgröße, nicht
-       für die hier fixe rem-Schriftgröße). Eigene, breitere Breite nur für
-       dieses Tastenpaar — unverifiziert, da kein echtes iPad zur Hand. */
-    .pbtn.eqwPairs {
-      width: 2.6rem;
-    }
-
     .capselBtn { padding-left: 0.5rem; padding-right: 0.5rem; }
 
     /* Zeile mit Kleinbuchstaben/Großbuchstaben/Ziffern darf NIE umbrechen —
@@ -349,8 +341,14 @@
       font-size: 1.4rem;
     }
 
+    /* War fälschlich fix auf 1.5rem gesetzt — größer als .mathbtn selbst
+       (1.4rem), statt kleiner. Das hob die auf dem Desktop gültige
+       0.7em-Verkleinerung (siehe Basis-.mathbtn.tr-Regel) komplett auf,
+       wodurch (.|.), <.,.>, die Klammer-/Betragszeichen usw. auf iPad in
+       voller statt verkleinerter Größe rendert wurden — daher zu groß für
+       ihre Buttons. Jetzt wieder relativ wie auf dem Desktop. */
     .mathbtn.tr {
-      font-size: 1.5rem;
+      font-size: 0.7em;
     }
 
     math-field.ml {
@@ -362,6 +360,17 @@
       min-height: 2.0em;
       box-sizing: border-box;
       font-family: initial !important;
+    }
+
+    /* Auf dem Desktop ist math-field.ml content-box, daher kompensiert
+       .navrow/.bottomRow mit "calc(85% + 34px)" (Rand+Padding kommen dort
+       zur 85%-Breite hinzu). Hier oben ist math-field.ml aber
+       box-sizing:border-box, die 85% sind schon die volle sichtbare
+       Breite — ohne diese Overrides waren die Steuertasten-Zeilen 34px zu
+       breit und passten nicht zum Eingabefeld. */
+    .btnrow.navrow,
+    .bottomRow {
+      width: 85%;
     }
 
     fieldset {

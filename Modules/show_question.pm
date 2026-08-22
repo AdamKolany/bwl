@@ -279,8 +279,8 @@ print qq{</div>};
       print "</span>";
 
       print "<span class='algGrp'>";
-      print qq{<button type="button" class="pbtn eqw eqwPairs" data-ins="\\big(#?\\,\\big|\\,\#0\\big)"><span class='mathbtn tr' data-tex="(\\cdot\\,|\\,\\cdot)"></span></button>};
-      print qq{<button type="button" class="pbtn eqw eqwPairs" data-ins="\\left\\langle#0\\,{,}\\,#?\\right\\rangle"><span class='mathbtn tr' data-tex="\\left\\langle\\cdot\\,{,}\\,\\cdot\\right\\rangle"></span></button>};
+      print qq{<button type="button" class="pbtn eqw" data-ins="\\big(#?\\,\\big|\\,\#0\\big)"><span class='mathbtn tr' data-tex="(\\cdot\\,|\\,\\cdot)"></span></button>};
+      print qq{<button type="button" class="pbtn eqw" data-ins="\\left\\langle#0\\,{,}\\,#?\\right\\rangle"><span class='mathbtn tr' data-tex="\\left\\langle\\cdot\\,{,}\\,\\cdot\\right\\rangle"></span></button>};
       print "</span>";
 
       print "<span class='algGrp'>";
