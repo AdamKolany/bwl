@@ -360,7 +360,11 @@
       border-radius: 6px;
       min-height: 2.0em;
       box-sizing: border-box;
-      font-family: initial !important;
+      /* EXPERIMENT (siehe Git-Historie): war "initial !important", was
+         KaTeX-Fonts hier komplett abschaltete — vermutlich der Grund für
+         die unausgerichteten Wurzeln. Testweise wie am Desktop; bei
+         Problemen (blanke/kaputte Glyphen) zurück auf "initial". */
+      font-family: "KaTeX_Main", "KaTeX_Math", serif !important;
     }
 
     /* Auf dem Desktop ist math-field.ml content-box, daher kompensiert
