@@ -81,10 +81,6 @@
 
   .k-ovrarr{ position: relative; display: inline-block; line-height: 1; padding-top: 0.35em; }
   .k-ovrarr::before { content: "\2192"; position: absolute; left: 0; right: 0; top:  -0.15em; text-align: center; font-size: 0.60em; }
-  .k-ovline{ position: relative; display: inline-block; line-height: 1; padding-top: 0.35em; }
-  .k-ovline::before { content: "\2014"; position: absolute; left: 0; right: 0; top:  -0.15em; text-align: center; font-size: 0.60em; }
-  .k-hat{ position: relative; display: inline-block; line-height: 1; padding-top: 0.35em; }
-  .k-hat::before { content: "\02C6"; position: absolute; left: 0; right: 0; top:  -0.125em; text-align: center; font-size: 1.60em; }
 
   .cpRow{ display: inline-flex;  gap: 0.25em;  justify-content: center; }
   .cpRow > button[data-cmd="copy"],   .cpRow > button[data-cmd="paste" ] { font-size: 0.75em; padding: 0.10em 0.25em; line-height: 1; white-space: nowrap; }

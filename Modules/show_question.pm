@@ -182,6 +182,14 @@ print qq{</div>};
       # --- neue kompakte Tastatur (v2) ---------------------------------
       my $svgLine = qq{width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="k-icon"};
       my $svgFill = qq{width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="k-icon"};
+      my $svgBoxA = qq{width="0.62em" height="0.62em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="k-icon k-box"};
+
+      # Platzhalter-Kästchen (□) als SVG statt Unicode-Zeichen, damit es auf
+      # allen Plattformen/Fonts gleich aussieht (dieselbe Ursache wie die
+      # ursprünglichen ⌫⌦⊠-Zeichen).
+      my $svg_box = qq{<svg $svgBoxA><rect x="4" y="4" width="16" height="16" rx="3"/></svg>};
+      my $svg_ovl = qq{<svg $svgBoxA><rect x="4" y="9" width="16" height="12" rx="2.5"/><line x1="4" y1="3" x2="20" y2="3"/></svg>};
+      my $svg_hat = qq{<svg $svgBoxA><rect x="4" y="9" width="16" height="12" rx="2.5"/><path d="M6 8L12 2L18 8"/></svg>};
 
       my $svg_bs        = qq{<svg $svgLine><path d="M8 4H20A1 1 0 0 1 21 5V19A1 1 0 0 1 20 20H8L3 12L8 4Z"/><path d="M11 9L17 15"/><path d="M17 9L11 15"/></svg>};
       my $svg_del       = qq{<svg $svgLine><path d="M4 4H16L21 12L16 20H4A1 1 0 0 1 3 19V5A1 1 0 0 1 4 4Z"/><path d="M7 9L13 15"/><path d="M13 9L7 15"/></svg>};
@@ -232,15 +240,15 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="·"><span class='mathbtn' data-tex="\\cdot"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins=":"><span class='mathbtn' data-tex="\\colon"></span></button>};
       print qq{<button type="button" class="pbtn" style="position:center;" data-ins="\\frac{#0}{{#?}}">
-	      <span class="xmfakefrac"> <span class="num">&#9633;</span><span class="slash">/</span><span class="den">&#9633;</span> </span>
+	      <span class="xmfakefrac"> <span class="num">$svg_box</span><span class="slash">/</span><span class="den">$svg_box</span> </span>
 	      </button>
       };
-      print qq{<button type="button" class="pbtn" data-ins="#0^2"><span class="xmsub"><span class="base">□</span><span class="sup">2</span></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="#0^3"><span class="xmsub"><span class="base">□</span><span class="sup">3</span></span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="#0^2"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">2</span></span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="#0^3"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">3</span></span></button>};
 
-      print qq{<button type="button" class="pbtn" data-ins="#0^{#?}"><span class="xmsub"><span class="base">□</span><span class="sup">□</span></span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="#0^{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">$svg_box</span></span></button>};
 
-      print qq{<button type="button" class="pbtn" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">□</span><span class="sup nicefrac"><span class="n">□</span><span class="slash">/</span><span class="d">□</span></span></span></button>&nbsp;&nbsp;};
+      print qq{<button type="button" class="pbtn" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>&nbsp;&nbsp;};
       
       print qq{<button type="button" class="pbtn" data-ins="\\sqrt[2]{#0}"><span class="m">²√</span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\sqrt[3]{#0}"><span class="m">³√</span></button>};
@@ -248,9 +256,9 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\left|#0\\right|"><span class='mathbtn' data-tex="\\left|\\cdot\\right|"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big|"><span class='mathbtn' data-tex="\\big|"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big\\|"><span class='mathbtn' data-tex="\\big\\|"></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="#0_{#?}"><span class="xmsub"><span class="base">□</span><span class="sub">m</span></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\overline{#0}"><span class="k-ovline" style="font-size:0.80em;">□</span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\hat{#0}"><span class="k-hat" style="font-size:0.80em;">□</span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="#0_{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sub">m</span></span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="\\overline{#0}">$svg_ovl</button>};
+      print qq{<button type="button" class="pbtn" data-ins="\\hat{#0}">$svg_hat</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big(#?\\big|\#0\\big)"><span class='mathbtn' data-tex="(\\cdot|\\cdot)"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\left\\langle#0\\,,\\;#?\\right\\rangle"><span class='mathbtn tr' data-tex="\\left\\langle\\cdot\\,,\\;\\cdot\\right\\rangle"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\bullet"><span class='mathbtn' data-tex="\\bullet"></span></button>};
