@@ -437,6 +437,9 @@ print qq{</div>};
 
       print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\lim\\limits_\{n\\to\\infty\}">lim</button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\int"><span class='mathbtn' data-tex="\\int"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\,\\text{d}"><span class='mathbtn' data-tex="\\,\\text{d}"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\sum"><span class='mathbtn' data-tex="\\sum"></span></button>};
@@ -444,14 +447,23 @@ print qq{</div>};
 
       print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\euro">€</button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\%">%</button>};
       print qq{<button type="button" class="pbtn" data-ins="‰">‰</button>};
       print "</span>";
 
       print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\ldots"><span class='mathbtn' data-tex="\\ldots"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="'"><span class='mathbtn' data-tex="'"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins='"'><span class='mathbtn' data-tex="``"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn m" data-ins="{,}">,</button>};
       print qq{<button type="button" class="pbtn m" data-ins=";">;</button>};
       print "</span>";
