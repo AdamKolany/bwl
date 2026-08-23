@@ -345,6 +345,9 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\cup"><span class='mathbtn' data-tex="\\cup"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\cap"><span class='mathbtn' data-tex="\\cap"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\setminus"><span class='mathbtn' data-tex="\\setminus"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\in"><span class='mathbtn' data-tex="\\in"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\notin"><span class="mathbtn" data-tex="\\notin"></span></button>};
       print "</span>";
