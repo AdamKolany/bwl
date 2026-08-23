@@ -147,6 +147,10 @@ sub run {
       my $richtig = '<span id="score" data-score="0" style="margin-left:auto; color: red; font-weight:bold;"></span>';
       my $charCount = '<span id="charCount" style="font-weight:normal; font-size:0.75em; color:gray;"></span>';
 
+      my $svgMoveLine = qq{width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="k-icon"};
+      my $svg_moveL   = qq{<svg $svgMoveLine><path d="M20 12H4"/><path d="M10 6L4 12L10 18"/></svg>};
+      my $svg_moveR   = qq{<svg $svgMoveLine><path d="M4 12H20"/><path d="M14 6L20 12L14 18"/></svg>};
+
       print qq{<fieldset><legend>Antwort $charCount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$richtig</legend>};
       
       print qq{};
@@ -168,9 +172,9 @@ print qq{
     </div>
     <button class="btn" type="submit" name="action" value="save">weiter</button>
     <div class="cpRow">
-      <button type="button" class="pbtn" data-cmd="move_L">←</button>
+      <button type="button" class="pbtn moveBtn" data-cmd="move_L">$svg_moveL</button>
       $skipp
-      <button type="button" class="pbtn" data-cmd="move_R">→</button>
+      <button type="button" class="pbtn moveBtn" data-cmd="move_R">$svg_moveR</button>
     </div>
   </div>
 };

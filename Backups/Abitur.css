@@ -109,8 +109,14 @@
   .k-ovrarr::before { content: "\2192"; position: absolute; left: 0; right: 0; top:  -0.15em; text-align: center; font-size: 0.60em; }
 
   .cpRow{ display: inline-flex;  gap: 0.25em;  justify-content: center; }
-  .cpRow > button[data-cmd="copy"],   .cpRow > button[data-cmd="paste" ] { font-size: 0.75em; padding: 0.10em 0.25em; line-height: 1; white-space: nowrap; }
-  .cpRow > button[data-cmd="move_L"], .cpRow > button[data-cmd="move_R"] { font-size: 1.00em; padding: 0.10em 0.25em; line-height: 1; white-space: nowrap; }
+  .cpRow > button[data-cmd="copy"], .cpRow > button[data-cmd="paste" ] { font-size: 0.75em; padding: 0.10em 0.25em; line-height: 1; white-space: nowrap; }
+  /* SVG statt Unicode-Pfeil (←/→): behebt gleichzeitig "za wysokie" (eigene,
+     kleinere feste Schriftgröße statt der viel größeren geerbten
+     .pbtn-Basisgröße) und "nie wycentrowane" (Glyphen-Pfeile sitzen je nach
+     Font nicht exakt in der Mitte ihrer eigenen Zeilenbox — ein SVG-Icon
+     hat dieses Problem nicht, .pbtn zentriert es bereits per Flexbox in
+     beide Richtungen). */
+  .cpRow > button.moveBtn { font-size: 1.3rem; padding: 0.1em 0.35em; }
   
   .btnrow { display: flex;  flex-wrap: nowrap;  gap: 4px;  overflow: visible;  white-space: nowrap;  justify-content: center; }
 
