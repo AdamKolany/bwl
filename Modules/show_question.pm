@@ -204,6 +204,14 @@ print qq{</div>};
       my $svg_undo      = qq{<svg $svgLine><path d="M7 7H3V3"/><path d="M3 7C4.5 4 7.8 2 11.5 2C16.7 2 21 6.3 21 11.5C21 16.7 16.7 21 11.5 21C7.6 21 4.2 18.5 3 15"/></svg>};
       my $svg_redo      = qq{<svg $svgLine><path d="M17 7H21V3"/><path d="M21 7C19.5 4 16.2 2 12.5 2C7.3 2 3 6.3 3 11.5C3 16.7 7.3 21 12.5 21C16.4 21 19.8 18.5 21 15"/></svg>};
 
+      # CAPS-Taste, 3 Zustände (OFF/SHIFT/LOCK) — dieselbe Pfeil-Silhouette
+      # wie bei den üblichen Telefon-Tastaturen: OFF = nur Umriss, SHIFT =
+      # gefüllt, LOCK = gefüllt + Unterstrich.
+      my $capsArrowPath = "M12 3L4 12H9V16H15V12H20Z";
+      my $svg_capsOff   = qq{<svg $svgLine><path d="$capsArrowPath"/></svg>};
+      my $svg_capsShift = qq{<svg $svgFill><path d="$capsArrowPath"/></svg>};
+      my $svg_capsLock  = qq{<svg $svgFill><path d="$capsArrowPath"/><rect x="4" y="19" width="16" height="2.5" rx="1"/></svg>};
+
       my $navicons=
         qq{<span class="navgrp">}.
         qq{<button type="button" class="pbtn pbtn1" data-cmd="bs"     title="Backspace">$svg_bs</button>}.
@@ -221,15 +229,23 @@ print qq{</div>};
         qq{</span>};
 
       my $capsel= qq{<button type="button" class="pbtn capselBtn" data-cmd="capsel"><span class='m'>az ↔ AZ</span></button>};
+      # Alle 3 Icons liegen im DOM, CSS zeigt je nach caps-off/-shift/-lock
+      # Klasse auf dem Button nur eines davon — JS muss also nur die Klasse
+      # umschalten, nicht das innerHTML neu zusammensetzen.
+      my $capsBtn = qq{<button type="button" class="pbtn pbtn1 capsBtn caps-off" data-cmd="capsCycle" title="Caps">}.
+                    qq{<span class="capsIcon capsIcon-off">$svg_capsOff</span>}.
+                    qq{<span class="capsIcon capsIcon-shift">$svg_capsShift</span>}.
+                    qq{<span class="capsIcon capsIcon-lock">$svg_capsLock</span>}.
+                    qq{</button>};
 
       # Zeile 1: Umschalter + Navigations-/Editier-Icons
       print "<div class='btnrow navrow'>";
-      print $capsel; print $navicons;
+      print $capsel; print $capsBtn; print $navicons;
       print "</div>"; break();
 
       # Zeile 2: Kleinbuchstaben, feste Großbuchstaben, Ziffern
       print "<div class='btnrow letterrow centeredRow'>";
-      for my $l ('a'..'z') { print qq{<button type="button" class="pbtn lower" data-ins="$l"><i>$l</i></button>}; }
+      for my $l ('a'..'z') { print qq{<button type="button" class="pbtn lower" data-ins="$l" data-base="$l"><i>$l</i></button>}; }
       skipp(4);
       for my $l (qw(A B C F I P X Y)) { print qq{<button type="button" class="pbtn const" data-ins="$l"><i>$l</i></button>}; }
       skipp(4);

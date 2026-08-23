@@ -236,6 +236,37 @@ document.addEventListener ( "DOMContentLoaded", () => {
     try { mf._mathfield && mf._mathfield.stopCoalescingUndo(); } catch (_) {}
   }
 
+  // CAPS-Taste, 3 Zustände — wie eine Telefon-Tastatur:
+  //   off   -> (klik) -> shift  (einmalig: gilt nur für den NÄCHSTEN
+  //                               eingefügten Buchstaben, danach automatisch
+  //                               zurück zu "off")
+  //   shift -> (klik, ohne zwischendurch einen Buchstaben einzufügen)
+  //                               -> lock (bleibt aktiv, bis erneut geklickt)
+  //   lock  -> (klik) -> off
+  // Solange shift/lock aktiv ist, liefert die Kleinbuchstaben-Reihe
+  // Großbuchstaben (Text + data-ins werden umgeschrieben) und die feste
+  // Großbuchstaben-Reihe ist gesperrt.
+  let capsState = "off";
+  function setCapsState(next) { capsState = next; applyCapsState(); }
+  function applyCapsState() {
+    const active = capsState !== "off";
+    document.querySelectorAll(".btnrow.letterrow .pbtn.lower").forEach((b) => {
+      const base = b.getAttribute("data-base") || b.getAttribute("data-ins");
+      const letter = active ? base.toUpperCase() : base;
+      b.setAttribute("data-ins", letter);
+      const i = b.querySelector("i"); if (i) i.textContent = letter;
+    });
+    document.querySelectorAll(".btnrow.letterrow .pbtn.const").forEach((b) => {
+      b.disabled = active;
+    });
+    const capsBtn = document.querySelector(".capsBtn");
+    if (capsBtn) {
+      capsBtn.classList.remove("caps-off", "caps-shift", "caps-lock");
+      capsBtn.classList.add("caps-" + capsState);
+      capsBtn.setAttribute("aria-pressed", active ? "true" : "false");
+    }
+  }
+
   const handlePbtn = (e) => {
       const btn = e.target.closest(".pbtn"); if (!btn) return; try { mf.focus(); } catch(_) {}
       const cmd = btn.getAttribute("data-cmd") || "";  const ins = btn.getAttribute("data-ins") || ""; try { mf.focus(); } catch(_) {}
@@ -244,6 +275,12 @@ document.addEventListener ( "DOMContentLoaded", () => {
       e.preventDefault();
       e.stopPropagation();
 
+      if (cmd === "capsCycle" ) {
+        if (capsState === "off") setCapsState("shift");
+        else if (capsState === "shift") setCapsState("lock");
+        else setCapsState("off");
+        return;
+      }
       if (cmd === "bs"        ) { try { mf.executeCommand("deleteBackward"); update(); } catch (_) {} return; }
       if (cmd === "del"       ) { try { mf.executeCommand("deleteForward");  update(); } catch (_) {} return; }
       if (cmd === "undo"      ) { try { mf.executeCommand("undo");           update(); } catch (_) {} return; }
@@ -292,7 +329,13 @@ document.addEventListener ( "DOMContentLoaded", () => {
       // odpowiedniki o granulacji pojedynczego znaku.
       if (cmd === "selL") {  try { mf.executeCommand("extendSelectionBackward"); } catch (_) {}  update(); return; }
       if (cmd === "selR") {  try { mf.executeCommand("extendSelectionForward");  } catch (_) {}  update(); return; }
-      if (ins) { try { breakUndoCoalescing(); mf.executeCommand("insert", ins); update(); } catch (_) {} }  try { mf.focus(); } catch(_) {} };
+      if (ins) {
+        try { breakUndoCoalescing(); mf.executeCommand("insert", ins); update(); } catch (_) {}
+        // "shift" jest jednorazowy: po wstawieniu jednej litery z rzędu
+        // małych liter samo wraca do "off". "lock" tak nie działa.
+        if (capsState === "shift" && btn.classList.contains("lower")) setCapsState("off");
+      }
+      try { mf.focus(); } catch(_) {} };
 
       // Uwaga: NIE wolno wołać preventDefault() na pointerdown/touchstart tutaj —
       // na iOS/WebKit dla elementów z -webkit-appearance:none to potrafi całkowicie

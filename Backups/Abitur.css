@@ -145,6 +145,22 @@
 
   .capselBtn { padding-left: 0.6vw; padding-right: 0.6vw; }
 
+  /* CAPS-Taste (3 Zustände): alle 3 Icons liegen im DOM, nur das zur
+     aktuellen Zustandsklasse passende wird gezeigt — JS schaltet nur die
+     Klasse um, nicht das Markup. */
+  .capsBtn .capsIcon { display: none; }
+  .capsBtn.caps-off   .capsIcon-off   { display: inline-flex; }
+  .capsBtn.caps-shift .capsIcon-shift { display: inline-flex; }
+  .capsBtn.caps-lock  .capsIcon-lock  { display: inline-flex; }
+  .capsBtn.caps-shift { background: #dbe9ff; border-color: #7ea6e0; }
+  .capsBtn.caps-lock  { background: #ffe6a8; border-color: #d1a13a; }
+
+  /* Feste Großbuchstaben-Reihe wird deaktiviert, solange CAPS aktiv ist
+     (die Kleinbuchstaben-Reihe liefert in diesem Zustand ohnehin
+     Großbuchstaben) — verhindert Doppeldeutigkeit statt zwei Wegen zum
+     selben Buchstaben. */
+  .pbtn.const:disabled { opacity: .35; cursor: default; }
+
 
   .pbtn .m {
   font-family: "KaTeX_Main", "KaTeX_Math", serif !important;
