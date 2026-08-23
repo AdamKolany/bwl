@@ -210,7 +210,7 @@ print qq{</div>};
       # Zähler/Nenner, getrennt durch einen waagerechten Bruchstrich —
       # statt des alten "□/□"-Schrägstrich-Layouts.
       my $svgFracA = qq{width="1.0em" height="1.0em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="k-icon k-box"};
-      my $svg_fracIcon = qq{<svg $svgFracA><rect x="4" y="1" width="16" height="8" rx="2"/><line x1="2" y1="12" x2="22" y2="12"/><rect x="4" y="15" width="16" height="8" rx="2"/></svg>};
+      my $svg_fracIcon = qq{<svg $svgFracA><rect x="4" y="1" width="16" height="7" rx="2"/><line x1="2" y1="12" x2="22" y2="12"/><rect x="4" y="16" width="16" height="7" rx="2"/></svg>};
 
       my $svg_bs        = qq{<svg $svgLine><path d="M8 4H20A1 1 0 0 1 21 5V19A1 1 0 0 1 20 20H8L3 12L8 4Z"/><path d="M11 9L17 15"/><path d="M17 9L11 15"/></svg>};
       my $svg_del       = qq{<svg $svgLine><path d="M4 4H16L21 12L16 20H4A1 1 0 0 1 3 19V5A1 1 0 0 1 4 4Z"/><path d="M7 9L13 15"/><path d="M13 9L7 15"/></svg>};
@@ -329,7 +329,7 @@ print qq{</div>};
       print "</span>";
 
       print "<span class='algGrp'>";
-      print qq{<button type="button" class="pbtn eqw" data-ins="#0^\\top"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup supNear">⊤</span></span></button>};
+      print qq{<button type="button" class="pbtn eqw" data-ins="#0^\\top"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup supNear supTop">⊤</span></span></button>};
       print qq{<button type="button" class="pbtn eqw" data-ins="#0^\\ast"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup supAst">*</span></span></button>};
       print "</span>";
 
@@ -405,7 +405,13 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\left(#0\\right)"><span class='mathbtn tr' data-tex="\\left(\\cdot\\right)"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\left[#0\\right]"><span class='mathbtn tr' data-tex="\\left[\\cdot\\right]"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\left\\{#0\\right\\}"><span class='mathbtn tr' data-tex="\\left\\{\\cdot\\right\\}"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\left\\{#0:\\,#?\\right\\}"><span class='mathbtn tr' data-tex="\\left\\{\\cdot:\\,\\ldots\\right\\}"></span></button>};
+      print "</span>";
+
+      print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn" data-ins="\\left(#0\\,,\\;#?\\right)"><span class='mathbtn tr' data-tex="\\left(\\cdot\\,,\\;\\cdot\\right)"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\left[#0\\,,\\;#?\\right]"><span class='mathbtn tr' data-tex="\\left[\\cdot\\,,\\;\\cdot\\right]"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\left[#0\\,,\\;#?\\right)"><span class='mathbtn tr' data-tex="\\left[\\cdot\\,,\\;\\cdot\\right)"></span></button>};

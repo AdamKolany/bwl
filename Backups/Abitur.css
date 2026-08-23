@@ -74,7 +74,7 @@
      ein Ziffernglyph, der tiefer im Zeilenraster sitzt) — deshalb braucht
      ein reines Kästchen-.sup (kein Text) etwas mehr top-Versatz als die
      Ziffern-.sup, um optisch auf derselben Höhe zu wirken. */
-  .xmsub .sup.boxsup{ top: -0.0625em; }   /* auch +1/4 Höhe nach oben ggü. voriger Version */
+  .xmsub .sup.boxsup{ top: -0.23em; }   /* weitere +1/4 Höhe nach oben */
 
   /* □², □³, □^□ auf dieselbe Breite wie das Bruch-Icon (□/□) bringen, und
      den Inhalt trotz .xmsub' rechts reserviertem Platz für den Exponenten
@@ -92,6 +92,7 @@
      Sternchen sitzt als Glyph von Natur aus höher im Zeilenraster als
      Ziffern/⊤ — zusätzlich etwas nach unten gerückt. */
   .xmsub .sup.supNear{ left: 0.55em; }
+  .xmsub .sup.supTop{ font-size: 0.85em; }
   .xmsub .sup.supAst{ top: -0.23em; }   /* Sternchen-Unterkante an Kästchen-Oberkante */
 
   /* Zwei Kästchen nebeneinander, getrennt durch einen Schrägstrich —
