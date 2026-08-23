@@ -127,13 +127,22 @@ document.addEventListener ( "DOMContentLoaded", () => {
   // EIN Symbol (\int, \alpha, \sum, ...) und zählen als 1 Zeichen; die
   // ausgeschriebenen Funktionsnamen (\sin, \arcsin, ...) stehen dagegen
   // für so viele Zeichen, wie sie Buchstaben haben (\sin = 3, wie beim
-  // handschriftlichen "sin").
+  // handschriftlichen "sin"). \left/\right/\big(g)(l/r) sind reine
+  // Größenmodifikatoren (kein eigenes Zeichen) — nur das folgende
+  // Klammerzeichen selbst zählt. \, \; \! \: sind unsichtbare Abstände
+  // (0 Zeichen). Andere Befehle mit nicht-alphabetischem Namen (\|, \{,
+  // \}, \%, ...) stehen für genau EIN sichtbares Symbol.
   const MAX_ANSWER_LEN = 50;
   const WORD_MACRO_LEN = { sin:3, cos:3, tan:3, arcsin:6, arccos:6, arctan:6, exp:3, ln:2, log:3, lim:3 };
+  const ZERO_WIDTH_DELIM_RE = /\\(?:left|right|bigl|bigr|Bigl|Bigr|biggl|biggr|Biggl|Biggr|big|Big|bigg|Bigg)\b/g;
+  const ZERO_WIDTH_SPACE_RE = /\\[,;!:]/g;
   function meaningfulLength(latex) {
     return String(latex || "")
       .replace(/\\placeholder\{\}/g, "")
+      .replace(ZERO_WIDTH_DELIM_RE, "")
+      .replace(ZERO_WIDTH_SPACE_RE, "")
       .replace(/\\([a-zA-Z]+)/g, (m, name) => "X".repeat(WORD_MACRO_LEN[name] || 1))
+      .replace(/\\[^a-zA-Z]/g, "X")
       .replace(/[{}]/g, "")
       .length;
   }
