@@ -295,10 +295,13 @@ document.addEventListener ( "DOMContentLoaded", () => {
           if (mf.selectionIsCollapsed !== false) return;
           const sel = mf.selection;
           const s = (mf.getValue ? (mf.getValue(sel, "latex") || "") : "");
-          const c = s[0];
+          // Zamień wielkość każdej litery a-z/A-Z w całym zaznaczeniu, nie
+          // tylko pierwszej — reszta zaznaczonego LaTeX-a (cyfry, nawiasy,
+          // \komendy) zostaje bez zmian.
+          const swapped = s.replace(/[a-zA-Z]/g, (c) => (c >= "a" && c <= "z") ? c.toUpperCase() : c.toLowerCase());
+          if (swapped === s) return;
           breakUndoCoalescing();
-          if (c >= "a" && c <= "z") mf.executeCommand("insert", c.toUpperCase());
-          else if (c >= "A" && c <= "Z") mf.executeCommand("insert", c.toLowerCase());
+          mf.executeCommand("insert", swapped);
           update();
         } catch (_) {}
         return;
