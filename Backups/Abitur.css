@@ -65,16 +65,16 @@
   .kexpr sup{ top: -0.55em; }
   .kexpr sub{ top:  0.25em; }
   .xmsub{ position: relative;  display: inline-block;  line-height: 1;  padding-right: 0.9em; vertical-align: middle; }
-  .xmsub .base{  display: inline-block; font-size: 0.80em; }
+  .xmsub .base{  display: inline-block; font-size: 0.80em; margin-top: 0.30em; }   /* Unterkante auf Höhe der Wurzel-Icons, Hälfte des unteren Lichts nach oben verschoben */
   .xmsub .sup, .xmsub .sub{ position: absolute;  left: 0.85em; font-size: 0.65em; line-height: 1.00; white-space: nowrap; }
-  .xmsub .sup{ top: -0.4125em; }   /* w górę — pasuje zu Ziffern (2/3); +1/4 Höhe nach oben ggü. voriger Version */
-  .xmsub .sub{ top:  1.15em; left: 0.90em; }   /* w dół, w lewo */
+  .xmsub .sup{ top: -0.0875em; }   /* o połowę wysokości "2" niżej niż poprzednio */
+  .xmsub .sub{ top:  1.49em; left: 0.90em; }   /* w dół, w lewo; o połowę własnej wysokości niżej niż poprzednio */
 
   /* Kästchen füllt seine Zeilenbox als Block bis ganz oben aus (anders als
      ein Ziffernglyph, der tiefer im Zeilenraster sitzt) — deshalb braucht
      ein reines Kästchen-.sup (kein Text) etwas mehr top-Versatz als die
      Ziffern-.sup, um optisch auf derselben Höhe zu wirken. */
-  .xmsub .sup.boxsup{ top: -0.23em; }   /* weitere +1/4 Höhe nach oben */
+  .xmsub .sup.boxsup{ top: 0.095em; }   /* o połowę wysokości "2" niżej niż poprzednio */
 
   /* □², □³, □^□ auf dieselbe Breite wie das Bruch-Icon (□/□) bringen, und
      den Inhalt trotz .xmsub' rechts reserviertem Platz für den Exponenten
@@ -92,7 +92,7 @@
      Sternchen sitzt als Glyph von Natur aus höher im Zeilenraster als
      Ziffern/⊤ — zusätzlich etwas nach unten gerückt. */
   .xmsub .sup.supNear{ left: 0.55em; }
-  .xmsub .sup.supTop{ font-size: 0.85em; }
+  .xmsub .sup.supTop{ font-size: 0.55em; }   /* em ist relativ zum Elternteil, nicht zur überschriebenen Regel — 0.85em war GRÖSSER als die 0.65em-Basis, nicht kleiner */
   .xmsub .sup.supAst{ top: -0.23em; }   /* Sternchen-Unterkante an Kästchen-Oberkante */
 
   /* Zwei Kästchen nebeneinander, getrennt durch einen Schrägstrich —
@@ -329,6 +329,11 @@
     }
 
     .capselBtn { padding-left: 0.5rem; padding-right: 0.5rem; }
+
+    /* Dm/Rg: bei der hier sehr knappen .pbtn-Grundpolsterung (0.06rem)
+       wirkt der Text bei kleinerer Schrift (.domRg, 0.85em) zu eng am
+       Rand — etwas mehr seitliches Polster nur hier auf iPad. */
+    .pbtn.domRg { padding-left: 0.25rem; padding-right: 0.25rem; }
 
     /* Zeile mit Kleinbuchstaben/Großbuchstaben/Ziffern darf NIE umbrechen —
        Buttons dürfen sich stattdessen zusammendrücken (kein min-width). */
