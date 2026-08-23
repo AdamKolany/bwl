@@ -206,6 +206,12 @@ print qq{</div>};
       my $svg_ovl = qq{<svg $svgAccA><rect x="3" y="11" width="18" height="18" rx="3"/><line x1="3" y1="5" x2="21" y2="5"/></svg>};
       my $svg_hat = qq{<svg $svgAccA><rect x="3" y="11" width="18" height="18" rx="3"/><path d="M6 5L12 1L18 5"/></svg>};
 
+      # Echtes Bruch-Icon: zwei liegende (breite, flache) Kästchen als
+      # Zähler/Nenner, getrennt durch einen waagerechten Bruchstrich —
+      # statt des alten "□/□"-Schrägstrich-Layouts.
+      my $svgFracA = qq{width="1.0em" height="1.0em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="k-icon k-box"};
+      my $svg_fracIcon = qq{<svg $svgFracA><rect x="4" y="1" width="16" height="8" rx="2"/><line x1="2" y1="12" x2="22" y2="12"/><rect x="4" y="15" width="16" height="8" rx="2"/></svg>};
+
       my $svg_bs        = qq{<svg $svgLine><path d="M8 4H20A1 1 0 0 1 21 5V19A1 1 0 0 1 20 20H8L3 12L8 4Z"/><path d="M11 9L17 15"/><path d="M17 9L11 15"/></svg>};
       my $svg_del       = qq{<svg $svgLine><path d="M4 4H16L21 12L16 20H4A1 1 0 0 1 3 19V5A1 1 0 0 1 4 4Z"/><path d="M7 9L13 15"/><path d="M13 9L7 15"/></svg>};
       my $svg_clear     = qq{<svg $svgLine><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8L16 16"/><path d="M16 8L8 16"/></svg>};
@@ -275,10 +281,7 @@ print qq{</div>};
       print "</span>";
 
       print "<span class='algGrp'>";
-      print qq{<button type="button" class="pbtn" style="position:center;" data-ins="\\frac{#0}{{#?}}">
-	      <span class="xmfakefrac"> <span class="num">$svg_box</span><span class="slash">/</span><span class="den">$svg_box</span> </span>
-	      </button>
-      };
+      print qq{<button type="button" class="pbtn" data-ins="\\frac{#0}{{#?}}">$svg_fracIcon</button>};
 
       if (1) {
 	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^2"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup">2</span></span></button>};
@@ -385,8 +388,8 @@ print qq{</div>};
       print "</span>";
 
       print "<span class='algGrp'>";
-      print qq{<button type="button" class="pbtn" data-ins="\\mathbf{Dm}\\left(#0\\right)">Dm</button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\mathbf{Rg}\\left(#0\\right)">Rg</button>};
+      print qq{<button type="button" class="pbtn domRg" data-ins="\\mathbf{Dm}\\left(#0\\right)">Dm</button>};
+      print qq{<button type="button" class="pbtn domRg" data-ins="\\mathbf{Rg}\\left(#0\\right)">Rg</button>};
       print "</span>";
 
       print "<span class='algGrp'>";
