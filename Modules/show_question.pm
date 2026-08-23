@@ -197,6 +197,12 @@ print qq{</div>};
       # damit oben Platz für den Akzent bleibt — beide mit demselben Abstand
       # (Grundlinie bei y=5) zwischen Akzent und Kästchen.
       my $svg_box = qq{<svg $svgBoxA><rect x="3" y="3" width="18" height="18" rx="3"/></svg>};
+
+      # "Basis"-Kästchen der Potenz-/Index-Icons: gleiche Breite wie $svg_box,
+      # aber 1.5x so hoch (Rechteck statt Quadrat) — nur für die
+      # <span class="base">, nicht für Exponent/Index/Bruch-Kästchen.
+      my $svgBaseBoxA = qq{width="0.68em" height="1.02em" viewBox="0 0 24 36" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="k-icon k-box"};
+      my $svg_baseBox = qq{<svg $svgBaseBoxA><rect x="3" y="4.5" width="18" height="27" rx="3"/></svg>};
       my $svg_ovl = qq{<svg $svgAccA><rect x="3" y="11" width="18" height="18" rx="3"/><line x1="3" y1="5" x2="21" y2="5"/></svg>};
       my $svg_hat = qq{<svg $svgAccA><rect x="3" y="11" width="18" height="18" rx="3"/><path d="M6 5L12 1L18 5"/></svg>};
 
@@ -275,10 +281,10 @@ print qq{</div>};
       };
 
       if (1) {
-	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^2"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">2</span></span></button>};
-	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^3"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">3</span></span></button>};
-	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup boxsup">$svg_box</span></span></button>};
-	  print qq{<button type="button" class="pbtn eqw eqwNF" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^2"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup">2</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^3"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup">3</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^{#?}"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup boxsup">$svg_box</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw eqwNF" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>};
       } else {
 	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^2}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">2</span></span></button>};
 	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^3}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">3</span></span></button>};
@@ -300,7 +306,7 @@ print qq{</div>};
       print "</span>";
 
       print "<span class='algGrp'>";
-      print qq{<button type="button" class="pbtn eqw eqwSub" data-ins="#0_{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sub">$svg_box</span></span></button>};
+      print qq{<button type="button" class="pbtn eqw eqwSub" data-ins="#0_{#?}"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sub">$svg_box</span></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\overline{#0}">$svg_ovl</button>};
       print qq{<button type="button" class="pbtn" data-ins="\\hat{#0}">$svg_hat</button>};
       print "</span>";
@@ -320,8 +326,8 @@ print qq{</div>};
       print "</span>";
 
       print "<span class='algGrp'>";
-      print qq{<button type="button" class="pbtn eqw" data-ins="#0^\\top"><span class="xmsub"><span class="base">$svg_box</span><span class="sup supNear">⊤</span></span></button>};
-      print qq{<button type="button" class="pbtn eqw" data-ins="#0^\\ast"><span class="xmsub"><span class="base">$svg_box</span><span class="sup supAst">*</span></span></button>};
+      print qq{<button type="button" class="pbtn eqw" data-ins="#0^\\top"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup supNear">⊤</span></span></button>};
+      print qq{<button type="button" class="pbtn eqw" data-ins="#0^\\ast"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup supAst">*</span></span></button>};
       print "</span>";
 
       print "</div>"; break();
