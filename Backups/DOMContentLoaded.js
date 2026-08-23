@@ -306,6 +306,11 @@ document.addEventListener ( "DOMContentLoaded", () => {
           if (swapped === s) return;
           breakUndoCoalescing();
           mf.executeCommand("insert", swapped);
+          // Zamiana wielkości nie zmienia liczby atomów (te same znaki/te
+          // same komendy, tylko inna wielkość) — ten sam zakres pozycji
+          // można więc bezpiecznie zaznaczyć z powrotem, żeby zaznaczenie
+          // nie znikało po kliknięciu.
+          try { mf.selection = sel; } catch (_) {}
           update();
         } catch (_) {}
         return;
