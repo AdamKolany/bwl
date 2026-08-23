@@ -226,6 +226,16 @@ document.addEventListener ( "DOMContentLoaded", () => {
   mf.addEventListener("input", update);
 
 
+  // MathLive scala (koalescuje) kolejne wywołania "insert" o tym samym
+  // wewnętrznym op-name w JEDEN krok cofania, tak jak zwykłe pisanie na
+  // klawiaturze. Dla naszych przycisków-palety chcemy odwrotnie: każde
+  // kliknięcie to osobna, jednoznaczna akcja użytkownika, więc każde ma
+  // być osobnym krokiem "cofnij". Przerywamy scalanie tuż PRZED każdym
+  // insertem, żeby ten insert nie doklejał się do poprzedniego.
+  function breakUndoCoalescing() {
+    try { mf._mathfield && mf._mathfield.stopCoalescingUndo(); } catch (_) {}
+  }
+
   const handlePbtn = (e) => {
       const btn = e.target.closest(".pbtn"); if (!btn) return; try { mf.focus(); } catch(_) {}
       const cmd = btn.getAttribute("data-cmd") || "";  const ins = btn.getAttribute("data-ins") || ""; try { mf.focus(); } catch(_) {}
@@ -238,7 +248,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
       if (cmd === "del"       ) { try { mf.executeCommand("deleteForward");  update(); } catch (_) {} return; }
       if (cmd === "undo"      ) { try { mf.executeCommand("undo");           update(); } catch (_) {} return; }
       if (cmd === "redo"      ) { try { mf.executeCommand("redo");           update(); } catch (_) {} return; }
-      if (cmd === "clear"     ) { try {  if (mf.selectionIsCollapsed === false) { mf.executeCommand("insert", ""); update(); } } catch (_) {}  return; }
+      if (cmd === "clear"     ) { try {  if (mf.selectionIsCollapsed === false) { breakUndoCoalescing(); mf.executeCommand("insert", ""); update(); } } catch (_) {}  return; }
       if (cmd === "selectAll" ) { try { mf.executeCommand("selectAll"); update(); } catch (_) {} return; }
       if (cmd === "move_L"    ) { try { mf.executeCommand("moveToPreviousChar"); update(); } catch(_) {} return; }
       if (cmd === "move_R"    ) { try { mf.executeCommand("moveToNextChar");     update(); } catch(_) {} return; }
@@ -249,6 +259,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
           const sel = mf.selection;
           const s = (mf.getValue ? (mf.getValue(sel, "latex") || "") : "");
           const c = s[0];
+          breakUndoCoalescing();
           if (c >= "a" && c <= "z") mf.executeCommand("insert", c.toUpperCase());
           else if (c >= "A" && c <= "Z") mf.executeCommand("insert", c.toLowerCase());
           update();
@@ -256,7 +267,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
         return;
       } // cmd="capsel"
 
-      if (cmd === "romgr") { try { cmd_romgr(mf); } catch (err) { console.error("romgr failed:", err); }  update();  return; }
+      if (cmd === "romgr") { try { breakUndoCoalescing(); cmd_romgr(mf); } catch (err) { console.error("romgr failed:", err); }  update();  return; }
 
       if (cmd === "copy") {
         try {
@@ -265,19 +276,23 @@ document.addEventListener ( "DOMContentLoaded", () => {
         return;
       } // cmd === "copy"
 
-      if (cmd === "paste") { 
-        try { 
-              if (!localClipLatex) return; 
-              mf.executeCommand("insert", localClipLatex); mf.focus(); update(); 
-            } catch (err) { console.error("paste failed:", err); } 
-        return; 
+      if (cmd === "paste") {
+        try {
+              if (!localClipLatex) return;
+              breakUndoCoalescing();
+              mf.executeCommand("insert", localClipLatex); mf.focus(); update();
+            } catch (err) { console.error("paste failed:", err); }
+        return;
       } //cmd = "paste"
 
-      function tryCmd(mf, name) { try { mf.executeCommand(name); return true; } catch(e) { return false; } } 
+      function tryCmd(mf, name) { try { mf.executeCommand(name); return true; } catch(e) { return false; } }
 
-      if (cmd === "selL") {  try { mf.executeCommand("extendToPreviousWord"); } catch (_) {}  update(); return; }
-      if (cmd === "selR") {  try { mf.executeCommand("extendToNextWord");     } catch (_) {}  update(); return; }
-      if (ins) { try { mf.executeCommand("insert", ins); update(); } catch (_) {} }  try { mf.focus(); } catch(_) {} };
+      // extendToPreviousWord/extendToNextWord zaznaczały całe "słowo"
+      // (kilka znaków naraz) zamiast jednego elementu — zamieniono na
+      // odpowiedniki o granulacji pojedynczego znaku.
+      if (cmd === "selL") {  try { mf.executeCommand("extendSelectionBackward"); } catch (_) {}  update(); return; }
+      if (cmd === "selR") {  try { mf.executeCommand("extendSelectionForward");  } catch (_) {}  update(); return; }
+      if (ins) { try { breakUndoCoalescing(); mf.executeCommand("insert", ins); update(); } catch (_) {} }  try { mf.focus(); } catch(_) {} };
 
       // Uwaga: NIE wolno wołać preventDefault() na pointerdown/touchstart tutaj —
       // na iOS/WebKit dla elementów z -webkit-appearance:none to potrafi całkowicie
