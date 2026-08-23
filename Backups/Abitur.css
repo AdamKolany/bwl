@@ -67,14 +67,14 @@
   .xmsub{ position: relative;  display: inline-block;  line-height: 1;  padding-right: 0.9em; vertical-align: middle; }
   .xmsub .base{  display: inline-block; font-size: 0.80em; }
   .xmsub .sup, .xmsub .sub{ position: absolute;  left: 0.85em; font-size: 0.65em; line-height: 1.00; white-space: nowrap; }
-  .xmsub .sup{ top: -0.25em; }   /* w górę — pasuje zu Ziffern (2/3) */
+  .xmsub .sup{ top: -0.4125em; }   /* w górę — pasuje zu Ziffern (2/3); +1/4 Höhe nach oben ggü. voriger Version */
   .xmsub .sub{ top:  1.15em; left: 0.90em; }   /* w dół, w lewo */
 
   /* Kästchen füllt seine Zeilenbox als Block bis ganz oben aus (anders als
      ein Ziffernglyph, der tiefer im Zeilenraster sitzt) — deshalb braucht
      ein reines Kästchen-.sup (kein Text) etwas mehr top-Versatz als die
      Ziffern-.sup, um optisch auf derselben Höhe zu wirken. */
-  .xmsub .sup.boxsup{ top: 0.10em; }
+  .xmsub .sup.boxsup{ top: -0.0625em; }   /* auch +1/4 Höhe nach oben ggü. voriger Version */
 
   /* □², □³, □^□ auf dieselbe Breite wie das Bruch-Icon (□/□) bringen, und
      den Inhalt trotz .xmsub' rechts reserviertem Platz für den Exponenten
@@ -92,7 +92,7 @@
      Sternchen sitzt als Glyph von Natur aus höher im Zeilenraster als
      Ziffern/⊤ — zusätzlich etwas nach unten gerückt. */
   .xmsub .sup.supNear{ left: 0.55em; }
-  .xmsub .sup.supAst{ top: 0.05em; }
+  .xmsub .sup.supAst{ top: -0.7625em; }   /* +1/4 Höhe (wie alle Exponenten) + zusätzlich 1x eigene Höhe */
 
   /* Zwei Kästchen nebeneinander, getrennt durch einen Schrägstrich —
      bewusst kein diagonales vertical-align-Layout mehr: das brach, seit
