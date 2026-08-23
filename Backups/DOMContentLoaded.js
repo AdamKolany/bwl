@@ -123,13 +123,17 @@ document.addEventListener ( "DOMContentLoaded", () => {
   let localClipLatex = "";
 
   // Zeichenlimit: zählt "sinnvolle" Länge, nicht rohe LaTeX-Länge —
-  // leere Platzhalter zählen nicht, LaTeX-Befehle zählen als 1 Zeichen,
-  // damit Vorlagen (z.B. Bruch-Exponent) beim Einfügen nicht sofort über dem Limit liegen.
+  // leere Platzhalter zählen nicht. Die meisten LaTeX-Befehle stehen für
+  // EIN Symbol (\int, \alpha, \sum, ...) und zählen als 1 Zeichen; die
+  // ausgeschriebenen Funktionsnamen (\sin, \arcsin, ...) stehen dagegen
+  // für so viele Zeichen, wie sie Buchstaben haben (\sin = 3, wie beim
+  // handschriftlichen "sin").
   const MAX_ANSWER_LEN = 50;
+  const WORD_MACRO_LEN = { sin:3, cos:3, tan:3, arcsin:6, arccos:6, arctan:6, exp:3, ln:2, log:3, lim:3 };
   function meaningfulLength(latex) {
     return String(latex || "")
       .replace(/\\placeholder\{\}/g, "")
-      .replace(/\\[a-zA-Z]+/g, "X")
+      .replace(/\\([a-zA-Z]+)/g, (m, name) => "X".repeat(WORD_MACRO_LEN[name] || 1))
       .replace(/[{}]/g, "")
       .length;
   }
