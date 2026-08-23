@@ -144,9 +144,10 @@ sub run {
       sub break    { print qq{<span class="br"></span>}; }
       sub skipp    { (my $c) = @_;  for (my $i = 0; $i < $c/2; $i++) { print qq{<span class="skip"></span>}; } };
       
-      my $richtig = '<span id="score" data-score="0" style="margin-left:auto; color: red; font-weight:bold;"></span>'; 
-			     
-      print qq{<fieldset><legend>Antwort&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$richtig</legend>};
+      my $richtig = '<span id="score" data-score="0" style="margin-left:auto; color: red; font-weight:bold;"></span>';
+      my $charCount = '<span id="charCount" style="font-weight:normal; font-size:0.75em; color:gray;"></span>';
+
+      print qq{<fieldset><legend>Antwort $charCount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$richtig</legend>};
       
       print qq{};
       
@@ -268,12 +269,18 @@ print qq{</div>};
 	      <span class="xmfakefrac"> <span class="num">$svg_box</span><span class="slash">/</span><span class="den">$svg_box</span> </span>
 	      </button>
       };
-      print qq{<button type="button" class="pbtn eqw" data-ins="#0^2"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">2</span></span></button>};
-      print qq{<button type="button" class="pbtn eqw" data-ins="#0^3"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">3</span></span></button>};
 
-      print qq{<button type="button" class="pbtn eqw" data-ins="#0^{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup boxsup">$svg_box</span></span></button>};
-
-      print qq{<button type="button" class="pbtn eqw eqwNF" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>};
+      if (1) {
+	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^2"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">2</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^3"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">3</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^{#?}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup boxsup">$svg_box</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw eqwNF" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>};
+      } else {
+	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^2}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">2</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^3}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">3</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^{#?}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup boxsup">$svg_box</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw eqwNF" data-ins="{{}^{{#?}/{#?}}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>};
+      }
       print "</span>";
 
       print "<span class='algGrp'>";

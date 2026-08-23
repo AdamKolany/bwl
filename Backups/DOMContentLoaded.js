@@ -163,6 +163,11 @@ document.addEventListener ( "DOMContentLoaded", () => {
 
     if (outLatex) outLatex.value = latex0;
 
+    try {
+      const cc = document.getElementById("charCount");
+      if (cc) cc.textContent = "(" + meaningfulLength(latex0) + "/" + MAX_ANSWER_LEN + ")";
+    } catch (_) {}
+
     answer = document.getElementById("answer"); if (answer) latex1 = answer.getAttribute("data-answer");
     
     /* 
