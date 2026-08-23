@@ -68,7 +68,7 @@
   .xmsub .base{  display: inline-block; font-size: 0.80em; margin-top: 0.30em; }   /* Unterkante auf Höhe der Wurzel-Icons, Hälfte des unteren Lichts nach oben verschoben */
   .xmsub .sup, .xmsub .sub{ position: absolute;  left: 0.85em; font-size: 0.65em; line-height: 1.00; white-space: nowrap; }
   .xmsub .sup{ top: -0.0875em; }   /* o połowę wysokości "2" niżej niż poprzednio */
-  .xmsub .sub{ top:  1.49em; left: 0.90em; }   /* w dół, w lewo; o połowę własnej wysokości niżej niż poprzednio */
+  .xmsub .sub{ top:  1.15em; left: 0.90em; }   /* w dół, w lewo; o połowę własnej wysokości podniesione ggü. voriger Version */
 
   /* Kästchen füllt seine Zeilenbox als Block bis ganz oben aus (anders als
      ein Ziffernglyph, der tiefer im Zeilenraster sitzt) — deshalb braucht
