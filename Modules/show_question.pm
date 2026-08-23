@@ -304,7 +304,7 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\circ"><span class='mathbtn' data-tex="\\circ"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\times"><span class='mathbtn' data-tex="\\times"></span></button>};
       print qq{<button type="button" class="pbtn eqw" data-ins="#0^\\top"><span class="xmsub"><span class="base">$svg_box</span><span class="sup supNear">⊤</span></span></button>};
-      print qq{<button type="button" class="pbtn eqw" data-ins="#0^\\ast"><span class="xmsub"><span class="base">$svg_box</span><span class="sup supNear supAst">*</span></span></button>};
+      print qq{<button type="button" class="pbtn eqw" data-ins="#0^\\ast"><span class="xmsub"><span class="base">$svg_box</span><span class="sup supAst">*</span></span></button>};
       print "</span>";
 
       print "</div>"; break();
