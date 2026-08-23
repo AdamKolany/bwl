@@ -152,14 +152,24 @@ document.addEventListener ( "DOMContentLoaded", () => {
       setTimeout(() => mf.classList.remove("limit-hit"), 200);
     } catch (_) {}
   }
+  // Czy WSTAWIANIE (nie zastępowanie zaznaczenia — to może skracać) jest
+  // już zablokowane limitem? Współdzielone przez fizyczną klawiaturę
+  // (beforeinput) i przyciski palety (handlePbtn) — dawniej sprawdzane
+  // TYLKO dla fizycznej klawiatury, więc przyciski palety mogły wstawiać
+  // bez ograniczeń (mf.executeCommand("insert", ...) nie wywołuje
+  // natywnego zdarzenia "beforeinput").
+  function isInsertBlockedByLimit() {
+    if (mf.selectionIsCollapsed === false) return false;
+    const cur = (mf.getValue && (mf.getValue("latex-unstyled") || mf.getValue("latex"))) || "";
+    return meaningfulLength(cur) >= MAX_ANSWER_LEN;
+  }
+
   mf.addEventListener("beforeinput", (e) => {
     try {
       const t = e.inputType || "";
       if (t.startsWith("delete") || t === "historyUndo" || t === "historyRedo") return;
       if (t !== "insertText") return;
-      if (mf.selectionIsCollapsed === false) return; // zastępowanie zaznaczenia — może skrócić, nie blokuj
-      const cur = (mf.getValue && (mf.getValue("latex-unstyled") || mf.getValue("latex"))) || "";
-      if (meaningfulLength(cur) >= MAX_ANSWER_LEN) { e.preventDefault(); flashLimit(); }
+      if (isInsertBlockedByLimit()) { e.preventDefault(); flashLimit(); }
     } catch (_) {}
   });
 
@@ -346,6 +356,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
       if (cmd === "paste") {
         try {
               if (!localClipLatex) return;
+              if (isInsertBlockedByLimit()) { flashLimit(); return; }
               breakUndoCoalescing();
               mf.executeCommand("insert", localClipLatex); mf.focus(); update();
             } catch (err) { console.error("paste failed:", err); }
@@ -360,6 +371,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
       if (cmd === "selL") {  try { mf.executeCommand("extendSelectionBackward"); } catch (_) {}  update(); return; }
       if (cmd === "selR") {  try { mf.executeCommand("extendSelectionForward");  } catch (_) {}  update(); return; }
       if (ins) {
+        if (isInsertBlockedByLimit()) { flashLimit(); try { mf.focus(); } catch(_) {} return; }
         try { breakUndoCoalescing(); mf.executeCommand("insert", ins); update(); } catch (_) {}
         // "shift" jest jednorazowy: po wstawieniu jednej litery z rzędu
         // małych liter samo wraca do "off". "lock" tak nie działa.
