@@ -92,7 +92,7 @@
      Sternchen sitzt als Glyph von Natur aus höher im Zeilenraster als
      Ziffern/⊤ — zusätzlich etwas nach unten gerückt. */
   .xmsub .sup.supNear{ left: 0.55em; }
-  .xmsub .sup.supTop{ font-size: 0.55em; }   /* em ist relativ zum Elternteil, nicht zur überschriebenen Regel — 0.85em war GRÖSSER als die 0.65em-Basis, nicht kleiner */
+  .xmsub .sup.supTop{ font-size: 0.55em; left: 0.84em; }   /* em ist relativ zum Elternteil, nicht zur überschriebenen Regel — 0.85em war GRÖSSER als die 0.65em-Basis, nicht kleiner. left: um 1/3 der eigenen Breite nach rechts verschoben. */
   .xmsub .sup.supAst{ top: -0.23em; }   /* Sternchen-Unterkante an Kästchen-Oberkante */
 
   /* Zwei Kästchen nebeneinander, getrennt durch einen Schrägstrich —
