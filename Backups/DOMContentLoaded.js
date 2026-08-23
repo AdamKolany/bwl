@@ -295,10 +295,14 @@ document.addEventListener ( "DOMContentLoaded", () => {
           if (mf.selectionIsCollapsed !== false) return;
           const sel = mf.selection;
           const s = (mf.getValue ? (mf.getValue(sel, "latex") || "") : "");
-          // Zamień wielkość każdej litery a-z/A-Z w całym zaznaczeniu, nie
-          // tylko pierwszej — reszta zaznaczonego LaTeX-a (cyfry, nawiasy,
-          // \komendy) zostaje bez zmian.
-          const swapped = s.replace(/[a-zA-Z]/g, (c) => (c >= "a" && c <= "z") ? c.toUpperCase() : c.toLowerCase());
+          // Zamień wielkość każdej łacińskiej litery w całym zaznaczeniu,
+          // ale nie te wewnątrz komend LaTeX (\sin, \log, \alpha, ...) —
+          // całą komendę (backslash + jej litery) traktujemy jako jeden
+          // nietykalny token, żeby np. \sin nie zamieniło się w \SIN.
+          const swapped = s.replace(/\\[a-zA-Z]+|[a-zA-Z]/g, (m) => {
+            if (m.length > 1) return m; // to komenda LaTeX — bez zmian
+            return (m >= "a" && m <= "z") ? m.toUpperCase() : m.toLowerCase();
+          });
           if (swapped === s) return;
           breakUndoCoalescing();
           mf.executeCommand("insert", swapped);
