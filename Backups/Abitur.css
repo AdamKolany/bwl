@@ -82,6 +82,12 @@
   .pbtn.eqwNF .xmsub{ margin-left: -0.19em; }
   .pbtn.eqwSub .xmsub{ margin-left: 0.45em; }
 
+  /* □^⊤/□^* (Transponierte/Sternchen): Exponent näher ans Kästchen. Das
+     Sternchen sitzt als Glyph von Natur aus höher im Zeilenraster als
+     Ziffern/⊤ — zusätzlich etwas nach unten gerückt. */
+  .xmsub .sup.supNear{ left: 0.55em; }
+  .xmsub .sup.supAst{ top: 0.05em; }
+
   /* Zwei Kästchen nebeneinander, getrennt durch einen Schrägstrich —
      bewusst kein diagonales vertical-align-Layout mehr: das brach, seit
      die Kästchen SVGs (display:block) statt Textzeichen sind. */
