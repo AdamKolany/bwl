@@ -240,7 +240,7 @@ print qq{</div>};
 
       # Zeile 1: Umschalter + Navigations-/Editier-Icons
       print "<div class='btnrow navrow'>";
-      print $capsel; print $capsBtn; print $navicons;
+      print $capsBtn; print $capsel; print $navicons;
       print "</div>"; break();
 
       # Zeile 2: Kleinbuchstaben, feste Großbuchstaben, Ziffern
