@@ -146,12 +146,13 @@ sub run {
       
       my $richtig = '<span id="score" data-score="0" style="margin-left:auto; color: red; font-weight:bold;"></span>';
       my $charCount = '<span id="charCount" style="font-weight:normal; font-size:0.75em; color:gray;"></span>';
+      my $latexCode = '<span id="latexCode" style="font-weight:normal; font-size:0.75em; color:#bbb; margin-left:1.5em; padding:0.1em 0.5em; border:1px solid #ddd; border-radius:4px;"></span>';
 
       my $svgMoveLine = qq{width="1.05em" height="1.05em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="k-icon"};
       my $svg_moveL   = qq{<svg $svgMoveLine><path d="M20 12H4"/><path d="M10 6L4 12L10 18"/></svg>};
       my $svg_moveR   = qq{<svg $svgMoveLine><path d="M4 12H20"/><path d="M14 6L20 12L14 18"/></svg>};
 
-      print qq{<fieldset><legend>Antwort $charCount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$richtig</legend>};
+      print qq{<fieldset><legend>Antwort $charCount$latexCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$richtig</legend>};
       
       print qq{};
       
@@ -260,11 +261,9 @@ print qq{</div>};
       print $capsBtn; print $capsel; print $navicons;
       print "</div>"; break();
 
-      # Zeile 2: Kleinbuchstaben, feste Großbuchstaben, Ziffern
+      # Zeile 2: Kleinbuchstaben, Ziffern
       print "<div class='btnrow letterrow centeredRow'>";
       for my $l ('a'..'z') { print qq{<button type="button" class="pbtn lower" data-ins="$l" data-base="$l"><i>$l</i></button>}; }
-      skipp(4);
-      for my $l (qw(A B C F I P X Y)) { print qq{<button type="button" class="pbtn const" data-ins="$l"><i>$l</i></button>}; }
       skipp(4);
       for my $l (0..9) { print qq{<button type="button" class="pbtn" data-ins="$l">$l</button>}; }
       print "</div>"; break();
@@ -289,10 +288,10 @@ print qq{</div>};
 	  print qq{<button type="button" class="pbtn eqw" data-ins="#0^{#?}"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup boxsup">$svg_box</span></span></button>};
 	  print qq{<button type="button" class="pbtn eqw eqwNF" data-ins="#0^{{#?}/{#?}}"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>};
       } else {
-	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^2}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">2</span></span></button>};
-	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^3}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup">3</span></span></button>};
-	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^{#?}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup boxsup">$svg_box</span></span></button>};
-	  print qq{<button type="button" class="pbtn eqw eqwNF" data-ins="{{}^{{#?}/{#?}}}"><span class="xmsub"><span class="base">$svg_box</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^2}"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup">2</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^3}"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup">3</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw" data-ins="{{}^{#?}}"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup boxsup">$svg_box</span></span></button>};
+	  print qq{<button type="button" class="pbtn eqw eqwNF" data-ins="{{}^{{#?}/{#?}}}"><span class="xmsub"><span class="base">$svg_baseBox</span><span class="sup nicefrac"><span class="n">$svg_box</span><span class="slash">/</span><span class="d">$svg_box</span></span></span></button>};
       }
       print "</span>";
 
@@ -521,7 +520,7 @@ print qq{</div>};
       print "</span>";
 
       print "<span class='algGrp'>";
-      print qq{<button type="button" class="pbtn" data-ins="\\ldots"><span class='mathbtn' data-tex="\\ldots"></span></button>};
+      print qq{<button type="button" class="pbtn dotsBtn" data-ins="\\ldots"><span class='mathbtn' data-tex="\\ldots"></span></button>};
       print "</span>";
 
       print "<span class='algGrp'>";
@@ -530,6 +529,7 @@ print qq{</div>};
       print "</span>";
 
       print "<span class='algGrp'>";
+      print qq{<button type="button" class="pbtn m" data-ins=".">.</button>};
       print qq{<button type="button" class="pbtn m" data-ins="{,}">,</button>};
       print qq{<button type="button" class="pbtn m" data-ins=";">;</button>};
       print "</span>";
