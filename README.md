@@ -17,5 +17,7 @@ Mathe_C10-Werkstatt-Projekts (HS Merseburg).
 ## Struktur
 
 - `Modules/` – Perl-Module (DB-Zugriff, Menü, Fragenanzeige, Auswertung)
+- `Modules/schema.sql` – DDL der Session-/Verlaufstabellen, einmalig pro
+  Datenbank einspielen: `psql -d bwl -f Modules/schema.sql`
 - `CSS/`, `JS/` – Styling und Frontend-Logik (inkl. KaTeX-Fonts)
 - `showDB.cgi` – einfache Datenbank-/Themenübersicht
