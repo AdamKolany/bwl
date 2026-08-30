@@ -377,7 +377,15 @@ document.addEventListener ( "DOMContentLoaded", () => {
       if (cmd === "selR") {  try { mf.executeCommand("extendSelectionForward");  } catch (_) {}  update(); return; }
       if (ins) {
         if (isInsertBlockedByLimit()) { flashLimit(); try { mf.focus(); } catch(_) {} return; }
+        // wrapBtn (Klammern um die Auswahl): nach dem Einfügen die
+        // Auswahl auf den kompletten neuen Ausdruck INKL. der Klammern
+        // ausdehnen, statt sie (wie sonst üblich) kollabiert zu lassen.
+        const wrapSel = btn.classList.contains("wrapBtn") && mf.selectionIsCollapsed === false;
+        const wrapStart = wrapSel ? mf.selection.ranges[0][0] : null;
         try { breakUndoCoalescing(); mf.executeCommand("insert", ins); update(); } catch (_) {}
+        if (wrapSel) {
+          try { const wrapEnd = mf.selection.ranges[0][1]; mf.selection = { ranges: [[wrapStart, wrapEnd]] }; } catch (_) {}
+        }
         // "shift" jest jednorazowy: po wstawieniu jednej litery z rzędu
         // małych liter samo wraca do "off". "lock" tak nie działa.
         if (capsState === "shift" && btn.classList.contains("lower")) setCapsState("off");

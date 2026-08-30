@@ -410,9 +410,9 @@ print qq{</div>};
       print "<div class='btnrow algebraRow'>";
 
       print "<span class='algGrp'>";
-      print qq{<button type="button" class="pbtn" data-ins="\\left(#0\\right)"><span class='mathbtn tr' data-tex="\\left(\\cdot\\right)"></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\left[#0\\right]"><span class='mathbtn tr' data-tex="\\left[\\cdot\\right]"></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="\\left\\{#0\\right\\}"><span class='mathbtn tr' data-tex="\\left\\{\\cdot\\right\\}"></span></button>};
+      print qq{<button type="button" class="pbtn wrapBtn" data-ins="\\left(#0\\right)"><span class='mathbtn tr' data-tex="\\left(\\cdot\\right)"></span></button>};
+      print qq{<button type="button" class="pbtn wrapBtn" data-ins="\\left[#0\\right]"><span class='mathbtn tr' data-tex="\\left[\\cdot\\right]"></span></button>};
+      print qq{<button type="button" class="pbtn wrapBtn" data-ins="\\left\\{#0\\right\\}"><span class='mathbtn tr' data-tex="\\left\\{\\cdot\\right\\}"></span></button>};
       print "</span>";
 
       print "<span class='algGrp'>";
