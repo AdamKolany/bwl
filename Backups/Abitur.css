@@ -67,14 +67,14 @@
   .xmsub{ position: relative;  display: inline-block;  line-height: 1;  padding-right: 0.9em; vertical-align: middle; }
   .xmsub .base{  display: inline-block; font-size: 0.80em; margin-top: 0.30em; }   /* Unterkante auf Höhe der Wurzel-Icons, Hälfte des unteren Lichts nach oben verschoben */
   .xmsub .sup, .xmsub .sub{ position: absolute;  left: 0.85em; font-size: 0.65em; line-height: 1.00; white-space: nowrap; }
-  .xmsub .sup{ top: -0.0875em; }   /* o połowę wysokości "2" niżej niż poprzednio */
+  .xmsub .sup{ top: -0.1775em; }   /* lekko podniesione ggü. voriger Version */
   .xmsub .sub{ top:  1.15em; left: 0.90em; }   /* w dół, w lewo; o połowę własnej wysokości podniesione ggü. voriger Version */
 
   /* Kästchen füllt seine Zeilenbox als Block bis ganz oben aus (anders als
      ein Ziffernglyph, der tiefer im Zeilenraster sitzt) — deshalb braucht
      ein reines Kästchen-.sup (kein Text) etwas mehr top-Versatz als die
      Ziffern-.sup, um optisch auf derselben Höhe zu wirken. */
-  .xmsub .sup.boxsup{ top: 0.095em; }   /* o połowę wysokości "2" niżej niż poprzednio */
+  .xmsub .sup.boxsup{ top: 0.005em; }   /* lekko podniesione ggü. voriger Version */
 
   /* □², □³, □^□ auf dieselbe Breite wie das Bruch-Icon (□/□) bringen, und
      den Inhalt trotz .xmsub' rechts reserviertem Platz für den Exponenten
