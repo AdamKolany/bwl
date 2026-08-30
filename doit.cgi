@@ -30,11 +30,20 @@ my $is_phone =
     $ua !~ /iPad|Tablet|SM-X|SM-T/i
     ? 1 : 0;
 
-if ($is_phone) {
-    print header(-type => 'text/html', -charset => 'UTF-8');
+# Firefox für Android hängt bei manchen Tablets trotzdem "Mobile" (statt
+# "Tablet") in den User-Agent, sodass die reine UA-Prüfung dort fälschlich
+# zuschlägt. Deshalb clientseitiger Ausweg: die Warnseite setzt selbst ein
+# Cookie, sobald sie feststellt, dass der Bildschirm Tabletgröße hat
+# (kürzere Kante >= 600 geräteunabhängige Pixel, Android "sw600dp"), oder
+# der Nutzer per Knopf bestätigt. Liegt das Cookie vor, wird die Seite
+# ganz normal ausgeliefert.
+my $phone_bypass = ($ENV{'HTTP_COOKIE'} // '') =~ /(?:^|;\s*)notphone=1(?:\s*;|\s*$)/ ? 1 : 0;
+
+if ($is_phone && !$phone_bypass) {
     print header(-type => 'text/html', -charset => 'UTF-8');
     print <<HTML;
 <!DOCTYPE html>
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,26 +69,55 @@ body {
   font-size: clamp(2rem, 8vw, 4rem);
   margin: 0 0 0.5rem 0;
 }
+
+.warn button {
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.debugline { color: gray; font-size: 0.7em; word-break: break-all; }
 </style>
 </head>
 <body>
 
-<div style='color:gray; font-size: 0.7em;' class='debugline'><span id='ua'>$ua</span> [<script>document.write(window.innerWidth+'x'+window.innerHeight)</script>]</div>
+<div class="debugline"><span id="ua">$ua</span></div>
 <div class="warn">
 <h1>Achtung!!!</h1>
-<p>Diese Seite ist nicht für die Nutzung auf Mobiltelefonen optimiert. Bitte verwenden Sie einen Desktop-Computer oder einen Laptop !!!
+<p>Diese Seite ist nicht für die Nutzung auf Mobiltelefonen optimiert. Bitte verwenden Sie einen Desktop-Computer oder einen Laptop !!!</p>
+<button type="button" id="notphone">Ich benutze ein Tablet oder einen Desktop &ndash; trotzdem fortfahren</button>
 </div>
+
+<script>
+(function () {
+  function bypass() {
+    document.cookie = 'notphone=1; path=/; max-age=31536000; samesite=Lax';
+    location.reload();
+  }
+  var ua = navigator.userAgent;
+  // Eindeutige Telefone (iPhone/iPod/Windows Phone) haben nicht den
+  // Firefox-für-Android-Tablet-Bug: wer mit so einem UA hier landet, sitzt
+  // wirklich an einem Telefon. Für die gibt es weder die automatische
+  // Größen-Ausnahme noch den "trotzdem fortfahren"-Knopf.
+  var evidentPhone = /iPhone|iPod|Windows Phone/i.test(ua);
+  // Kürzere Bildschirmkante in geräteunabhängigen Pixeln: Telefone < 600,
+  // Tablets >= 600. Firefox/Android meldet bei diesem Tablet trotzdem
+  // "Mobile" im UA, daher hier die eigentliche Unterscheidung.
+  var sw = Math.min(screen.width, screen.height);
+  if (!evidentPhone && sw >= 600) { bypass(); return; }
+  var uaEl = document.getElementById('ua');
+  if (uaEl) uaEl.textContent = ua +
+    ' [' + window.innerWidth + 'x' + window.innerHeight + ', sw=' + sw + ']';
+  var btn = document.getElementById('notphone');
+  if (btn) {
+    if (evidentPhone) btn.remove();
+    else btn.addEventListener('click', bypass);
+  }
+})();
+</script>
 </body>
 </html>
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-  var target = document.getElementById('body');
-  target.get = navigator.userAgent + ' [' + window.innerWidth + 'x' + window.innerHeight + ']';
-});
-\${'#ua'}.on('load', function(){ \${'#ua'}.text( navigator.userAgent + ' [' + window.innerWidth + 'x' + window.innerHeight + ']'); });
-
-</script>
 HTML
     exit;
 }
