@@ -7,7 +7,24 @@ use CGI;
 # KONFIGURATION
 # ============================================================
 
+# Voreingestellte Anzahl der Fragen im Menü (Feld "Anzahl der Fragen").
+# ==> HIER die Vorgabe ändern.
 our $DEFAULT_N = 3;
+
+# --- Fragenauswahl aus dem Themen-Satz --------------------------------
+#   'random'    : zufällig (Original-Verhalten; "später zurück zu random")
+#   'fractions' : feste Positionen im nach frage_id sortierten Satz,
+#                 siehe @PICK_FRACTIONS
+# ==> HIER auf 'random' zurückstellen, wenn die Zufallsauswahl wieder soll.
+our $PICK_MODE = 'fractions';
+
+# Bruchteil-Positionen im Satz. Genutzt, wenn $PICK_MODE eq 'fractions'
+# UND die im Menü gewählte Anzahl == scalar(@PICK_FRACTIONS) ist.
+# (1/3, 1/2, 2/3) = die Frage bei einem Drittel, bei der Hälfte und bei
+# zwei Dritteln des Satzes. Position = round(Anzahl_im_Satz * Bruch),
+# auf 1..Anzahl begrenzt, Duplikate entfernt. Bei anderer Anzahl werden
+# die Fragen gleichmäßig über den Satz verteilt.
+our @PICK_FRACTIONS = (1/3, 1/2, 2/3);
 
 our $DB='bwl'; our $passwd="=jha_MUA@19850928//#DB,\L$DB"; our $user='drak'; our $THEMA='TSTA';
 

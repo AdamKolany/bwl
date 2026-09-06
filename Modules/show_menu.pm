@@ -27,7 +27,7 @@ sub run {
     push @kap_values, $code;
     $kap_labels{$code} = "$name ($cnt Themen)"; # "$name ($code)";
   }
-  my $n_suggest = $Common::DEFAULT_N; my @thm_values; my %thm_labels;
+  my (@thm_values, %thm_labels);
   if ($chosen_kap ne '') {
     my $rows_thm = 
       $DB::dbh->selectall_arrayref( 
@@ -84,11 +84,14 @@ sub run {
       ), br();
     print qq{<div class="sep"></div>};
 
-    my $cnt = 0; my $n_suggest = '';
+    # Vorgabe fürs Feld "Anzahl der Fragen": $Common::DEFAULT_N (in
+    # Modules/Common.pm einstellbar), begrenzt auf die Zahl der im Thema
+    # tatsächlich vorhandenen Fragen.
+    my $cnt = 0; my $n_suggest = $Common::DEFAULT_N;
     if ($chosen_kap ne '' && $chosen_thm ne '') {
       ($cnt) = $DB::dbh->selectrow_array(  q{SELECT count(*) FROM fragen WHERE "kap_kürzel" = ? AND "th_kürzel" = ?}, undef, $chosen_kap, $chosen_thm );
       $cnt ||= 0;
-      $n_suggest = $cnt if $cnt > 0;
+      $n_suggest = $cnt if $cnt > 0 && $n_suggest > $cnt;
     }
 
     if (($Common::cgi->param('err') // '') eq 'invalid_n' && $cnt > 0) {

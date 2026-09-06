@@ -32,13 +32,47 @@ sub run {
 
   $DB::dbh->do(q{ INSERT INTO session_quiz(sessionid, kapitel, thema, n_questions) VALUES (?,?,?,?) }, undef, $Common::sid, $kapitel, $thema, $n);
 
-  my $qids =
+  # Auswahlmodus: siehe $Common::PICK_MODE / @Common::PICK_FRACTIONS in
+  # Modules/Common.pm. 'random' = altes Verhalten, 'fractions' = feste
+  # Bruchteil-Positionen im nach frage_id sortierten Themen-Satz.
+  my $qids;
+  if (($Common::PICK_MODE // 'random') eq 'fractions') {
+
+    my $all_qids = $DB::dbh->selectcol_arrayref(
+      q{ SELECT frage_id FROM fragen WHERE "kap_kürzel" = ? AND th_kürzel = ? ORDER BY frage_id },
+      undef, $kapitel, $thema
+    );
+    die "Keine Fragen zur Kapitel = $kapitel thema=$thema\n" unless $all_qids && @$all_qids;
+    my $total = scalar @$all_qids;
+
+    # Bei passender Anzahl die konfigurierten Bruchteile, sonst gleichmäßig
+    # über den Satz verteilen (i/(n+1) für i = 1..n).
+    my @fracs = ($n == scalar @Common::PICK_FRACTIONS)
+      ? @Common::PICK_FRACTIONS
+      : map { $_ / ($n + 1) } 1 .. $n;
+
+    my %seen; my @pos;
+    for my $f (@fracs) {
+      my $p = int($total * $f + 0.5);   # round-half-up, 1-indexiert
+      $p = 1      if $p < 1;
+      $p = $total if $p > $total;
+      push @pos, $p unless $seen{$p}++;
+    }
+    # Falls Rundung/Dedupe zu wenige Positionen ergab: auffüllen.
+    for (my $p = 1; @pos < $n && $p <= $total; $p++) {
+      push @pos, $p unless $seen{$p}++;
+    }
+
+    $qids = [ map { $all_qids->[$_ - 1] } sort { $a <=> $b } @pos ];
+  }
+  else {
+    $qids =
       $DB::dbh->selectcol_arrayref(
         q{ SELECT frage_id FROM fragen WHERE "kap_kürzel" = ? AND th_kürzel = ? ORDER BY random() LIMIT ?  }, undef, $kapitel, $thema, $n
       );
-    # $DB::dbh->selectcol_arrayref(q{ SELECT frage_id FROM fragen WHERE "kap_kürzel" = ? AND th_kürzel = ? ORDER BY frage_id LIMIT ?  }, undef, $kapitel, $thema, $n);
+  }
 
-  die "Keine Fragen zur Kapitel = $kapitel thema=$thema\n" unless @$qids;
+  die "Keine Fragen zur Kapitel = $kapitel thema=$thema\n" unless $qids && @$qids;
 
   my $ins = $DB::dbh->prepare(q{ INSERT INTO session_questions(sessionid, nr, frage_id) VALUES (?,?,?) });
 
