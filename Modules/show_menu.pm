@@ -100,8 +100,11 @@ sub run {
 
     my $disabled = ($chosen_kap ne '' && $chosen_thm ne '') ? '' : 'disabled';
 
-    my $n_attrs = $cnt > 0 ? qq{min="1" max="$cnt"} : q{min="1"};
-    print qq{Anzahl der Fragen: <input type="number" name="n" $n_attrs step="1" value="$n_suggest" size="3" $disabled>}, br();
+    # Feste Anzahl (nicht editierbar): Wert kommt aus $Common::DEFAULT_N,
+    # wird nur angezeigt und per verstecktem Feld mitgeschickt. Zum Ändern
+    # der Vorgabe: $DEFAULT_N in Modules/Common.pm.
+    print qq{Anzahl der Fragen: <strong>$n_suggest</strong>},
+          qq{<input type="hidden" name="n" value="$n_suggest">}, br();
 
     print qq{ <button class="btn" type="submit" name="action" value="start" id="test-start" style="margin: 2vh auto auto 25vw; padding: 15px 30px 15px 30px;" $disabled>Start</button> };
 
