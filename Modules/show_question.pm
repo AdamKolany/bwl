@@ -265,7 +265,7 @@ print qq{</div>};
       print "<div class='btnrow letterrow centeredRow'>";
       for my $l ('a'..'z') { print qq{<button type="button" class="pbtn lower" data-ins="$l" data-base="$l"><i>$l</i></button>}; }
       skipp(4);
-      for my $l (0..9) { print qq{<button type="button" class="pbtn" data-ins="$l">$l</button>}; }
+      for my $l (0..9) { print qq{<button type="button" class="pbtn" data-ins="$l"><i>$l</i></button>}; }
       print "</div>"; break();
 
       # Zeile 3: Grundrechenarten, Potenzen/Wurzeln, Beträge/Normen
@@ -497,7 +497,7 @@ print qq{</div>};
 
       print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn hot" data-ins="\\pi"><span class='mathbtn' data-tex="\\pi"></span></button>};
-      print qq{<button type="button" class="pbtn hot" data-ins="e">e</button>};
+      print qq{<button type="button" class="pbtn hot" data-ins="\\mathbf{e}^{#?}">e</button>};
       print "</span>";
 
       print "<span class='algGrp'>";
