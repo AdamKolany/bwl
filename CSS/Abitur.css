@@ -286,14 +286,20 @@
   
   #mj_close { float: right; top: 10%; right: 30%; }
   .mjx-hide { visibility: hidden; }
-  
 
-/* iPAD */
 
-@supports (-webkit-touch-callout: none) {
-  @media only screen
-    and (min-width: 900px)
-    and (max-width: 1400px) {
+/* TABLET (iPad UND Android) --------------------------------------------
+
+   Früher hing dieser Block an @supports (-webkit-touch-callout: none) und
+   traf damit NUR iOS; Android-Tablets fielen auf die Desktop-Basisregeln
+   zurück (math-field content-box -> Rahmen+Padding kommen zu den 85%
+   hinzu, Steuertasten-Zeilen auf calc(85%+34px), .btnrow nicht umbrechend)
+   und liefen deshalb rechts aus dem Viewport. Jetzt über (pointer: coarse)
+   + Breite 900-1400 gesteuert — iPad matcht das weiterhin, Android nun
+   ebenfalls. Desktop (pointer: fine) bleibt außen vor. */
+@media (pointer: coarse)
+  and (min-width: 900px)
+  and (max-width: 1400px) {
 
     #appcontent {
       width: 100%;
@@ -419,5 +425,4 @@
     mjx-container[jax="CHTML"][display="true"] {
       margin: 0.4em 0;
     }
-  }
 }
