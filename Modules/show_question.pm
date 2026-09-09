@@ -275,7 +275,7 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="="><span class='mathbtn' data-tex="="></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="+"><span class='mathbtn' data-tex="+"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="-"><span class='mathbtn' data-tex="-"></span></button>};
-      print qq{<button type="button" class="pbtn" data-ins="·"><span class='mathbtn' data-tex="\\times"></span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="·"><span class='mathbtn' data-tex="\\cdot"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="/"><span class='mathbtn' data-tex="\\div"></span></button>};
       print "</span>";
 
