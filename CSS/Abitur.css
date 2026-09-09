@@ -246,7 +246,11 @@
      höher ist. Damit "weiter" (die mittlere Zeile in .weiterCol) dann
      auch wirklich in der Mitte VON .weiterCol selbst sitzt, müssen die
      obere und untere .cpRow gleich hoch sein — siehe min-height unten. */
-  .answerRow { display: flex; align-items: center; gap: 1%; width: 100%; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+  .answerRow { display: flex; align-items: center; gap: 1%; width: 100%; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+  /* Die Palette traegt inline "margin-top:-30px" — das frisst die Luft
+     unter dem Eingabefeld auf. Hier neutralisiert, damit ein kleiner
+     Abstand bleibt (PC wie Tablet). */
+  .palette.palette2 { margin-top: 0 !important; }
   .mf-scroll { flex: 1 1 auto; overflow-x: auto; overflow-y: hidden; max-width: none; border: 1px solid #ccc; padding: 4px; box-sizing: border-box; }
   .mf-scroll math-field.ml { display: block; width: 100%; min-width: 0; box-sizing: border-box; }
   .weiterCol { display: flex; flex-direction: column; gap: 0.25em; width: auto; align-items: center; position: static; flex: 0 0 auto; }
@@ -254,7 +258,7 @@
 
   
 
-  math-field.ml { width: 85%; font-size: 1.75rem; padding: 5px 4px 4px 10px ; border: 10px solid #e4dede; border-radius: 6px; min-height: 3.0em;}
+  math-field.ml { width: 85%; font-size: 1.75rem; padding: 5px 4px 4px 10px ; border: 10px solid #e4dede; border-radius: 6px; min-height: 4.5em;}
   math-field.ml { font-family: "KaTeX_Main", "KaTeX_Math", serif !important; }
   math-field.ml.limit-hit { border-color: #c0392b; }
 
@@ -386,7 +390,7 @@
       padding: 5px 4px 4px 10px;
       border: 10px solid #e4dede;
       border-radius: 6px;
-      min-height: 3.0em;
+      min-height: 4.5em;
       box-sizing: border-box;
       /* EXPERIMENT (siehe Git-Historie): war "initial !important", was
          KaTeX-Fonts hier komplett abschaltete — vermutlich der Grund für
