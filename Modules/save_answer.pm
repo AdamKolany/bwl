@@ -6,6 +6,7 @@ use strict;
 
 require './Modules/Common.pm';
 require './Modules/DB.pm';
+require './Modules/HTML.pm';
 
 # ============================================================
 # Speichern einer Antwort
@@ -96,9 +97,85 @@ sub run {
 
   $DB::dbh->commit;  
   
+  # Bei falscher Formel-Antwort zuerst eine Zwischenseite zeigen: die
+  # eingegebene und die richtige Antwort. Weiter erst nach Klick auf "OK".
+  if ($kind eq 'formel' && ((scalar($Common::cgi->param('richtig')) // 'N') ne 'J')) {
+    _formel_feedback($qid, $nr, (scalar($Common::cgi->param('user_latex')) // ''),
+                     $dbg, (scalar($Common::cgi->param('answer')) // '0'));
+  }
+  
   my $answer = $Common::cgi->param('answer') // '0';
   Common::send_redirect(qs => "action=q&nr=" . ($nr+1) . $dbg."&answer=$answer");
 
 } # save_answer - Ende
+
+
+# ------------------------------------------------------------
+# Zwischenseite nach einer falschen Formel-Antwort:
+# zeigt die eingegebene und die richtige Antwort, "OK" -> naechste Frage.
+# ------------------------------------------------------------
+sub _formel_feedback {
+  my ($qid, $nr, $given, $dbg, $answer) = @_;
+
+  my $rows = $DB::dbh->selectall_arrayref(
+    q{ SELECT antwort_latex, antwort, richtig FROM antworte WHERE frage_id = ? ORDER BY antwort_id },
+    undef, $qid);
+  my @correct;
+  for my $r (@$rows) {
+    my ($ltx, $atxt, $richtig) = @$r;
+    next unless defined $richtig && $richtig eq 'J';
+    my $c = (defined $ltx && $ltx !~ /^\s*$/) ? $ltx : $atxt;
+    next unless defined $c && $c !~ /^\s*$/;
+    $c =~ s/\s+/ /g; $c =~ s/^\s+|\s+$//g;
+    push @correct, $c;
+  }
+
+  (my $g = defined $given ? $given : '') =~ s/\s+/ /g;
+  $g =~ s/^\s+|\s+$//g;
+  my $next = $nr + 1;
+
+  HTML::page_header("Antwort");
+  print qq{<div class="sep"></div>};
+  print qq{<p class="warn" style="font-size:2.6rem; margin:0.4rem 0 1rem;">Leider falsch!</p>};
+
+  print qq{<fieldset><legend>Deine Antwort</legend>};
+  print $g ne ''
+    ? qq{<div class="fbtex" data-tex="@{[ escapeHTML($g) ]}"></div>}
+    : qq{<p class="small">(leer)</p>};
+  print qq{</fieldset>};
+
+  print qq{<fieldset><legend>Richtige Antwort</legend>};
+  if (@correct) {
+    print qq{<div class="fbtex" data-tex="@{[ escapeHTML($_) ]}"></div>} for @correct;
+  } else {
+    print qq{<p class="small">(keine hinterlegt)</p>};
+  }
+  print qq{</fieldset>};
+
+  print qq{<div class="sep"></div>};
+  print qq{<form method="GET" class="okForm">};
+  print qq{<input type="hidden" name="action" value="q">};
+  print qq{<input type="hidden" name="nr" value="$next">};
+  print qq{<input type="hidden" name="answer" value="@{[ escapeHTML($answer) ]}">};
+  print qq{<input type="hidden" name="debug" value="1">} if $dbg;
+  print qq{<button class="btn okBtn" type="submit">OK</button>};
+  print qq{</form>};
+
+  print <<'JS';
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.fbtex').forEach(function (el) {
+    var tex = el.getAttribute('data-tex') || '';
+    try { katex.render(tex, el, { throwOnError: false, displayMode: true }); }
+    catch (e) { el.textContent = tex; }
+  });
+});
+</script>
+JS
+
+  HTML::page_footer();
+  exit;
+}
+
 
 1;

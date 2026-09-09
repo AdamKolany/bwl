@@ -60,6 +60,16 @@ document.addEventListener ( "DOMContentLoaded", () => {
           } 
         ) ();
 
+  // Das Palette-"e" (Eulersche Zahl) wird fett als \mathbf{e} eingefuegt,
+  // in den hinterlegten Antworten steht aber ein normales e. Fuer die
+  // LaTeX-Ausgabe und die Auswertung daher \mathbf{e} / \boldsymbol{e} /
+  // \bm{e} wieder zu e machen (nur exakt das e, nicht \mathbf{Dm} o.ae.).
+  function unboldEulerE(s) {
+    return (s || "")
+      .replace(/\\(?:mathbf|boldsymbol|bm)\s*\{\s*e\s*\}/g, "e")
+      .replace(/\\(?:mathbf|boldsymbol|bm)\s+e(?![A-Za-z])/g, "e");
+  }
+
   function replaceInvisibleOperator(node) {
     if (Array.isArray(node)) {
       const mapped = node.map(replaceInvisibleOperator);
@@ -178,7 +188,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
     // 1) latex — zawsze
     const raw = (mf && mf.getValue) ? (mf.getValue("latex-unstyled") || mf.getValue("latex") || mf.getValue("latex-expanded") || "") : "";
   
-    const latex0 = cleanupLatex(raw);
+    const latex0 = unboldEulerE(cleanupLatex(raw));
 
     if (outLatex) outLatex.value = latex0;
 
@@ -192,7 +202,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
       if (lc) lc.textContent = latex0;
     } catch (_) {}
 
-    answer = document.getElementById("answer"); if (answer) latex1 = answer.getAttribute("data-answer");
+    answer = document.getElementById("answer"); if (answer) latex1 = unboldEulerE(answer.getAttribute("data-answer"));
     
     /* 
     // 2) LTX podgląd — zawsze

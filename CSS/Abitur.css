@@ -58,6 +58,9 @@
   .q     { font-size: 2.0rem; margin-top: 0px; line-height:3.0rem; }
 
   .sep   { margin: 10px 0; border-top: 1px solid #eee; }
+  .fbtex { margin: 0.4rem 0 0.8rem; text-align: center; }
+  .okForm { display: flex; justify-content: flex-end; margin-top: 1rem; }
+  .okBtn  { font-size: 1.7rem; padding: 0.55rem 3rem; }
   .skip  { margin-left:0; text-align: right;}	
   .tiny  { font-size: 1.0em;}
   .kexpr { display: inline-block;  line-height: 1;  vertical-align: middle;  }
