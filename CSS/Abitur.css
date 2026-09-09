@@ -254,7 +254,7 @@
 
   
 
-  math-field.ml { width: 85%; font-size: 1.75rem; padding: 5px 4px 4px 10px ; border: 10px solid #e4dede; border-radius: 6px; min-height: 2.0em;}
+  math-field.ml { width: 85%; font-size: 1.75rem; padding: 5px 4px 4px 10px ; border: 10px solid #e4dede; border-radius: 6px; min-height: 3.0em;}
   math-field.ml { font-family: "KaTeX_Main", "KaTeX_Math", serif !important; }
   math-field.ml.limit-hit { border-color: #c0392b; }
 
@@ -386,7 +386,7 @@
       padding: 5px 4px 4px 10px;
       border: 10px solid #e4dede;
       border-radius: 6px;
-      min-height: 2.0em;
+      min-height: 3.0em;
       box-sizing: border-box;
       /* EXPERIMENT (siehe Git-Historie): war "initial !important", was
          KaTeX-Fonts hier komplett abschaltete — vermutlich der Grund für
