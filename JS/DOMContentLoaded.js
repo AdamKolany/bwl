@@ -120,6 +120,75 @@ document.addEventListener ( "DOMContentLoaded", () => {
     return JSON.stringify(normalizeMJ(a)) === JSON.stringify(normalizeMJ(b));
   }
 
+  // --- Numerischer Gleichheitstest (Monte Carlo) --------------------------
+  // Der rein symbolische Vergleich (diff.isEqual(0)) liefert nur dann ein
+  // sicheres true, wenn die Antwort AEHNLICH geschrieben ist wie die
+  // Musterloesung. Algebraisch gleiche, aber anders notierte Antworten
+  // (z.B. sin(6x-13)/6 statt (1/6)sin(6x-13), Summanden umgestellt) bleiben
+  // unentschieden und wurden bisher als falsch gewertet. Fallback: beide
+  // Seiten an mehreren zufaelligen Punkten auswerten und vergleichen.
+  const _MC_KNOWN = new Set(["Pi","ExponentialE","ImaginaryUnit","GoldenRatio",
+    "EulerGamma","CatalanConstant","MachineEpsilon","True","False","Nothing",
+    "Infinity","ComplexInfinity","NaN","Half"]);
+
+  function _mcSymbols(mj, acc) {
+    if (typeof mj === "string") {
+      if (!_MC_KNOWN.has(mj) && /^[A-Za-z][A-Za-z0-9_]*$/.test(mj)) acc.add(mj);
+      return;
+    }
+    if (Array.isArray(mj)) { for (let i = 1; i < mj.length; i++) _mcSymbols(mj[i], acc); return; }
+    if (mj && typeof mj === "object") {
+      if (typeof mj.sym === "string") { _mcSymbols(mj.sym, acc); return; }
+      if (Array.isArray(mj.fn)) { for (let i = 1; i < mj.fn.length; i++) _mcSymbols(mj.fn[i], acc); return; }
+    }
+  }
+
+  function _mcReIm(x) {
+    if (x == null) return [NaN, 0];
+    if (typeof x.re === "number" || typeof x.im === "number")
+      return [typeof x.re === "number" ? x.re : NaN, typeof x.im === "number" ? x.im : 0];
+    let v = x;
+    try { if (typeof x.value === "number") return [x.value, 0]; } catch (_) {}
+    try { if (typeof x.valueOf === "function") v = x.valueOf(); } catch (_) {}
+    if (typeof v === "number") return [v, 0];
+    if (v && typeof v.re === "number") return [v.re, v.im || 0];
+    const n = Number(v);
+    return [Number.isNaN(n) ? NaN : n, 0];
+  }
+
+  // true  = an allen gueltigen Stichproben gleich
+  // false = an mindestens einer Stichprobe verschieden
+  // undefined = zu wenige auswertbare Stichproben -> keine Aussage
+  function monteCarloEqual(CE, a, b, N, TOL) {
+    N = N || 24; TOL = TOL || 1e-6;
+    let syms;
+    try {
+      const set = new Set();
+      _mcSymbols(a.json, set); _mcSymbols(b.json, set);
+      syms = [...set];
+    } catch (_) { return undefined; }
+
+    let good = 0, bad = 0, used = 0;
+    for (let t = 0; t < N; t++) {
+      const sub = {};
+      // moderater positiver Bereich -> haelt \sqrt, \ln, Division usw. definiert
+      for (const v of syms) sub[v] = CE.box(0.35 + 4.65 * Math.random());
+      let va, vb;
+      try {
+        va = _mcReIm((syms.length ? a.subs(sub) : a).N());
+        vb = _mcReIm((syms.length ? b.subs(sub) : b).N());
+      } catch (_) { continue; }
+      if (![va[0], va[1], vb[0], vb[1]].every(Number.isFinite)) continue;
+      used++;
+      const d = Math.hypot(va[0] - vb[0], va[1] - vb[1]);
+      const scale = Math.max(1, Math.hypot(va[0], va[1]), Math.hypot(vb[0], vb[1]));
+      if (d <= TOL * scale) good++; else bad++;
+      if (!syms.length) break; // konstanter Ausdruck: eine Auswertung genuegt
+    }
+    if (used < (syms.length ? 6 : 1)) return undefined;
+    return bad === 0 && good > 0;
+  }
+
   function mjSize(node) {
     if (Array.isArray(node)) {
       return 1 + node.reduce((s, x) => s + mjSize(x), 0);
@@ -183,7 +252,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
     } catch (_) {}
   });
 
-  const update = () => {
+  const update = (final) => {
 
     // 1) latex — zawsze
     const raw = (mf && mf.getValue) ? (mf.getValue("latex-unstyled") || mf.getValue("latex") || mf.getValue("latex-expanded") || "") : "";
@@ -215,7 +284,10 @@ document.addEventListener ( "DOMContentLoaded", () => {
     try {
       const mj = parseCommaSeparatedStatements(MathfieldElement.computeEngine, latex0);
       if (outMJ) outMJ.value = JSON.stringify(replaceInvisibleOperator(mj));
-      if (mjs) {
+
+      // Bewertung (CE-Vergleich + Monte Carlo) ist teuer und wird NICHT
+      // bei jedem Tastendruck gebraucht — nur beim Absenden (final).
+      if (final && mjs) {
 
         const CE = new window.ComputeEngine.ComputeEngine(); 
         const json0 = replaceInvisibleOperator(CE.parse(latex0, { form: 'raw'} ).json[2]);
@@ -236,9 +308,11 @@ document.addEventListener ( "DOMContentLoaded", () => {
         ;
         /* */
 
-        document.getElementById('richtig').value = diff.isEqual(0) ? 'J' : 'N';
+        let eq = (diff.isEqual(0) === true);
+        if (!eq && monteCarloEqual(CE, json0c, json1c) === true) eq = true;
+        document.getElementById('richtig').value = eq ? 'J' : 'N';
         const s1=document.getElementById('score');
-        s1.dataset.score = diff.isEqual(0) ? 1 : 0;
+        s1.dataset.score = eq ? 1 : 0;
         /* Vorübergehend 
         s1.textContent = (result === undefined) ? "" : (diff.isEqual(0) ? " [Richtig]" : " [Falsch]");
         /* */
@@ -266,7 +340,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
 
   }; // update
 
-  mf.addEventListener("input", update);
+  mf.addEventListener("input", () => update());
 
 
   // MathLive scala (koalescuje) kolejne wywołania "insert" o tym samym
@@ -409,7 +483,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
 
       document.addEventListener("click", handlePbtn, true);
 
-      const form = mf.closest("form"); if (form) form.addEventListener ( "submit" , () => { try { update(); } catch (e) {} } );
+      const form = mf.closest("form"); if (form) form.addEventListener ( "submit" , () => { try { update(true); } catch (e) {} } );
 
       window.addEventListener ( "load" ,  () => { if (window.MathfieldElement && window.ComputeEngine) { MathfieldElement.computeEngine = new ComputeEngine.ComputeEngine(); } } );
 
