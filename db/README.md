@@ -17,7 +17,7 @@ Serverausfall auf einer anderen Maschine wiederherstellbar ist. Der Server
   Session-/Verlaufsdaten.
 
 Snapshot-Stand siehe Dateiname; Zeilenzahlen zum jeweiligen Zeitpunkt:
-`fragen` 117, `antworte` 117, `themen` 8, `kapitel` 7.
+`fragen` 117, `antworte` 117, `themen` 8, `kapitel` 1.
 
 ## Wiederherstellen auf einer frischen Maschine
 

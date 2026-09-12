@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict PFcBFOlamzqLVeZgItXPd1wbJGzpuISZtt3rdx6GV8x0Ch7JbQuGvkmQ2kTKoQh
+\restrict Ry6QC1EByOdEW4EQPiA2rbQ3lQFoP2EYYCfdTD1AViOmTvidgEBAXIdZ72J3hlS
 
 -- Dumped from database version 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
 -- Dumped by pg_dump version 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
@@ -233,17 +233,6 @@ COPY public.antworte (antwort, frage_id, richtig, antwort_id, antwort_text, antw
 --
 
 COPY public.fragen (frage, status, frage_id, "kap_kürzel", "th_kürzel") FROM stdin;
-Berechne die Ableitung der Funktion \\[f(x)=\\cos(e^{4x})\\]	F	2	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=e^{x^2-7x}\\]	F	3	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=\\sqrt{x^2+3}\\]	F	4	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=\\frac{x^2+5}{x-3}\\]	F	5	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=\\sin(5x^2)+\\ln x\\]	F	7	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=e^{6x}\\cdot \\sin(x)\\]	F	8	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=e^{x^2-7x}\\]	F	10	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=e^{x^2-9x}\\]	F	11	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=e^{x^2-5x}\\]	F	12	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=x^2\\cdot \\ln x\\]	F	13	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=e^{x^2-13x}\\]	F	14	TSTA 	abltn
 Klammern Sie das folgende aus: \\[\\mathcal{A}=6x^3+12x^2-18x\\]	F	16	TSTA 	auskl
 Klammern Sie das folgende aus: \\[\\mathcal{A}=x^2-4x+4\\]	F	17	TSTA 	auskl
 Klammern Sie das folgende aus: \\[\\mathcal{A}=x^2-9\\]	F	18	TSTA 	auskl
@@ -253,10 +242,48 @@ Klammern Sie das folgende aus: \\[\\mathcal{A}=4xy+4xz+12y^2+12yz\\]	F	21	TSTA 	
 Klammern Sie das folgende aus: \\[\\mathcal{A}=x^2-9\\]	F	22	TSTA 	auskl
 Klammern Sie das folgende aus: \\[\\mathcal{A}=4x^3+8x^2-12x\\]	F	24	TSTA 	auskl
 Klammern Sie das folgende aus: \\[\\mathcal{A}=3xy+3xz+4y^2+4yz\\]	F	25	TSTA 	auskl
+Bestimmen Sie den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=2x^4+18x^3+64x^2+159x+88\\text{~~und~~} S(x)=x^2+3x+11\\]	F	155	TSTA 	pldiv
+Bestimmen Sie den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=2x^4+7x^3+40x^2+68x+160\\text{~~und~~} S(x)=x^2+2x+9\\]	F	151	TSTA 	pldiv
+Bestimmen Sie den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=4x^4+x^3+30x^2+11x+79\\text{~~und~~} S(x)=x^2+x+3\\]	F	153	TSTA 	pldiv
+Bestimmen Sie den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=3x^4+21x^3+63x^2+90x+43\\text{~~und~~} S(x)=x^2+4x+7\\]	F	154	TSTA 	pldiv
+Bestimmen Sie den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=x^4+8x^3+28x^2+57x+68\\text{~~und~~} S(x)=x^2+2x+5\\]	F	152	TSTA 	pldiv
+Bestimmen Sie den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=2x^4+5x^3+23x^2+36x+46\\text{~~und~~} S(x)=x^2+x+7\\]	F	156	TSTA 	pldiv
 Klammern Sie das folgende aus: \\[\\mathcal{A}=x^2-1\\]	F	26	TSTA 	auskl
 Klammern Sie das folgende aus: \\[\\mathcal{A}=x^2-16\\]	F	27	TSTA 	auskl
 Klammern Sie das folgende aus: \\[\\mathcal{A}=25x^2-120xy+144y^2\\]	F	28	TSTA 	auskl
 Klammern Sie das folgende aus: \\[\\mathcal{A}=x^2-4\\]	F	29	TSTA 	auskl
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{4 x+4}{1-\\frac{6}{x-4}}\\]	F	67	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{3}{1+\\frac{x}{x+10}}\\]	F	68	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{x^2-2}{2+\\frac{14}{x+1}}\\]	F	69	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{4 x+4}{1-\\frac{14}{x-4}}\\]	F	70	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{x+4}{1+\\frac{4}{x}}\\]	F	71	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{1 x+10}{1-\\frac{12}{x-10}}\\]	F	72	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{x^2-1}{2+\\frac{6}{x+1}}\\]	F	73	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{x^2-5}{2+\\frac{10}{x+1}}\\]	F	74	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{2 x+10}{1-\\frac{12}{x-10}}\\]	F	75	TSTA 	dopbr
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=\\frac1x\\] mit \\(F(1)=-2\\)	F	91	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=6 x^5\\] mit \\(F(0)=3\\)	F	92	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=6\\cdot e^{6x}\\] mit \\(F(0)=0\\)	F	94	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=\\frac{2x}{x^2+7}\\] mit \\(F(0)=1\\)	F	96	TSTA 	stamf
+Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int x\\cdot \\sqrt{x^2+11}\\,dx\\]	F	109	TSTA 	unint
+Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\frac{2x}{x^2+1}\\,dx\\]	F	111	TSTA 	unint
+Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\sin(2 x)\\,dx\\]	F	112	TSTA 	unint
+Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\sin(8 x)\\,dx\\]	F	113	TSTA 	unint
+Bestimmen Sie bitte das unbestimmte Integral: \\[I=\\int \\frac{2x}{x^2+7}\\,dx\\]	F	106	TSTA 	unint
+Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int x\\cdot \\sqrt{x^2+1}\\,dx\\]	F	107	TSTA 	unint
+Berechen Sie die Ableitung der Funktion \\[f(x)=\\ln(x^2+7)+\\cos(x)\\]	F	9	TSTA 	abltn
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=2 x\\] mit \\(F(0)=1\\)	F	95	TSTA 	stamf
+Berechen Sie die Ableitung der Funktion \\[f(x)=e^{x^2-9x}\\]	F	11	TSTA 	abltn
+Berechen Sie die Ableitung der Funktion \\[f(x)=e^{x^2-5x}\\]	F	12	TSTA 	abltn
+Berechen Sie die Ableitung der Funktion \\[f(x)=x^2\\cdot \\ln x\\]	F	13	TSTA 	abltn
+Berechen Sie die Ableitung der Funktion \\[f(x)=e^{x^2-13x}\\]	F	14	TSTA 	abltn
+Berechen Sie die Ableitung der Funktion \\[f(x)=\\cos(e^{x})\\]	F	15	TSTA 	abltn
+Berechen Sien Sie die Ableitung der Funktion \\[f(x)=\\frac{x^2+2}{x-5}\\]	F	1	TSTA 	abltn
+Berechen Sie die Ableitung der Funktion \\[f(x)=\\ln(x^2+6)+\\cos(2 x)\\]	F	6	TSTA 	abltn
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{4}{x}+\\frac{10}{x+4}\\]	F	60	TSTA 	brtrm
+Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\cos(6 x-13)\\,dx\\]	F	115	TSTA 	unint
+Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\frac1x\\,dx\\]	F	116	TSTA 	unint
+Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int x\\cdot \\sqrt{x^2+3}\\,dx\\]	F	117	TSTA 	unint
 Klammern Sie das folgende aus: \\[\\mathcal{A}=10x^3+20x^2-30x\\]	F	30	TSTA 	auskl
 Multiplizieren Sie das \\[\\mathcal{A}=(x+4)^3\\] bitte aus und geben Sie das Endergebnis an.	F	31	TSTA 	ausml
 Multiplizieren Sie das \\[\\mathcal{A}=(x+4 y)\\cdot (x-4 y)\\] bitte aus und geben Sie das Endergebnis an.	F	32	TSTA 	ausml
@@ -273,78 +300,51 @@ Multiplizieren Sie das \\[\\mathcal{A}=(x+5)^3\\] bitte aus und geben Sie das En
 Multiplizieren Sie das \\[\\mathcal{A}=(x+4)^3\\] bitte aus und geben Sie das Endergebnis an.	F	43	TSTA 	ausml
 Multiplizieren Sie das \\[\\mathcal{A}=(x^2-2)\\cdot (x^2+2)\\] bitte aus und geben Sie das Endergebnis an.	F	44	TSTA 	ausml
 Multiplizieren Sie das \\[\\mathcal{A}=(x-2)\\cdot (x+4)\\] bitte aus und geben Sie das Endergebnis an.	F	45	TSTA 	ausml
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{5}{x}+\\frac{6}{x+5}\\]	F	46	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{x}{x-1}-\\frac{1}{x+1}\\]	F	47	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{x}{x-2}-\\frac{1}{x+2}\\]	F	48	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{6}{x}+\\frac{4}{x+6}\\]	F	49	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{5}{x}+\\frac{8}{x+5}\\]	F	50	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{1}{x-4}+\\frac{1}{x+4}\\]	F	51	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{5}{x}+\\frac{10}{x+5}\\]	F	54	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{x}{x+1}+\\frac{x}{x-1}\\]	F	56	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{1}{x-3}+\\frac{1}{x+3}\\]	F	57	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{1}{x-4}+\\frac{1}{x+4}\\]	F	58	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{4}{x}+\\frac{8}{x+4}\\]	F	59	TSTA 	brtrm
-Vereinfache den Ausdruck: \\[\\mathcal{W}=\\frac{4}{x}+\\frac{10}{x+4}\\]	F	60	TSTA 	brtrm
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{5}{1+\\frac{x}{x+6}}\\]	F	61	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{3}{1+\\frac{x}{x+4}}\\]	F	62	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{x^2-1}{2+\\frac{10}{x+1}}\\]	F	63	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{4 x+10}{1-\\frac{10}{x-10}}\\]	F	64	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{x^2-3}{2+\\frac{10}{x+1}}\\]	F	65	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{3 x+13}{1-\\frac{10}{x-13}}\\]	F	66	TSTA 	dopbr
-Berechne die Ableitung der Funktion \\[f(x)=\\cos(e^{x})\\]	F	15	TSTA 	abltn
-Berechne die Ableitung der Funktion \\[f(x)=\\ln(x^2+6)+\\cos(2 x)\\]	F	6	TSTA 	abltn
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{5}{1+\\frac{x}{x+6}}\\]	F	61	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{3}{1+\\frac{x}{x+4}}\\]	F	62	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{x^2-1}{2+\\frac{10}{x+1}}\\]	F	63	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{4 x+10}{1-\\frac{10}{x-10}}\\]	F	64	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{x^2-3}{2+\\frac{10}{x+1}}\\]	F	65	TSTA 	dopbr
+Vereinfachen Sie den Bruch: \\[\\mathcal{W}=\\frac{3 x+13}{1-\\frac{10}{x-13}}\\]	F	66	TSTA 	dopbr
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{5}{x}+\\frac{6}{x+5}\\]	F	46	TSTA 	brtrm
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{x}{x-1}-\\frac{1}{x+1}\\]	F	47	TSTA 	brtrm
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{x}{x-2}-\\frac{1}{x+2}\\]	F	48	TSTA 	brtrm
 Klammern Sie das folgende aus: \\[\\mathcal{A}=x^2-4xy+4y^2\\]	F	23	TSTA 	auskl
-Berechne die Ableitung der Funktion \\[f(x)=\\frac{x^2+2}{x-5}\\]	F	1	TSTA 	abltn
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{4 x+4}{1-\\frac{6}{x-4}}\\]	F	67	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{3}{1+\\frac{x}{x+10}}\\]	F	68	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{x^2-2}{2+\\frac{14}{x+1}}\\]	F	69	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{4 x+4}{1-\\frac{14}{x-4}}\\]	F	70	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{x+4}{1+\\frac{4}{x}}\\]	F	71	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{1 x+10}{1-\\frac{12}{x-10}}\\]	F	72	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{x^2-1}{2+\\frac{6}{x+1}}\\]	F	73	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{x^2-5}{2+\\frac{10}{x+1}}\\]	F	74	TSTA 	dopbr
-Vereinfache den Bruch: \\[\\mathcal{W}=\\frac{2 x+10}{1-\\frac{12}{x-10}}\\]	F	75	TSTA 	dopbr
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=\\frac1x\\] mit \\(F(1)=-2\\)	F	91	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=6 x^5\\] mit \\(F(0)=3\\)	F	92	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=6\\cdot e^{6x}\\] mit \\(F(0)=0\\)	F	94	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=\\frac{2x}{x^2+7}\\] mit \\(F(0)=1\\)	F	96	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=\\frac1x\\] mit \\(F(1)=-2\\)	F	97	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=\\frac1x\\] mit \\(F(1)=2\\)	F	98	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=7\\cdot \\cos(7 x)\\] mit \\(F(0)=-3\\)	F	99	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=7\\cdot e^{7x}\\] mit \\(F(0)=-1\\)	F	100	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=3 x^2\\] mit \\(F(0)=2\\)	F	101	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=3 x^2\\] mit \\(F(0)=1\\)	F	102	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=3\\cdot \\cos(3 x)\\] mit \\(F(0)=-2\\)	F	103	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=6\\cdot \\cos(6 x)\\] mit \\(F(0)=1\\)	F	104	TSTA 	stamf
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=\\frac{2x}{x^2+4}\\] mit \\(F(0)=0\\)	F	105	TSTA 	stamf
-Berechne die Ableitung der Funktion \\[f(x)=\\ln(x^2+7)+\\cos(x)\\]	F	9	TSTA 	abltn
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=2 x\\] mit \\(F(0)=0\\)	F	93	TSTA 	stamf
-Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int x\\cdot \\sqrt{x^2+11}\\,dx\\]	F	109	TSTA 	unint
+Berechen Sie die Ableitung der Funktion \\[f(x)=\\cos(e^{4x})\\]	F	2	TSTA 	abltn
+Berechen Sie die Ableitung der Funktion \\[f(x)=e^{x^2-7x}\\]	F	3	TSTA 	abltn
+Bestimmen Sie den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=2x^4+8x^3+33x^2+38x+76\\text{~~und~~} S(x)=x^2+x+3\\]	F	157	TSTA 	pldiv
+Bestimmen Sie den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=2x^4+6x^3+30x^2+53x+122\\text{~~und~~} S(x)=x^2+3x+7\\]	F	158	TSTA 	pldiv
+Bestimmen Sie den Rest \\(R(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=2x^4+4x^3+48x^2+51x+299\\text{~~und~~} S(x)=x^2+2x+11\\]	F	159	TSTA 	pldiv
+Bestimmen Sie den Rest \\(R(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=3x^4+12x^3+39x^2+47x+73\\text{~~und~~} S(x)=x^2+x+3\\]	F	160	TSTA 	pldiv
+Bestimmen Sie den Rest \\(R(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=3x^4+6x^3+57x^2+63x+247\\text{~~und~~} S(x)=x^2+x+11\\]	F	161	TSTA 	pldiv
+Bestimmen Sie den Rest \\(R(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=3x^4+24x^3+94x^2+214x+186\\text{~~und~~} S(x)=x^2+3x+11\\]	F	162	TSTA 	pldiv
+Bestimmen Sie den Rest \\(R(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=4x^4+23x^3+56x^2+92x+37\\text{~~und~~} S(x)=x^2+2x+5\\]	F	163	TSTA 	pldiv
+Bestimmen Sie den Rest \\(R(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=2x^4+6x^3+3x^2+10x+20\\text{~~und~~} S(x)=x^2+3x+1\\]	F	164	TSTA 	pldiv
+Bestimmen Sie den Rest \\(R(x)\\) bei der Polynomdivision: \\[P=S\\cdot Q+R\\] wobei \\[P(x)=4x^4+16x^3+49x^2+91x+157\\text{~~und~~} S(x)=x^2+4x+7\\]	F	165	TSTA 	pldiv
+Berechen Sie die Ableitung der Funktion \\[f(x)=\\sqrt{x^2+3}\\]	F	4	TSTA 	abltn
+Berechen Sie die Ableitung der Funktion \\[f(x)=\\frac{x^2+5}{x-3}\\]	F	5	TSTA 	abltn
+Berechen Sie die Ableitung der Funktion \\[f(x)=\\sin(5x^2)+\\ln x\\]	F	7	TSTA 	abltn
+Berechen Sie die Ableitung der Funktion \\[f(x)=e^{6x}\\cdot \\sin(x)\\]	F	8	TSTA 	abltn
+Berechen Sie die Ableitung der Funktion \\[f(x)=e^{x^2-7x}\\]	F	10	TSTA 	abltn
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{6}{x}+\\frac{4}{x+6}\\]	F	49	TSTA 	brtrm
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{5}{x}+\\frac{8}{x+5}\\]	F	50	TSTA 	brtrm
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{1}{x-4}+\\frac{1}{x+4}\\]	F	51	TSTA 	brtrm
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{5}{x}+\\frac{10}{x+5}\\]	F	54	TSTA 	brtrm
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{x}{x+1}+\\frac{x}{x-1}\\]	F	56	TSTA 	brtrm
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{1}{x-3}+\\frac{1}{x+3}\\]	F	57	TSTA 	brtrm
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{1}{x-4}+\\frac{1}{x+4}\\]	F	58	TSTA 	brtrm
+Vereinfachen Sien Sie den Ausdruck: \\[\\mathcal{W}=\\frac{4}{x}+\\frac{8}{x+4}\\]	F	59	TSTA 	brtrm
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=\\frac1x\\] mit \\(F(1)=-2\\)	F	97	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=\\frac1x\\] mit \\(F(1)=2\\)	F	98	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=7\\cdot \\cos(7 x)\\] mit \\(F(0)=-3\\)	F	99	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=7\\cdot e^{7x}\\] mit \\(F(0)=-1\\)	F	100	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=3 x^2\\] mit \\(F(0)=2\\)	F	101	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=3 x^2\\] mit \\(F(0)=1\\)	F	102	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=3\\cdot \\cos(3 x)\\] mit \\(F(0)=-2\\)	F	103	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=6\\cdot \\cos(6 x)\\] mit \\(F(0)=1\\)	F	104	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=\\frac{2x}{x^2+4}\\] mit \\(F(0)=0\\)	F	105	TSTA 	stamf
+Zeigen Sie die Stammfunktion \\(y=F(x)\\) von \\[f(x)=2 x\\] mit \\(F(0)=0\\)	F	93	TSTA 	stamf
 Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int 8\\cdot e^{8x}\\,dx\\]	F	110	TSTA 	unint
-Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\frac{2x}{x^2+1}\\,dx\\]	F	111	TSTA 	unint
-Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\sin(2 x)\\,dx\\]	F	112	TSTA 	unint
-Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\sin(8 x)\\,dx\\]	F	113	TSTA 	unint
-Bestimmen Sie bitte das unbestimmte Integral: \\[I=\\int \\frac{2x}{x^2+7}\\,dx\\]	F	106	TSTA 	unint
-Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int x\\cdot \\sqrt{x^2+1}\\,dx\\]	F	107	TSTA 	unint
-Zeige die Stammfunktion \\(y=F(x)\\) von \\[f(x)=2 x\\] mit \\(F(0)=1\\)	F	95	TSTA 	stamf
-Bestimmen Sie bitte den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P(x)=2x^4+18x^3+64x^2+159x+88\\text{~~und~~} S(x)=x^2+3x+11\\] \\(P=S\\cdot Q+R\\)	F	155	TSTA 	pldiv
-Bestimmen Sie bitte den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P(x)=2x^4+7x^3+40x^2+68x+160\\text{~~und~~} S(x)=x^2+2x+9\\] \\(P=S\\cdot Q+R\\)	F	151	TSTA 	pldiv
-Bestimmen Sie bitte den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P(x)=4x^4+x^3+30x^2+11x+79\\text{~~und~~} S(x)=x^2+x+3\\] \\(P=S\\cdot Q+R\\)	F	153	TSTA 	pldiv
-Bestimmen Sie bitte den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P(x)=3x^4+21x^3+63x^2+90x+43\\text{~~und~~} S(x)=x^2+4x+7\\] \\(P=S\\cdot Q+R\\)	F	154	TSTA 	pldiv
-Bestimmen Sie bitte den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P(x)=x^4+8x^3+28x^2+57x+68\\text{~~und~~} S(x)=x^2+2x+5\\] \\(P=S\\cdot Q+R\\)	F	152	TSTA 	pldiv
-Bestimmen Sie bitte den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P(x)=2x^4+5x^3+23x^2+36x+46\\text{~~und~~} S(x)=x^2+x+7\\] \\(P=S\\cdot Q+R\\)	F	156	TSTA 	pldiv
-Bestimmen Sie bitte den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P(x)=2x^4+8x^3+33x^2+38x+76\\text{~~und~~} S(x)=x^2+x+3\\] \\(P=S\\cdot Q+R\\)	F	157	TSTA 	pldiv
-Bestimmen Sie bitte den Quotienten \\(Q(x)\\) bei der Polynomdivision: \\[P(x)=2x^4+6x^3+30x^2+53x+122\\text{~~und~~} S(x)=x^2+3x+7\\] \\(P=S\\cdot Q+R\\)	F	158	TSTA 	pldiv
-Bestimmen Sie bitte den Rest \\(R(x)\\) bei der Polynomdivision: \\[P(x)=2x^4+4x^3+48x^2+51x+299\\text{~~und~~} S(x)=x^2+2x+11\\] \\(P=S\\cdot Q+R\\)	F	159	TSTA 	pldiv
-Bestimmen Sie bitte den Rest \\(R(x)\\) bei der Polynomdivision: \\[P(x)=3x^4+12x^3+39x^2+47x+73\\text{~~und~~} S(x)=x^2+x+3\\] \\(P=S\\cdot Q+R\\)	F	160	TSTA 	pldiv
-Bestimmen Sie bitte den Rest \\(R(x)\\) bei der Polynomdivision: \\[P(x)=3x^4+6x^3+57x^2+63x+247\\text{~~und~~} S(x)=x^2+x+11\\] \\(P=S\\cdot Q+R\\)	F	161	TSTA 	pldiv
-Bestimmen Sie bitte den Rest \\(R(x)\\) bei der Polynomdivision: \\[P(x)=3x^4+24x^3+94x^2+214x+186\\text{~~und~~} S(x)=x^2+3x+11\\] \\(P=S\\cdot Q+R\\)	F	162	TSTA 	pldiv
-Bestimmen Sie bitte den Rest \\(R(x)\\) bei der Polynomdivision: \\[P(x)=4x^4+23x^3+56x^2+92x+37\\text{~~und~~} S(x)=x^2+2x+5\\] \\(P=S\\cdot Q+R\\)	F	163	TSTA 	pldiv
-Bestimmen Sie bitte den Rest \\(R(x)\\) bei der Polynomdivision: \\[P(x)=2x^4+6x^3+3x^2+10x+20\\text{~~und~~} S(x)=x^2+3x+1\\] \\(P=S\\cdot Q+R\\)	F	164	TSTA 	pldiv
-Bestimmen Sie bitte den Rest \\(R(x)\\) bei der Polynomdivision: \\[P(x)=4x^4+16x^3+49x^2+91x+157\\text{~~und~~} S(x)=x^2+4x+7\\] \\(P=S\\cdot Q+R\\)	F	165	TSTA 	pldiv
-Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\cos(6 x-13)\\,dx\\]	F	115	TSTA 	unint
-Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\frac1x\\,dx\\]	F	116	TSTA 	unint
-Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int x\\cdot \\sqrt{x^2+3}\\,dx\\]	F	117	TSTA 	unint
 Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int \\cos(5 x-9)\\,dx\\]	F	118	TSTA 	unint
 Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int x\\cdot \\sqrt{x^2+13}\\,dx\\]	F	119	TSTA 	unint
 Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int 7\\cdot e^{7x}\\,dx\\]	F	120	TSTA 	unint
@@ -358,7 +358,7 @@ Bestimmen Sie bitte das unbestimmte Integral: \\[{I}=\\int(2x-\\cos(x))\\,dx\\]	
 --
 
 COPY public.kapitel (kapitel, "kap_kürzel") FROM stdin;
-Test vereinfachten Aufgaben	TSTA
+Aufgabenauswahl	TSTA
 \.
 
 
@@ -382,5 +382,5 @@ Bruchterme	brtrm	TSTA	N
 -- PostgreSQL database dump complete
 --
 
-\unrestrict PFcBFOlamzqLVeZgItXPd1wbJGzpuISZtt3rdx6GV8x0Ch7JbQuGvkmQ2kTKoQh
+\unrestrict Ry6QC1EByOdEW4EQPiA2rbQ3lQFoP2EYYCfdTD1AViOmTvidgEBAXIdZ72J3hlS
 
