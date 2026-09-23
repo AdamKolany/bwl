@@ -9,7 +9,7 @@ use CGI;
 
 # Voreingestellte Anzahl der Fragen im Menü (Feld "Anzahl der Fragen").
 # ==> HIER die Vorgabe ändern.
-our $DEFAULT_N = 3;
+our $DEFAULT_N = 1;
 
 # --- Fragenauswahl aus dem Themen-Satz --------------------------------
 #   'random'    : zufällig (Original-Verhalten; "später zurück zu random")
