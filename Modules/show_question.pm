@@ -576,6 +576,22 @@ print qq{</div>};
 
   print qq{ 
     <script>
+      // Android/Firefox: die rechte Maustaste wird vom System in "Zurück"
+      // umgewandelt und erreicht die Seite gar nicht (kein contextmenu,
+      // kein pointerdown) — gedrückt gehalten sogar mehrfach. Das kann man
+      // nicht abfangen, wohl aber das Zurückgehen: ein zusätzlicher
+      // Verlaufseintrag, der bei "popstate" sofort erneuert wird. Verlassen
+      // der Seite geht weiter über "weiter" bzw. den Menu-Link.
+      (function () {
+        if (!history.pushState) return;
+        const push = () => history.pushState({ bwlStay: 1 }, "");
+        if (!(history.state && history.state.bwlStay)) push();
+        addEventListener("popstate", () => {
+          if (window.__evlog) window.__evlog.log("back.blocked");
+          push();
+        });
+      })();
+
       function showSize() {
         document.getElementById("xysize").textContent = window.innerWidth+'×'+window.innerHeight; 
       }

@@ -62,6 +62,8 @@
     orient: (screen.orientation && screen.orientation.type) || null,
     touch: navigator.maxTouchPoints || 0, q: location.search,
   });
+  addEventListener("popstate", (e) => log("popstate", { st: e.state }));
+  addEventListener("pageshow", (e) => { if (e.persisted) log("pageshow.bfcache"); });
   addEventListener("resize", () => log("resize", { vw: innerWidth, vh: innerHeight }));
   addEventListener("orientationchange", () =>
     log("orientation", { o: (screen.orientation && screen.orientation.type) || window.orientation }));
@@ -76,7 +78,13 @@
   }, true);
 
   // --- Tastatur (physisch) ----------------------------------------------
+  // Volle Zeichen nur im Antwortfeld (Formelfeld bzw. Eingabefeld auf der
+  // Fragenseite); überall sonst nur Sondertasten (Enter, Pfeile, Backspace,
+  // Tab, Escape ...), damit z. B. Diktiertes nicht mitgeschrieben wird.
   document.addEventListener("keydown", (e) => {
+    const inAnswer = page.action === "q" && e.target && e.target.closest &&
+                     e.target.closest("math-field, textarea, input:not([type=hidden])");
+    if (!inAnswer && (e.key || "").length <= 1) return;
     log("key", {
       k: e.key, c: e.code,
       m: (e.ctrlKey ? "C" : "") + (e.altKey ? "A" : "") + (e.shiftKey ? "S" : "") + (e.metaKey ? "M" : "") || undefined,
