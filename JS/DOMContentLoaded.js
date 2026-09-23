@@ -23,6 +23,23 @@ document.addEventListener ( "DOMContentLoaded", () => {
         // Wyłącz wbudowane skróty MathLive (np. "u"→∪, "@"→∘) — litery wpisywane
         // fizyczną klawiaturą mają zostawać literami (zmiennymi), nie zamieniać się w symbole.
         try { mf.inlineShortcuts = {}; } catch (_) {}
+
+        // MathLive-Kontextmenü ("Insert Matrix" usw., per Rechtsklick oder
+        // langem Drücken) abschalten. Das HTML-Attribut menu="false" gibt es
+        // in MathLive nicht — es wirkt nur menuItems = []. Das Setter wirft,
+        // solange das Feld nicht "mounted" ist, daher auch beim "mount".
+        // Zusätzlich das contextmenu-Ereignis schon in der Capture-Phase
+        // verwerfen (MathLive ignoriert defaultPrevented-Ereignisse) und das
+        // Matrix-/Umgebungs-Popover abschalten.
+        const killMenu = () => {
+          try { mf.menuItems = []; } catch (_) {}
+          try { mf.environmentPopoverPolicy = "off"; } catch (_) {}
+        };
+        killMenu(); mf.addEventListener("mount", killMenu);
+        window.addEventListener("contextmenu", (e) => {
+          const t = e.target;
+          if (t && t.closest && t.closest("math-field, #palette, .answerRow")) e.preventDefault();
+        }, { capture: true });
       
         if (!MathfieldElement.computeEngine && window.ComputeEngine) { MathfieldElement.computeEngine = new ComputeEngine.ComputeEngine(); }
 

@@ -10,9 +10,11 @@ sub page_header {
   # Cache-Control-Header — ohne Versionsstempel können Browser (und verschiedene
   # Tabs/Rechner) unterschiedlich alte Kopien behalten.
   my $bwlCssV = (stat("/srv/wwwservers/www/tests/html/css/bwl/Abitur.css"))[9] // time;
+  my $evLogV  = (stat("/srv/wwwservers/www/tests/html/js/bwl/eventLog.js"))[9] // time;
   my $head = <<HEAD;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8"> $console
+    <script src="/js/bwl/eventLog.js?v=$evLogV"></script>
     <link rel="stylesheet" href="/js/mathlive/mathlive-fonts.css">
     <link rel="stylesheet" href="/js/mathlive/mathlive-static.css">
     <!-- <script defer src="https://cdn.jsdelivr.net/npm/katex\@0.16.11/dist/katex.min.js"></script> -->

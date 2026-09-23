@@ -48,3 +48,20 @@ CREATE TABLE IF NOT EXISTS geschichte(
 );
 
 CREATE TABLE IF NOT EXISTS sessions (sessionid character(18));
+
+-- Ereignisprotokoll (JS/eventLog.js -> doit.cgi?action=log -> Modules/event_log.pm).
+-- Nur zur Fehlersuche; Einträge > 90 Tage werden automatisch gelöscht.
+CREATE TABLE IF NOT EXISTS event_log(
+  id         bigserial PRIMARY KEY,
+  sessionid  character(18),
+  page_id    varchar(24),                -- ein Seitenaufruf
+  action     varchar(12),                -- menu / q / save ...
+  nr         smallint,                   -- Fragennummer in der Session
+  seq        integer,                    -- Reihenfolge innerhalb des Seitenaufrufs
+  client_ts  timestamptz,
+  server_ts  timestamptz DEFAULT now(),
+  typ        varchar(24) NOT NULL,       -- key, pdown, pup, mf.input, shake, ...
+  data       jsonb
+);
+CREATE INDEX IF NOT EXISTS event_log_sid_ts ON event_log (sessionid, client_ts);
+CREATE INDEX IF NOT EXISTS event_log_server_ts ON event_log (server_ts);

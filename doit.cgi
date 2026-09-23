@@ -17,6 +17,11 @@ require './Modules/start_quiz.pm';
 require './Modules/show_question.pm';
 require './Modules/save_answer.pm';
 require './Modules/show_result.pm';
+require './Modules/event_log.pm';
+
+# Ereignisprotokoll (JS/eventLog.js): vor der Telefon-Weiche, damit es nie
+# eine HTML-Seite statt 204 bekommt.
+event_log::run() if ($ENV{QUERY_STRING} // '') =~ /(?:^|&)action=log(?:&|$)/;
 
 my $ua = $ENV{'HTTP_USER_AGENT'} // '';
 
