@@ -17,6 +17,10 @@ sub run {
   my $n = $Common::cgi->param('n') // '';
   $n =~ s/^\s+|\s+$//g;
 
+  # Vorübergehend feste Aufgaben (s. @Common::ONLY_IDS): dann genau diese.
+  my $only = Common::only_qids($kapitel, $thema);
+  $n = scalar @$only if @$only;
+
   if ($n !~ /^\d+$/ || $n < 1 || $n > $cnt) {
     my $dbg = $Common::cgi->param('debug') ? "&debug=1" : "";
     Common::send_redirect(qs => "action=menu&kapitel=$kapitel&thema=$thema&err=invalid_n$dbg");
@@ -36,7 +40,10 @@ sub run {
   # Modules/Common.pm. 'random' = altes Verhalten, 'fractions' = feste
   # Bruchteil-Positionen im nach frage_id sortierten Themen-Satz.
   my $qids;
-  if (($Common::PICK_MODE // 'random') eq 'fractions') {
+  if (@$only) {
+    $qids = $only;
+  }
+  elsif (($Common::PICK_MODE // 'random') eq 'fractions') {
 
     my $all_qids = $DB::dbh->selectcol_arrayref(
       q{ SELECT frage_id FROM fragen WHERE "kap_kürzel" = ? AND th_kürzel = ? ORDER BY frage_id },

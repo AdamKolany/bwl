@@ -26,6 +26,31 @@ our $PICK_MODE = 'fractions';
 # die Fragen gleichmäßig über den Satz verteilt.
 our @PICK_FRACTIONS = (1/3, 1/2, 2/3);
 
+# --- VORÜBERGEHEND: feste Aufgaben pro Thema ---------------------------
+# Hat ein Thema Fragen aus dieser Liste (frage_id), besteht sein Satz aus
+# GENAU diesen Fragen (alle, nach frage_id sortiert); die Anzahl im Menü
+# ergibt sich daraus. Themen ohne Treffer (z. B. pldiv, stamf) laufen wie
+# gewohnt ($DEFAULT_N / $PICK_MODE).
+# ==> Zum Abschalten: our @ONLY_IDS = ();
+our @ONLY_IDS = (
+  2, 3, 4,      # abltn  Ableitungen
+  16, 29,       # auskl  Ausklammern
+  31,           # ausml  Ausmultiplizieren
+  46,           # brtrm  Bruchterm
+  66,           # dopbr  Doppelbruch
+  108, 120,     # unint  unbestimmtes Integral
+);
+
+# frage_ids aus @ONLY_IDS, die zu Kapitel/Thema gehören (leer = keine Vorgabe).
+sub only_qids {
+  my ($kap, $thema) = @_;
+  return [] unless @ONLY_IDS;
+  return $DB::dbh->selectcol_arrayref(
+    # \x{fc} = ü (Common.pm hat kein "use utf8")
+    qq{ SELECT frage_id FROM fragen WHERE "kap_k\x{fc}rzel" = ? AND "th_k\x{fc}rzel" = ? AND frage_id = ANY(?) ORDER BY frage_id },
+    undef, $kap, $thema, [@ONLY_IDS]) || [];
+}
+
 our $DB='bwl'; our $passwd="=jha_MUA@19850928//#DB,\L$DB"; our $user='drak'; our $THEMA='TSTA';
 
 sub escape_html {

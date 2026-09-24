@@ -92,6 +92,8 @@ sub run {
       ($cnt) = $DB::dbh->selectrow_array(  q{SELECT count(*) FROM fragen WHERE "kap_kürzel" = ? AND "th_kürzel" = ?}, undef, $chosen_kap, $chosen_thm );
       $cnt ||= 0;
       $n_suggest = $cnt if $cnt > 0 && $n_suggest > $cnt;
+      my $only = Common::only_qids($chosen_kap, $chosen_thm);   # vorübergehend, s. Common.pm
+      $n_suggest = scalar @$only if @$only;
     }
 
     if (($Common::cgi->param('err') // '') eq 'invalid_n' && $cnt > 0) {
