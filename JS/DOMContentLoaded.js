@@ -83,6 +83,8 @@ document.addEventListener ( "DOMContentLoaded", () => {
   // \bm{e} wieder zu e machen (nur exakt das e, nicht \mathbf{Dm} o.ae.).
   function unboldEulerE(s) {
     return (s || "")
+      // \cdot\mathbf{e} -> \cdot e (nicht \cdote): Leerzeichen nach einem Befehl erhalten
+      .replace(/(\\[A-Za-z]+)\s*(?=\\(?:mathbf|boldsymbol|bm)(?![A-Za-z]))/g, "$1 ")
       .replace(/\\(?:mathbf|boldsymbol|bm)\s*\{\s*e\s*\}/g, "e")
       .replace(/\\(?:mathbf|boldsymbol|bm)\s+e(?![A-Za-z])/g, "e");
   }
