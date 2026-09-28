@@ -9,7 +9,7 @@ use CGI;
 
 # Voreingestellte Anzahl der Fragen im Menü (Feld "Anzahl der Fragen").
 # ==> HIER die Vorgabe ändern.
-our $DEFAULT_N = 1;
+our $DEFAULT_N = 4;
 
 # --- Fragenauswahl aus dem Themen-Satz --------------------------------
 #   'random'    : zufällig (Original-Verhalten; "später zurück zu random")
@@ -32,7 +32,8 @@ our @PICK_FRACTIONS = (1/3, 1/2, 2/3);
 # ergibt sich daraus. Themen ohne Treffer (z. B. pldiv, stamf) laufen wie
 # gewohnt ($DEFAULT_N / $PICK_MODE).
 # ==> Zum Abschalten: our @ONLY_IDS = ();
-our @ONLY_IDS = (
+our @ONLY_IDS = ();   # abgeschaltet 2026-09-28; alte Liste zum Wiedereinschalten:
+our @ONLY_IDS_OFF = (
   2, 3, 4,      # abltn  Ableitungen
   16, 29,       # auskl  Ausklammern
   31,           # ausml  Ausmultiplizieren

@@ -562,6 +562,9 @@ print qq{</div>};
       print qq{<div id="js_err" style="color:#a00; white-space:pre-wrap; font-size:14px;"></div>};
 
       print qq{ <script src="/js/abitur/prettyMathJSON.js"></script> };
+      # Hilfetexte zu den Tasten (Texte in JS/paletteHelp.js); muss VOR DOMContentLoaded.js stehen.
+      my $helpJsV = (stat("/srv/wwwservers/www/tests/html/js/bwl/paletteHelp.js"))[9] // time;
+      print qq{ <script src="/js/bwl/paletteHelp.js?v=$helpJsV"></script> };
       my $bwlJsV = (stat("/srv/wwwservers/www/tests/html/js/bwl/DOMContentLoaded.js"))[9] // time;
       print qq{ <script src="/js/bwl/DOMContentLoaded.js?v=$bwlJsV"></script> };
   } # Formel
