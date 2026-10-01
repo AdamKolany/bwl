@@ -230,7 +230,14 @@ print qq{</div>};
       my $svg_capsShift = qq{<svg $svgFill><path d="$capsArrowPath"/></svg>};
       my $svg_capsLock  = qq{<svg $svgFill><path d="$capsArrowPath"/><rect x="4" y="19" width="16" height="2.5" rx="1"/></svg>};
 
+      # "heraus": Cursor hinter das umgebende Konstrukt (Exponent, Bruch,
+      # Wurzel, Betrag, ...) setzen — MathLive "moveAfterParent".
+      my $svg_exit      = qq{<svg $svgLine><rect x="2" y="5" width="11" height="14" rx="2" stroke-dasharray="3 2"/><path d="M8 12H21"/><path d="M17 8L21 12L17 16"/></svg>};
+
       my $navicons=
+        qq{<span class="navgrp">}.
+        qq{<button type="button" class="pbtn pbtn1" data-cmd="exitCtx" title="heraus">$svg_exit</button>}.
+        qq{</span>}.
         qq{<span class="navgrp">}.
         qq{<button type="button" class="pbtn pbtn1" data-cmd="bs"     title="Backspace">$svg_bs</button>}.
         qq{<button type="button" class="pbtn pbtn1" data-cmd="del"    title="Löschen">$svg_del</button>}.

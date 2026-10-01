@@ -424,6 +424,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
       if (cmd === "clear"     ) { try {  if (mf.selectionIsCollapsed === false) { breakUndoCoalescing(); mf.executeCommand("insert", ""); update(); } } catch (_) {}  return; }
       if (cmd === "selectAll" ) { try { mf.executeCommand("selectAll"); update(); } catch (_) {} return; }
       if (cmd === "move_L"    ) { try { mf.executeCommand("moveToPreviousChar"); update(); } catch(_) {} return; }
+      if (cmd === "exitCtx"   ) { try { mf.executeCommand("moveAfterParent");  update(); } catch(_) {} return; }
       if (cmd === "move_R"    ) { try { mf.executeCommand("moveToNextChar");     update(); } catch(_) {} return; }
 
       if (cmd === "capsel"    ) {

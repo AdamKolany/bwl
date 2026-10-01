@@ -32,7 +32,7 @@ our @PICK_FRACTIONS = (1/3, 1/2, 2/3);
 # ergibt sich daraus. Themen ohne Treffer (z. B. pldiv, stamf) laufen wie
 # gewohnt ($DEFAULT_N / $PICK_MODE).
 # ==> Zum Abschalten: our @ONLY_IDS = ();
-our @ONLY_IDS = ();   # abgeschaltet 2026-09-28; alte Liste zum Wiedereinschalten:
+# abgeschaltet 2026-09-28, wieder eingeschaltet 2026-10-01 (s. unten)
 our @ONLY_IDS_OFF = (
   2, 3, 4,      # abltn  Ableitungen
   16, 29,       # auskl  Ausklammern
@@ -41,6 +41,7 @@ our @ONLY_IDS_OFF = (
   66,           # dopbr  Doppelbruch
   108, 120,     # unint  unbestimmtes Integral
 );
+our @ONLY_IDS = @ONLY_IDS_OFF;   # 2026-10-01: wieder an; zum Abschalten: = ();
 
 # frage_ids aus @ONLY_IDS, die zu Kapitel/Thema gehören (leer = keine Vorgabe).
 sub only_qids {
