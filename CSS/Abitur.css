@@ -264,6 +264,11 @@
   math-field.ml { width: 85%; font-size: 1.75rem; padding: 5px 4px 4px 10px ; border: 10px solid #e4dede; border-radius: 6px; min-height: 4.5em;}
   math-field.ml { font-family: "KaTeX_Main", "KaTeX_Math", serif !important; }
   math-field.ml.limit-hit { border-color: #c0392b; }
+  /* Platzhalter-Kästchen (▢, Systemschrift, dünne Linie): MathLive-Standard
+     ist opacity 0.4 + hellblau — im Exponenten auf dem iPad kaum sichtbar. */
+  math-field.ml { --placeholder-opacity: 1; --placeholder-color: #1f4f8f;
+                  /* feste helle Auswahlfarben — sonst im Dark Mode des iPad weiße Schrift */
+                  --selection-color: #000; --selection-background-color: #c9dcf5; }
 
   math-field::part(menu-toggle) { display: none !important; }
 
@@ -278,7 +283,6 @@
     opacity: 0.45 !important;   /* zmniejsz = jaśniej */
     background: rgba(152, 177, 135, 1.00) !important;
   }
-
   math-field .ML__contains-highlight { opacity: 0.05 !important; }
 
   .lma { font-size: 1.0vw; text-align: left; font-family: ui-monospace, "DejaVu Sans Mono", monospace;line-height: 1.3; white-space: pre-wrap; margin-left: 4%;}

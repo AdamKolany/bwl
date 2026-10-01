@@ -21,7 +21,7 @@
     "cmd:paste":     "Einfügen",
     "cmd:move_L":    "Cursor nach links (auch aus Exponent, Bruch, Klammer heraus)",
     "cmd:move_R":    "Cursor nach rechts (auch aus Exponent, Bruch, Klammer heraus)",
-    "cmd:exitCtx":   "Heraus: Cursor hinter das ganze Konstrukt setzen (Exponent, Bruch, Wurzel, Betrag …)",
+    "cmd:exitCtx":   "Heraus: eine Ebene hinaus — Cursor hinter das innerste Konstrukt (Exponent, Bruchteil, Wurzel, Klammer …)",
     "cmd:bs":        "Zeichen links vom Cursor löschen",
     "cmd:del":       "Zeichen rechts vom Cursor löschen",
     "cmd:clear":     "Auswahl löschen",

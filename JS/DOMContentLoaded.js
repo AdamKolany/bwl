@@ -49,7 +49,11 @@ document.addEventListener ( "DOMContentLoaded", () => {
         //let mjsval= outMJ.value;     mjs.textContent = 'wait';// mjsval.replace(/"/g,'').replace(/,/g,' , ').replace(/(\[\|\])/g," \$1 ");
         
         
-        mf.addEventListener("blur", cleanMathfieldInPlace);
+        // AUS (2026-10-01): auf dem iPad löst JEDER Tastendruck auf der Palette
+        // ein blur aus; das setValue() hier baute das Feld jedes Mal neu auf und
+        // erzeugte z. B. ein nicht löschbares "p^2^{}". Leere ^{}/_{} werden
+        // ohnehin in update() per cleanupLatex() aus dem abgeschickten Wert entfernt.
+        // mf.addEventListener("blur", cleanMathfieldInPlace);
 
   
         if (!window.__ceDeclaredFG) {
@@ -61,10 +65,20 @@ document.addEventListener ( "DOMContentLoaded", () => {
         ( function patchMathLiveHighlight() {
             if (!mf || !mf.shadowRoot) return;
 
+            // Früher opacity:0.05 auf dem ganzen Element — dadurch wurde der
+            // INHALT (Platzhalter-Kästchen im Exponenten, Bruch, ...) fast
+            // unsichtbar (iPad, 2026-10-01). Jetzt nur ein blasser Hintergrund;
+            // Platzhalter (▢) voll deckend und dunkler (Standard: opacity 0.4).
             const css = `
             .ML__contains-highlight{
-              opacity: 0.05 !important;
-              background: rgba(255,255,0,1) !important;
+              background: rgba(255,255,0,0.12) !important;
+            }
+            .ML__placeholder,
+            .ML__selected .ML__placeholder,
+            .ML__focused .ML__selected .ML__placeholder{
+              opacity: 1 !important;
+              color: #1f4f8f !important;
+              -webkit-text-stroke: 0.06em #1f4f8f;   /* dünne Linie von ▢ verstärken (iPad, Bruch/Exponent = kleine Schrift) */
             }`;
 
             // nie dubluj
@@ -403,6 +417,19 @@ document.addEventListener ( "DOMContentLoaded", () => {
     }
   }
 
+  // "heraus": eine Ebene hinaus (aus dem innersten Exponenten, Bruchteil,
+  // Wurzel, Klammer, ...). Unsichtbare Gruppen {…} (z. B. der Nenner aus
+  // \frac{#0}{{#?}}) zählen nicht als Ebene — sonst passiert sichtbar nichts.
+  function exitContext(mf) {
+    const model = mf._mathfield && mf._mathfield.model;
+    for (let i = 0; i < 20; i++) {
+      let parent = null;
+      try { parent = model ? model.at(model.position).parent : null; } catch (_) {}
+      if (!mf.executeCommand("moveAfterParent")) return;
+      if (!parent || parent.type !== "group") return;
+    }
+  }
+
   const handlePbtn = (e) => {
       const btn = e.target.closest(".pbtn"); if (!btn) return; try { mf.focus(); } catch(_) {}
       const cmd = btn.getAttribute("data-cmd") || "";  const ins = btn.getAttribute("data-ins") || ""; try { mf.focus(); } catch(_) {}
@@ -424,7 +451,7 @@ document.addEventListener ( "DOMContentLoaded", () => {
       if (cmd === "clear"     ) { try {  if (mf.selectionIsCollapsed === false) { breakUndoCoalescing(); mf.executeCommand("insert", ""); update(); } } catch (_) {}  return; }
       if (cmd === "selectAll" ) { try { mf.executeCommand("selectAll"); update(); } catch (_) {} return; }
       if (cmd === "move_L"    ) { try { mf.executeCommand("moveToPreviousChar"); update(); } catch(_) {} return; }
-      if (cmd === "exitCtx"   ) { try { mf.executeCommand("moveAfterParent");  update(); } catch(_) {} return; }
+      if (cmd === "exitCtx"   ) { try { exitContext(mf); update(); } catch(_) {} return; }
       if (cmd === "move_R"    ) { try { mf.executeCommand("moveToNextChar");     update(); } catch(_) {} return; }
 
       if (cmd === "capsel"    ) {
