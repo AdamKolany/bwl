@@ -178,7 +178,9 @@
     "padding:.3em .6em;border-radius:6px;background:#333;color:#fff;font:14px/1.3 sans-serif;" +
     "box-shadow:0 2px 6px rgba(0,0,0,.3);opacity:0;transition:opacity .12s;}" +
     "#pbtnHelp.on{opacity:1;}" +
-    ".pbtn{-webkit-touch-callout:none;}";
+    // Langes Drücken (Hilfe-Tooltip) startete auf dem iPad die native
+    // Textauswahl der Seite (blauer Balken über eine ganze Tastenzeile).
+    ".palette,.palette *,.pbtn{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;}";
   document.head.appendChild(style);
 
   let tip = null, timer = null, hideTimer = null, suppressClick = false, start = null;

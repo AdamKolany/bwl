@@ -430,6 +430,27 @@ document.addEventListener ( "DOMContentLoaded", () => {
     }
   }
 
+  // Auswahl um ein GANZES Element erweitern (Bruch, Potenz, Wurzel, ...).
+  // MathLives extendSelectionForward/Backward geht nur eine Position in der
+  // flachen Atomfolge weiter, also schrittweise IN Zähler, Exponent, Nenner
+  // hinein — die Zwischenauswahlen sind halbe Konstrukte, die Markierung
+  // blinkt bei jedem Druck auf und verschwindet wieder (iPad, 2026-10-02).
+  // Hier: so lange weitergehen, bis das Ende wieder auf der Ebene des Ankers
+  // (oder darüber) liegt.
+  function extendSelectionWhole(mf, dir) {
+    const model = mf._mathfield && mf._mathfield.model;
+    const fallback = () => mf.executeCommand(dir > 0 ? "extendSelectionForward" : "extendSelectionBackward");
+    if (!model || typeof model.at !== "function") return fallback();
+    const depth = (a) => { let d = 0; for (; a && a.parent; a = a.parent) d++; return d; };
+    const anchor = model.anchor, last = model.lastOffset;
+    const d0 = depth(model.at(anchor));
+    let pos = model.position;
+    do { pos += dir; } while (pos > 0 && pos < last && depth(model.at(pos)) > d0);
+    pos = Math.max(0, Math.min(last, pos));
+    mf.selection = pos >= anchor ? { ranges: [[anchor, pos]], direction: "forward" }
+                                 : { ranges: [[pos, anchor]], direction: "backward" };
+  }
+
   const handlePbtn = (e) => {
       const btn = e.target.closest(".pbtn"); if (!btn) return; try { mf.focus(); } catch(_) {}
       const cmd = btn.getAttribute("data-cmd") || "";  const ins = btn.getAttribute("data-ins") || ""; try { mf.focus(); } catch(_) {}
@@ -504,8 +525,8 @@ document.addEventListener ( "DOMContentLoaded", () => {
       // extendToPreviousWord/extendToNextWord zaznaczały całe "słowo"
       // (kilka znaków naraz) zamiast jednego elementu — zamieniono na
       // odpowiedniki o granulacji pojedynczego znaku.
-      if (cmd === "selL") {  try { mf.executeCommand("extendSelectionBackward"); } catch (_) {}  update(); return; }
-      if (cmd === "selR") {  try { mf.executeCommand("extendSelectionForward");  } catch (_) {}  update(); return; }
+      if (cmd === "selL") {  try { extendSelectionWhole(mf, -1); } catch (_) {}  update(); return; }
+      if (cmd === "selR") {  try { extendSelectionWhole(mf, +1); } catch (_) {}  update(); return; }
       if (ins) {
         if (isInsertBlockedByLimit()) { flashLimit(); try { mf.focus(); } catch(_) {} return; }
         // wrapBtn (Klammern um die Auswahl): nach dem Einfügen die

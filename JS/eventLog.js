@@ -132,28 +132,6 @@
     mf.addEventListener("focus", () => log("mf.focus"));
     mf.addEventListener("blur", () => log("mf.blur", { v: val() }));
     mf.addEventListener("input", (e) => log("mf.input", { it: e.inputType, d: e.data, v: val(), sel: sel() }));
-    // DIAGNOSE (2026-10-01, iPad: Platzhalter-Kästchen unsichtbar): wie der
-    // Browser jedes ▢ tatsächlich darstellt (Größe, Farbe, Deckkraft, Schrift).
-    let phT = null;
-    const phDiag = () => {
-      clearTimeout(phT);
-      phT = setTimeout(() => {
-        try {
-          const root = mf.shadowRoot; if (!root) return;
-          const list = [...root.querySelectorAll(".ML__placeholder")].slice(0, 6).map((el) => {
-            const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
-            let op = 1; for (let n = el; n && n.nodeType === 1; n = n.parentElement) op *= parseFloat(getComputedStyle(n).opacity) || 0;
-            return { w: Math.round(r.width * 10) / 10, h: Math.round(r.height * 10) / 10,
-                     fs: cs.fontSize, ff: cs.fontFamily.slice(0, 30), col: cs.color, op: Math.round(op * 100) / 100,
-                     vis: cs.visibility, ts: cs.webkitTextStrokeWidth, txt: el.textContent,
-                     sel: !!el.closest(".ML__selected"), cls: (el.parentElement && el.parentElement.className || "").slice(0, 60) };
-          });
-          log("ml.ph", { dark: matchMedia("(prefers-color-scheme: dark)").matches, n: list.length, ph: list });
-        } catch (err) { log("ml.ph", { err: String(err).slice(0, 100) }); }
-      }, 400);
-    };
-    mf.addEventListener("input", phDiag);
-    mf.addEventListener("selection-change", phDiag);
     let selT = null;   // Auswahländerungen entprellen (Ziehen erzeugt viele)
     mf.addEventListener("selection-change", () => {
       clearTimeout(selT);
