@@ -180,8 +180,19 @@
     "#pbtnHelp.on{opacity:1;}" +
     // Langes Drücken (Hilfe-Tooltip) startete auf dem iPad die native
     // Textauswahl der Seite (blauer Balken über eine ganze Tastenzeile).
-    ".palette,.palette *,.pbtn{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;}";
+    ".palette,.palette *,.pbtn{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;}" +
+    // Ein Stift-Zug, der im Antwortfeld beginnt und hinausläuft, startete die
+    // Textauswahl der GANZEN Seite (iOS malt sie dann auch über die Tasten):
+    // native Auswahl seitenweit aus, nur in Eingabefeldern erlaubt
+    // (das math-field verwaltet seine Auswahl selbst).
+    "body{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;}" +
+    "input,textarea,[contenteditable],math-field{-webkit-user-select:text;user-select:text;}";
   document.head.appendChild(style);
+  document.addEventListener("selectstart", (e) => {
+    const t = e.target && e.target.nodeType === 1 ? e.target : e.target && e.target.parentElement;
+    if (t && t.closest && t.closest("input,textarea,[contenteditable],math-field")) return;
+    e.preventDefault();
+  }, true);
 
   let tip = null, timer = null, hideTimer = null, suppressClick = false, start = null;
 
