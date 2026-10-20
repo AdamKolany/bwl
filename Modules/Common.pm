@@ -41,6 +41,18 @@ our @ONLY_IDS_OFF = (
   66,           # dopbr  Doppelbruch
   108, 120,     # unint  unbestimmtes Integral
 );
+# 2026-10-19: Satz fürs Schulungsvideo (Tastatur), je Thema eine Aufgabe.
+# ==> Zurück zum vorigen Satz: our @ONLY_IDS = @ONLY_IDS_OFF;
+our @ONLY_IDS_VIDEO = (
+  2,            # abltn  cos(e^{4x})           -> sin/cos, e, Exponent, heraus
+  23,           # auskl  x^2-4xy+4y^2           -> Klammern, Quadrat
+  33,           # ausml  (x+3y)(x-4y)           -> zwei Variablen, Quadrate
+  48,           # brtrm  x/(x-2) - 1/(x+2)      -> Bruch
+  64,           # dopbr  Doppelbruch            -> Bruch mit Produkt im Zähler
+  152,          # pldiv  Polynomdivision        -> Polynom
+  96,           # stamf  2x/(x^2+7), F(0)=1     -> ln
+  107,          # unint  x*sqrt(x^2+1)          -> Bruch im Exponenten, +C
+);
 our @ONLY_IDS = @ONLY_IDS_OFF;   # 2026-10-01: wieder an; zum Abschalten: = ();
 
 # frage_ids aus @ONLY_IDS, die zu Kapitel/Thema gehören (leer = keine Vorgabe).

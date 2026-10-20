@@ -532,7 +532,11 @@ document.addEventListener ( "DOMContentLoaded", () => {
         // wrapBtn (Klammern um die Auswahl): nach dem Einfügen die
         // Auswahl auf den kompletten neuen Ausdruck INKL. der Klammern
         // ausdehnen, statt sie (wie sonst üblich) kollabiert zu lassen.
-        const wrapSel = btn.classList.contains("wrapBtn") && mf.selectionIsCollapsed === false;
+        // Ein leeres Feld (z. B. leerer Nenner) ist als □ "markiert" — das
+        // zählt nicht als Auswahl, sonst landet der Cursor hinter der Klammer.
+        let selTex = "";
+        try { if (mf.selectionIsCollapsed === false) selTex = mf.getValue(mf.selection, "latex") || ""; } catch (_) {}
+        const wrapSel = btn.classList.contains("wrapBtn") && selTex.replace(/\\placeholder\{\}/g, "").trim() !== "";
         const wrapStart = wrapSel ? mf.selection.ranges[0][0] : null;
         try { breakUndoCoalescing(); mf.executeCommand("insert", ins); update(); } catch (_) {}
         if (wrapSel) {
