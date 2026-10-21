@@ -225,9 +225,11 @@
   .pbtn.hot   { font-weight: 700; }
   .pbtn.domRg { font-size: 0.85em; }
 
-  .bottomRow { width: calc(85% + 34px); flex: none; display: grid; grid-template-columns: 1fr 2fr; align-items: center; }
-  .navWrap { grid-column: 2; display: flex; align-items: center; justify-content: space-between; }
-  .pbtn.spacebar { flex: 0 0 50%; }
+  /* Untere Zeile: nur die Leertaste, mittig über die GANZE Tastaturbreite
+     (nicht über das Eingabefeld); Breite wie bisher = 1/3 der Feldbreite. */
+  .bottomRow { width: 100%; flex: none; display: flex; justify-content: center; align-items: center; }
+  .navWrap { display: flex; justify-content: center; width: 100%; }
+  .pbtn.spacebar { flex: 0 0 calc((85% + 34px) / 3); }
   .pbtn.spacebar .spaceGlyph { display: inline-block; transform: scaleX(3) translateY(-16%); }
 
   .palette .br{ flex-basis: 100%; height: 0; }
@@ -412,10 +414,10 @@
        box-sizing:border-box, die 85% sind schon die volle sichtbare
        Breite — ohne diese Overrides waren die Steuertasten-Zeilen 34px zu
        breit und passten nicht zum Eingabefeld. */
-    .btnrow.navrow,
-    .bottomRow {
+    .btnrow.navrow {
       width: 85%;
     }
+    .pbtn.spacebar { flex-basis: calc(85% / 3); }
 
     fieldset {
       border: 1px solid #ddd;
