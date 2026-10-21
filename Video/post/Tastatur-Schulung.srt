@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:07,714
+Formeln bearbeiten: korrigieren, markieren, kopieren und einfügen
+
+2
+00:00:07,714 --> 00:00:13,789
+Die Aufgabe: diese Formel soll ins Antwortfeld.
+
+3
+00:00:13,789 --> 00:00:22,047
+Die Taste, die als Nächstes gedrückt wird, ist jeweils farbig umrandet.
+
+4
+00:00:22,047 --> 00:00:30,125
+Wir beginnen mit dem Bruch: Bruch-Taste – der Cursor steht im Zähler.
+
+5
+00:00:30,125 --> 00:00:34,564
+Im Zähler eine Quadratwurzel.
+
+6
+00:00:34,564 --> 00:00:42,490
+x eingeben, mit ◀ markieren, Potenz-Taste, dann 2 …
+
+7
+00:00:42,490 --> 00:00:46,671
+… und weiter mit + 1.
+
+8
+00:00:46,671 --> 00:00:53,020
+Hoppla: „+ 1“ ist mit in den Exponenten gerutscht!
+
+9
+00:00:53,020 --> 00:00:59,367
+Korrigieren: zweimal ⌫ löscht „1“ und „+“ wieder …
+
+10
+00:00:59,367 --> 00:01:05,895
+… „heraus“ verlässt den Exponenten – jetzt erst + 1.
+
+11
+00:01:05,895 --> 00:01:12,972
+Noch einmal „heraus“ – der Cursor steht hinter der Wurzel.
+
+12
+00:01:12,972 --> 00:01:20,322
+Die Wurzel brauchen wir später noch einmal: mit ◀ markieren …
+
+13
+00:01:20,322 --> 00:01:26,125
+… und mit →📋 in die Zwischenablage kopieren.
+
+14
+00:01:26,125 --> 00:01:33,655
+→ hebt die Markierung auf, ein zweites → springt in den Nenner.
+
+15
+00:01:33,655 --> 00:01:41,511
+Nenner: 2x + 3
+
+16
+00:01:41,511 --> 00:01:49,403
+Für die Klammer: alles mit viermal ◀ markieren …
+
+17
+00:01:49,403 --> 00:01:56,753
+… Klammer-Taste – der markierte Teil steht jetzt in Klammern.
+
+18
+00:01:56,753 --> 00:02:03,099
+→, dann ◀ markiert die ganze Klammer – und hoch 3.
+
+19
+00:02:03,099 --> 00:02:11,172
+„heraus“ verlässt den Nenner. Weiter mit Minus und einem neuen Bruch.
+
+20
+00:02:11,172 --> 00:02:17,792
+→ in den Nenner, und 📋→ fügt die kopierte Wurzel ein.
+
+21
+00:02:17,792 --> 00:02:28,300
+„heraus“, dann + e: e, mit ◀ markieren, Potenz-Taste.
+
+22
+00:02:28,300 --> 00:02:37,986
+Im Exponenten: Minus und der Bruch x/2.
+
+23
+00:02:37,986 --> 00:02:43,620
+Zweimal „heraus“ – fertig?
+
+24
+00:02:43,620 --> 00:02:51,788
+Vergleichen Sie mit der Aufgabe: im ersten Nenner steht + 3 statt − 3!
+
+25
+00:02:51,788 --> 00:03:00,049
+Kein Problem: einfach mit Finger oder Stift direkt hinter das + tippen.
+
+26
+00:03:00,049 --> 00:03:07,397
+Der Cursor steht jetzt dort. ⌫ löscht das +, dann − eingeben.
+
+27
+00:03:07,397 --> 00:03:13,565
+Jetzt stimmt die Formel mit der Aufgabe überein.
+
+28
+00:03:13,565 --> 00:03:19,005
+Zum Schluss: Rückgängig und Wiederholen.
+
+29
+00:03:19,005 --> 00:03:26,808
+★ markiert alles, ⊠ löscht die Auswahl – die ganze Formel ist weg!
+
+30
+00:03:26,808 --> 00:03:32,702
+Kein Problem: ↶ (Rückgängig) holt sie zurück.
+
+31
+00:03:32,702 --> 00:03:42,782
+↷ (Wiederholen) macht das Rückgängig-Machen wieder rückgängig – die Formel ist wieder weg …
+
+32
+00:03:42,782 --> 00:03:48,039
+… und noch einmal ↶ – alles wieder da.
+
+33
+00:03:48,039 --> 00:03:55,298
+Mit „weiter“ würden Sie die Antwort abschicken. Viel Erfolg!
+

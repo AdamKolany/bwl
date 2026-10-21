@@ -1,0 +1,1192 @@
+[
+ {
+  "cmd": "copy",
+  "ins": null,
+  "txt": "→📋",
+  "x": 1119,
+  "y": 499
+ },
+ {
+  "cmd": "paste",
+  "ins": null,
+  "txt": "📋→",
+  "x": 1194,
+  "y": 499
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "weiter",
+  "x": 1156,
+  "y": 541
+ },
+ {
+  "cmd": "move_L",
+  "ins": null,
+  "txt": "",
+  "x": 1129,
+  "y": 584
+ },
+ {
+  "cmd": "move_R",
+  "ins": null,
+  "txt": "",
+  "x": 1183,
+  "y": 584
+ },
+ {
+  "cmd": "capsCycle",
+  "ins": null,
+  "txt": "",
+  "x": 67,
+  "y": 643
+ },
+ {
+  "cmd": "capsel",
+  "ins": null,
+  "txt": "az ↔ AZ",
+  "x": 0,
+  "y": 0
+ },
+ {
+  "cmd": "exitCtx",
+  "ins": null,
+  "txt": "",
+  "x": 273,
+  "y": 643
+ },
+ {
+  "cmd": "bs",
+  "ins": null,
+  "txt": "",
+  "x": 464,
+  "y": 643
+ },
+ {
+  "cmd": "del",
+  "ins": null,
+  "txt": "",
+  "x": 504,
+  "y": 643
+ },
+ {
+  "cmd": "clear",
+  "ins": null,
+  "txt": "",
+  "x": 544,
+  "y": 643
+ },
+ {
+  "cmd": "selL",
+  "ins": null,
+  "txt": "",
+  "x": 736,
+  "y": 643
+ },
+ {
+  "cmd": "selR",
+  "ins": null,
+  "txt": "",
+  "x": 776,
+  "y": 643
+ },
+ {
+  "cmd": "selectAll",
+  "ins": null,
+  "txt": "",
+  "x": 815,
+  "y": 643
+ },
+ {
+  "cmd": "undo",
+  "ins": null,
+  "txt": "",
+  "x": 1007,
+  "y": 643
+ },
+ {
+  "cmd": "redo",
+  "ins": null,
+  "txt": "",
+  "x": 1047,
+  "y": 643
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "a",
+  "x": 105,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "b",
+  "x": 136,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "c",
+  "x": 166,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "d",
+  "x": 196,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "e",
+  "x": 227,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "f",
+  "x": 257,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "g",
+  "x": 287,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "h",
+  "x": 318,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "i",
+  "x": 348,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "j",
+  "x": 378,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "k",
+  "x": 409,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "l",
+  "x": 439,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "m",
+  "x": 469,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "n",
+  "x": 500,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "o",
+  "x": 530,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "p",
+  "x": 560,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "q",
+  "x": 591,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "r",
+  "x": 621,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "s",
+  "x": 651,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "t",
+  "x": 681,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "u",
+  "x": 712,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "v",
+  "x": 742,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "w",
+  "x": 772,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "x",
+  "x": 803,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "y",
+  "x": 833,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "z",
+  "x": 863,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "0",
+  "x": 902,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "1",
+  "x": 932,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "2",
+  "x": 962,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "3",
+  "x": 993,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "4",
+  "x": 1023,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "5",
+  "x": 1053,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "6",
+  "x": 1084,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "7",
+  "x": 1114,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "8",
+  "x": 1144,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "9",
+  "x": 1175,
+  "y": 686
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "===",
+  "x": 133,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "+++",
+  "x": 162,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "−-−",
+  "x": 190,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⋅\\cdot⋅",
+  "x": 217,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "÷\\div÷",
+  "x": 244,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "",
+  "x": 286,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "2",
+  "x": 327,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "3",
+  "x": 378,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "",
+  "x": 428,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "/",
+  "x": 479,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "²√",
+  "x": 535,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "³√",
+  "x": 572,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "ⁿ√",
+  "x": 609,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∣⋅∣\\left|\\cd",
+  "x": 652,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∣\\big|​",
+  "x": 678,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∥\\big\\|​",
+  "x": 703,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "",
+  "x": 754,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "",
+  "x": 792,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "",
+  "x": 817,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "(⋅ ∣ ⋅)(\\cdo",
+  "x": 868,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⟨⋅ , ⋅⟩\\left",
+  "x": 918,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∙\\bullet∙",
+  "x": 969,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∘\\circ∘",
+  "x": 994,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "×\\times×",
+  "x": 1033,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⊤",
+  "x": 1085,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "*",
+  "x": 1135,
+  "y": 731
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "≈\\approx≈",
+  "x": 149,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "≠\\neq=",
+  "x": 177,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "±\\pm±",
+  "x": 206,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "<<<",
+  "x": 246,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": ">>>",
+  "x": 274,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⩽\\leqslant⩽",
+  "x": 303,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⩾\\geqslant⩾",
+  "x": 331,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⊆\\subseteq⊆",
+  "x": 371,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⊊\\subsetneq⊊",
+  "x": 400,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∪\\cup∪",
+  "x": 439,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∩\\cap∩",
+  "x": 464,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∖\\setminus∖",
+  "x": 490,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∈\\in∈",
+  "x": 527,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∉\\notin∈/",
+  "x": 553,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∅\\varnothing",
+  "x": 592,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⋃\\bigcup⋃",
+  "x": 633,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⋂\\bigcap⋂",
+  "x": 663,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "N\\mathbb{N}N",
+  "x": 703,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "Z\\mathbb{Z}Z",
+  "x": 729,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "Q\\mathbb{Q}Q",
+  "x": 756,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "R\\mathbb{R}R",
+  "x": 784,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "C\\mathbb{C}C",
+  "x": 811,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "ı\\imath",
+  "x": 849,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∞\\infty∞",
+  "x": 891,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "→n→∞\\xrighta",
+  "x": 949,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "Dm",
+  "x": 1021,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "Rg",
+  "x": 1075,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "↦\\mapsto↦",
+  "x": 1128,
+  "y": 777
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "(⋅)\\left(\\cd",
+  "x": 152,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "[⋅]\\left[\\cd",
+  "x": 180,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "{⋅}\\left\\{\\c",
+  "x": 209,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "{⋅: …}\\left\\",
+  "x": 276,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "(⋅ ,  ⋅)\\lef",
+  "x": 353,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "[⋅ ,  ⋅]\\lef",
+  "x": 403,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "[⋅ ,  ⋅)\\lef",
+  "x": 452,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "(⋅ ,  ⋅]\\lef",
+  "x": 503,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∀\\forall∀",
+  "x": 553,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∃\\exists∃",
+  "x": 578,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "¬\\neg¬",
+  "x": 616,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∨\\vee∨",
+  "x": 641,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∧\\wedge∧",
+  "x": 667,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⇒\\Rightarrow",
+  "x": 709,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "⇔\\Leftrighta",
+  "x": 743,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "↔\\leftrighta",
+  "x": 778,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "α\\alphaα",
+  "x": 820,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "β\\betaβ",
+  "x": 845,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "γ\\gammaγ",
+  "x": 871,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "ε\\varepsilon",
+  "x": 896,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "λ\\lambdaλ",
+  "x": 922,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "μ\\muμ",
+  "x": 948,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "σ\\sigmaσ",
+  "x": 973,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "τ\\tauτ",
+  "x": 999,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "χ2\\chi^2χ2",
+  "x": 1029,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "Δ\\DeltaΔ",
+  "x": 1073,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "Φ\\PhiΦ",
+  "x": 1102,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "Ω\\OmegaΩ",
+  "x": 1129,
+  "y": 823
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "sin",
+  "x": 174,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "cos",
+  "x": 218,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "tan",
+  "x": 264,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "asin",
+  "x": 320,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "acos",
+  "x": 378,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "atan",
+  "x": 438,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "exp",
+  "x": 496,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "ln",
+  "x": 535,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "log",
+  "x": 571,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "!!!",
+  "x": 608,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "(□□)",
+  "x": 645,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "π\\piπ",
+  "x": 683,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "e",
+  "x": 708,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "lim",
+  "x": 747,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∫\\int∫",
+  "x": 786,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "d\\,\\text{d}d",
+  "x": 812,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "∑\\sum∑",
+  "x": 844,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "€",
+  "x": 878,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "%",
+  "x": 910,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "‰",
+  "x": 943,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "…\\ldots…",
+  "x": 979,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "′'′",
+  "x": 1008,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "‘‘``‘‘",
+  "x": 1034,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": ".",
+  "x": 1063,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": ",",
+  "x": 1089,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": ";",
+  "x": 1115,
+  "y": 869
+ },
+ {
+  "cmd": null,
+  "ins": null,
+  "txt": "␣",
+  "x": 552,
+  "y": 912
+ },
+ {
+  "cmd": "exitCtx",
+  "ins": null,
+  "txt": "",
+  "x": 742,
+  "y": 912
+ },
+ {
+  "cmd": "bs",
+  "ins": null,
+  "txt": "",
+  "x": 777,
+  "y": 912
+ },
+ {
+  "cmd": "del",
+  "ins": null,
+  "txt": "",
+  "x": 817,
+  "y": 912
+ },
+ {
+  "cmd": "clear",
+  "ins": null,
+  "txt": "",
+  "x": 857,
+  "y": 912
+ },
+ {
+  "cmd": "selL",
+  "ins": null,
+  "txt": "",
+  "x": 892,
+  "y": 912
+ },
+ {
+  "cmd": "selR",
+  "ins": null,
+  "txt": "",
+  "x": 932,
+  "y": 912
+ },
+ {
+  "cmd": "selectAll",
+  "ins": null,
+  "txt": "",
+  "x": 972,
+  "y": 912
+ },
+ {
+  "cmd": "undo",
+  "ins": null,
+  "txt": "",
+  "x": 1007,
+  "y": 912
+ },
+ {
+  "cmd": "redo",
+  "ins": null,
+  "txt": "",
+  "x": 1047,
+  "y": 912
+ }
+]
