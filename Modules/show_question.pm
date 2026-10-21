@@ -544,9 +544,9 @@ print qq{</div>};
 
       print "</div>"; break();
 
-      # Zeile 7: Leerzeichen-Taste (mittleres Drittel, zentriert) + Navigations-/Editier-Icons (Spiegel von Zeile 1)
+      # Zeile 7: nur die Leerzeichen-Taste (mittleres Drittel); die Editier-Icons stehen schon in Zeile 1
       print "<div class='btnrow bottomRow'>";
-      print qq{<span class="navWrap"><button type="button" class="pbtn pbtn1 spacebar" data-ins="\\,"><span class="spaceGlyph">␣</span></button>$navicons</span>};
+      print qq{<span class="navWrap"><button type="button" class="pbtn pbtn1 spacebar" data-ins="\\,"><span class="spaceGlyph">␣</span></button></span>};
       print "</div>";
 
       # das Ende von der Palette
