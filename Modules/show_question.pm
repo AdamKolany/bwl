@@ -279,7 +279,6 @@ print qq{</div>};
       print "<div class='btnrow algebraRow'>";
 
       print "<span class='algGrp'>";
-      print qq{<button type="button" class="pbtn" data-ins="="><span class='mathbtn' data-tex="="></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="+"><span class='mathbtn' data-tex="+"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="-"><span class='mathbtn' data-tex="-"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="·"><span class='mathbtn' data-tex="\\cdot"></span></button>};
@@ -312,6 +311,7 @@ print qq{</div>};
       print qq{<button type="button" class="pbtn" data-ins="\\left|#0\\right|"><span class='mathbtn tr' data-tex="\\left|\\cdot\\right|"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big|"><span class='mathbtn tr' data-tex="\\big|"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\big\\|"><span class='mathbtn tr' data-tex="\\big\\|"></span></button>};
+      print qq{<button type="button" class="pbtn" data-ins="\\perp"><span class='mathbtn' data-tex="\\perp"></span></button>};
       print "</span>";
 
       print "<span class='algGrp'>";
@@ -345,6 +345,7 @@ print qq{</div>};
       print "<div class='btnrow algebraRow'>";
 
       print "<span class='algGrp'>";
+      print qq{<button type="button" class="pbtn" data-ins="="><span class='mathbtn' data-tex="="></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\approx"><span class='mathbtn' data-tex="\\approx"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\ne"><span class='mathbtn' data-tex="\\neq"></span></button>};
       print qq{<button type="button" class="pbtn" data-ins="\\pm"><span class='mathbtn' data-tex="\\pm"></span></button>};
@@ -539,6 +540,7 @@ print qq{</div>};
       print "<span class='algGrp'>";
       print qq{<button type="button" class="pbtn m" data-ins=".">.</button>};
       print qq{<button type="button" class="pbtn m" data-ins="{,}">,</button>};
+      print qq{<button type="button" class="pbtn m" data-ins=":">:</button>};
       print qq{<button type="button" class="pbtn m" data-ins=";">;</button>};
       print "</span>";
 

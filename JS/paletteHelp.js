@@ -73,6 +73,7 @@
     "\\left|#0\\right|":  "Betrag |…|",
     "\\big|":             "senkrechter Strich (einzeln)",
     "\\big\\|":           "Doppelstrich (einzeln)",
+    "\\perp":             "senkrecht (orthogonal)",
     "\\big(#?\\,\\big|\\,#0\\big)": "Klammer mit senkrechtem Strich (…|…) – keine normale Klammer!",
     "\\left\\langle#0\\,{,}\\,#?\\right\\rangle": "spitze Klammern ⟨…,…⟩ (Skalarprodukt)",
     "\\left(#0\\right)":  "runde Klammern (…)",
@@ -158,6 +159,7 @@
     "'":       "Strich (Ableitung f')",
     ".":       "Punkt",
     "{,}":     "Dezimalkomma",
+    ":":       "Doppelpunkt",
     ";":       "Semikolon",
     "\\,":     "kleiner Abstand"
   };
