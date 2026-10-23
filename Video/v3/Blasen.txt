@@ -1,0 +1,137 @@
+# Sprechblasen (Untertitel) – Tastatur-Schulung
+# Jeder Block = eine Blase. Zeilen genau so umbrechen, wie sie in der Blase stehen sollen.
+# Kopfzeile (### Nr  Zeit) bitte nicht ändern; Leerzeile trennt die Blasen.
+# Max. Zeilenbreite: normal ca. 1040 px, in der Einleitung (vor dem Scrollen) ca. 1800 px –
+# zu lange Zeilen melde ich beim Rendern.
+
+### 01  0:00.00 – 0:07.71  (Einleitung)
+Formeln bearbeiten: korrigieren, markieren, kopieren und einfügen
+
+### 02  0:07.71 – 0:13.79  (Einleitung)
+Die Aufgabe: Diese Formel soll ins Antwortfeld.
+
+### 03  0:13.79 – 0:22.05
+Die Taste, die als Nächstes gedrückt wird, ist jeweils farbig umrandet.
+
+### 04  0:22.05 – 0:28.40
+Zuerst ein kurzer Überblick über die Sondertasten.
+
+### 05  0:28.40 – 0:41.66
+Tipp: Halten Sie eine Taste etwas länger gedrückt – dann erscheint eine kurze Erklärung.
+Die Taste wird dabei nicht ausgelöst.
+
+### 06  0:41.66 – 0:52.83
+⇧ Großbuchstaben: einmal tippen – nur der nächste Buchstabe,
+zweimal – dauerhaft, dreimal – wieder aus.
+
+### 07  0:52.83 – 1:01.73
+Die Taste „heraus“ springt eine Ebene hinaus – aus Exponent, Bruch, Wurzel oder Klammer.
+
+### 08  1:01.73 – 1:12.18
+Die Taste ⌫ löscht links vom Cursor, ⌦ rechts davon und ⊠ die ganze Auswahl.
+
+### 09  1:12.18 – 1:22.57
+Die schwarzen Dreiecke ◀ ▶ erweitern die Auswahl, die Taste ★ wählt alles aus.
+
+### 10  1:22.57 – 1:29.65
+Die Tasten ← → bewegen den Cursor.
+
+### 11  1:29.65 – 1:36.75
+Die Taste →📋 kopiert die Auswahl, 📋→ fügt sie ein.
+
+### 12  1:36.75 – 1:43.86
+Die Taste ↶ macht rückgängig, die Taste ↷ wiederholt.
+
+### 13  1:43.86 – 1:50.59
+Diese Übersicht bleibt unten eingeblendet. Los geht’s!
+
+### 14  1:50.59 – 1:58.67
+Wir beginnen mit dem Bruch: Bruch-Taste – der Cursor steht im Zähler.
+
+### 15  1:58.67 – 2:03.11
+Im Zähler eine Quadratwurzel.
+
+### 16  2:03.11 – 2:11.17
+Den Buchstaben „x“ eingeben, mit ◀ markieren, Potenz-Taste, dann 2 …
+
+### 17  2:11.17 – 2:15.49
+… und weiter mit + 1.
+
+### 18  2:15.49 – 2:21.84
+Hoppla: „+ 1“ ist mit in den Exponenten gerutscht!
+
+### 19  2:21.84 – 2:28.18
+Korrigieren: zweimal ⌫ löscht „1“ und „+“ wieder …
+
+### 20  2:28.18 – 2:34.71
+… „heraus“ verlässt den Exponenten – jetzt erst + 1.
+
+### 21  2:34.71 – 2:41.80
+Noch einmal „heraus“ – der Cursor steht hinter der Wurzel.
+
+### 22  2:41.80 – 2:49.15
+Die Wurzel brauchen wir später noch einmal: mit ◀ markieren …
+
+### 23  2:49.15 – 2:54.94
+… und mit →📋 in die Zwischenablage kopieren.
+
+### 24  2:54.94 – 3:02.48
+Die Taste → hebt die Markierung auf, ein zweites → springt in den Nenner.
+
+### 25  3:02.48 – 3:10.52
+Der Nenner soll 2x + 3 lauten.
+
+### 26  3:10.52 – 3:18.58
+Für die Klammer: alles mit viermal ◀ markieren …
+
+### 27  3:18.58 – 3:25.93
+… Klammer-Taste – der markierte Teil steht jetzt in Klammern.
+
+### 28  3:25.93 – 3:32.28
+Mit → und dann ◀ wird die ganze Klammer markiert – und hoch 3.
+
+### 29  3:32.28 – 3:40.35
+Die Taste „heraus“ verlässt den Nenner. Weiter mit Minus und einem neuen Bruch.
+
+### 30  3:40.35 – 3:46.98
+Mit → in den Nenner, und 📋→ fügt die kopierte Wurzel ein.
+
+### 31  3:46.98 – 3:56.96
+Die Taste „heraus“, dann + e: e mit ◀ markieren, Potenz-Taste.
+
+### 32  3:56.96 – 4:07.98
+Im Exponenten: Minus und der Bruch x/2.
+
+### 33  4:07.98 – 4:12.38
+Zweimal „heraus“ – fertig?
+
+### 34  4:12.38 – 4:21.01
+Vergleichen Sie mit der Aufgabe oben: im ersten Nenner steht + 3 statt − 3!
+
+### 35  4:21.01 – 4:29.27
+Kein Problem: einfach mit Finger oder Stift direkt hinter das + tippen.
+
+### 36  4:29.27 – 4:36.62
+Der Cursor steht jetzt dort. Die Taste ⌫ löscht das +, dann − eingeben.
+
+### 37  4:36.62 – 4:42.80
+Jetzt stimmt die Formel mit der Aufgabe überein.
+
+### 38  4:42.80 – 4:48.24
+Zum Schluss: Rückgängig und Wiederholen.
+
+### 39  4:48.24 – 4:56.04
+Die Taste ★ markiert alles, ⊠ löscht die Auswahl – die ganze Formel ist weg!
+
+### 40  4:56.04 – 5:01.95
+Kein Problem: ↶ (Rückgängig) holt sie zurück.
+
+### 41  5:01.95 – 5:12.03
+Die Taste ↷ (Wiederholen) macht das Rückgängig-Machen
+wieder rückgängig – die Formel ist wieder weg …
+
+### 42  5:12.03 – 5:17.29
+… und noch einmal ↶ – alles wieder da.
+
+### 43  5:17.29 – 5:24.55
+Mit „weiter“ würden Sie die Antwort abschicken. Viel Erfolg!
