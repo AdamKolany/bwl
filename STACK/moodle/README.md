@@ -11,8 +11,12 @@ Zugangsdaten: `/srv/wwwservers/moodle/ZUGANG.txt` (nur superuser). Kurs „bwl-S
 - `theme-boost.scss` → Website-Administration › Darstellung › Boost › Raw SCSS
   (`php admin/cli/cfg.php --component=theme_boost --name=scss --set="$(cat theme-boost.scss)"`):
   Tests in voller Breite, Aufgabentext in TeX Gyre Bonum 1.5rem, Formeln 112 %
-- `bwlimport.php [xml]` – Kurs anlegen, XML importieren, je Thema ein Test mit 3 Zufallsfragen (einmalig)
-- `updq.php [xml]` – Fragetexte vorhandener Fragen aus neuer XML übernehmen (statt neu importieren)
+- `kurs.php <kurzname> "<Name>" <xml> [lehrende] [teilnehmende]` – Kurs anlegen, XML importieren, Tests anlegen, einschreiben
+- `tests.php <kurzname> [N]` – alle Tests eines Kurses neu: je Thema N Zufallsfragen (Standard 5; löscht Versuche)
+- `bwlimport.php [xml]` – erste Version für den Kurs bwl-STACK (heute durch kurs.php ersetzt)
+- `updq.php [xml]` – Fragetext, Musterlösung und Feedback vorhandener Fragen (per idnumber) aus neuer XML übernehmen
 - `delatt.php` – Testversuche von `stacktest` löschen
 
 Alle PHP-Skripte: `sudo -u www-data php <skript> <pfad/zu/bwl-stack.xml>` (XML muss für www-data lesbar sein).
+
+Kurse: `bwl-STACK` (verbindlich, 117 Fragen, 8 Tests) und `bwl-STACK-alt` (Testmaterial, 268 Fragen, 22 Tests), je 5 Zufallsfragen pro Test.

@@ -11,3 +11,9 @@ STACK/**/answers.*
 STACK/**/bwl-stack.xml
 STACK/**/vorlage.html
 STACK/**/*.mac
+STACK/**/all.tsv
+STACK/**/uniq.tsv
+STACK/**/items.json
+STACK/**/alle.out
+STACK/**/latex.json
+STACK/**/bwl-stack-alle.xml

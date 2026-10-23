@@ -11,6 +11,8 @@
   function toMaxima(latex) {
     let t = latex.trim();
     if (hint && t.includes("=")) t = t.slice(t.indexOf("=") + 1);  // Präfix „f'(x)=“ abschneiden
+    t = t.replace(/(\d)\s*(?:\{,\}|,)\s*(\d)/g, "$1.$2");      // Dezimalkomma: 4,85 → 4.85
+    t = t.replace(/(\d)\s*e(?![a-zA-Z])/g, "$1\\cdot e");          // 4e+1 ist 4·e+1, nicht 4·10¹ (Compute Engine liest sonst Exponentialschreibweise)
     t = t.replace(/\\[,;:! ]/g, " ").trim();
     if (!t) return "";
     ce = ce || new ComputeEngine.ComputeEngine();
