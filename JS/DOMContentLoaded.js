@@ -568,3 +568,32 @@ document.addEventListener ( "DOMContentLoaded", () => {
 
   }
 ); // Ende von Listener: DOMContentLoaded
+
+/* paletteFit — nur PC (Tablets haben eigene CSS-Regeln):
+   - Steuertasten-Zeile (navrow) exakt so breit wie das Eingabefeld;
+   - alle Tastenzeilen gemeinsam per zoom so skalieren, dass die breiteste
+     bis an den Rand der Palette reicht (Schriftbreiten unterscheiden sich
+     je nach Browser, daher zur Laufzeit gemessen). */
+(function () {
+  if (matchMedia("(pointer: coarse)").matches) return;
+  function paletteFit() {
+    const pal = document.getElementById("palette");
+    if (!pal) return;
+    const mf = document.getElementById("mf");
+    const nav = pal.querySelector(".btnrow.navrow");
+    if (nav && mf) nav.style.width = mf.getBoundingClientRect().width + "px";
+    const rows = [...pal.querySelectorAll(".btnrow.algebraRow, .btnrow.letterrow")];
+    rows.forEach((r) => (r.style.zoom = ""));
+    const extent = (r) => {
+      const k = [...r.children].map((c) => c.getBoundingClientRect()).filter((b) => b.width);
+      return k.length ? Math.max(...k.map((b) => b.right)) - Math.min(...k.map((b) => b.left)) : 0;
+    };
+    const widest = Math.max(...rows.map(extent));
+    if (!(widest > 0)) return;
+    const z = (pal.clientWidth * 0.99) / widest;
+    rows.forEach((r) => (r.style.zoom = z.toFixed(4)));
+  }
+  window.addEventListener("load", paletteFit);
+  window.addEventListener("resize", paletteFit);
+  if (document.readyState === "complete") paletteFit();
+})();

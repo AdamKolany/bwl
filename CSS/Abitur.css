@@ -319,7 +319,7 @@
     }
 
     .palette {
-      gap: 5px 2px;
+      gap: 7px 2px;
       margin-top: 0.4rem;
       max-width: 100%;
       overflow-x: hidden;
@@ -336,15 +336,20 @@
        reicht das nicht mehr für eine Zeile, die letzten zwei Tasten
        rutschen um. Halbierter Gruppenabstand/Rand, nur hier, nur auf
        iPad. */
+    .btnrow.algebraRow,
     .btnrow.algebraRow.tightRow {
       gap: 8px;
-      padding: 0 16px;
+      padding: 0 8px;
     }
 
+    /* Tasten ~18 % größer (Tablet: mit Finger/Stift besser zu treffen).
+       In vw statt rem, damit die Zeilen mit der Bildschirmbreite skalieren:
+       Werte = 1280-px-Tablet (28 px Schrift); schmalere iPads (1133-1194 px)
+       bekommen proportional kleinere Tasten statt umbrechender Zeilen. */
     .pbtn {
-      font-size: 1.5rem;
-      padding: 0.02rem 0.06rem;
-      min-width: 1.35rem;
+      font-size: 2.1875vw;
+      padding: 0.1vw 0.125vw;
+      min-width: 2vw;
     }
 
     .capselBtn { padding-left: 0.5rem; padding-right: 0.5rem; }
@@ -366,6 +371,8 @@
       padding-right: 1pt;
       font-size: calc(1.61vw * 1.40625);
       width: calc(1.8225vw + 2.25pt);
+      padding-top: 0.275vw;
+      padding-bottom: 0.275vw;
       box-sizing: border-box;
     }
 
@@ -373,11 +380,11 @@
       font-size: 1.5rem;
       padding: 0;
       min-width: 0;
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 2.6875vw;
+      height: 2.6875vw;
       box-sizing: border-box;
     }
-    .capsBtn { width: 3.6rem; }
+    .capsBtn { width: 5.375vw; }
 
     .mathbtn {
       font-size: 1.4rem;
@@ -438,4 +445,24 @@
     mjx-container[jax="CHTML"][display="true"] {
       margin: 0.4em 0;
     }
+}
+
+/* PC (pointer: fine) -------------------------------------------------
+   Die Tasten skalieren schon mit vw, die Abstände waren aber feste px
+   (gap 16px, padding 32px) und das Eingabefeld hatte +34px (content-box).
+   Bei schmaleren Fenstern (~1280px) liefen Zeilen und "weiter" deshalb
+   rechts aus dem Bild. Abstände jetzt ebenfalls in vw. Tablets unberührt. */
+@media not (pointer: coarse) {
+  .btnrow { gap: 0.21vw; }
+  /* kein Rand links/rechts: die breiteste Zeile soll bis an den Rahmen
+     reichen (paletteFit in DOMContentLoaded.js skaliert die Zeilen) */
+  .btnrow.algebraRow { gap: 0.83vw; padding: 0; }  /* gap = 16px bei 1920px */
+  @media (max-width: 1500px) {
+    .btnrow.algebraRow { gap: 0.7vw; }
+  }
+  .palette { gap: 7px 0.31vw; }
+  math-field.ml { box-sizing: border-box; }
+  .btnrow.navrow { width: 85%; }   /* paletteFit setzt die exakte Feldbreite */
+  /* Eingabefeld füllt den Platz bis zur weiter-Spalte */
+  .answerRow > math-field.ml { flex: 1 1 auto; width: auto; min-width: 0; }
 }
