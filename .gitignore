@@ -5,3 +5,9 @@
 
 # Local Claude Code settings
 .claude/
+
+# STACK: erzeugte Daten (enthalten Musterlösungen) gehören ins Arbeitsverzeichnis, nicht ins öffentliche Repo
+STACK/**/answers.*
+STACK/**/bwl-stack.xml
+STACK/**/vorlage.html
+STACK/**/*.mac

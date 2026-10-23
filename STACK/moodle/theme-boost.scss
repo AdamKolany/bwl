@@ -1,0 +1,15 @@
+/* Tests und Fragenvorschau: volle Breite für den bwl-Formeleditor */
+.path-mod-quiz #page.drawers .main-inner,
+.path-question-type-stack #page.drawers .main-inner,
+#page-question-bank-previewquestion-preview #page .main-inner { max-width: 100% !important; }
+.path-mod-quiz #page.drawers div[role=main] { max-width: none; }
+/* Aufgabentext und Formeln in STACK-Fragen größer (wie in bwl) */
+.que.stack .formulation { font-size: 1.5rem; line-height: 1.5; }
+.que.stack .formulation .MathJax_Display, .que.stack .formulation .MathJax { font-size: 112% !important; }   /* 30px → ca. 27px (2 pt kleiner) */
+.que.stack .stackinputfeedback, .que.stack .outcome { font-size: 1.15rem; }
+/* Aufgabentext in TeX Gyre Bonum wie in bwl (Schriften liegen auf demselben Server unter /fonts) */
+@font-face { font-family: "TeX Gyre Bonum Web"; src: local("TeX Gyre Bonum"), url("/fonts/texgyrebonum-regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "TeX Gyre Bonum Web"; src: local("TeX Gyre Bonum Bold"), url("/fonts/texgyrebonum-bold.woff2") format("woff2"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "TeX Gyre Bonum Web"; src: local("TeX Gyre Bonum Italic"), url("/fonts/texgyrebonum-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "TeX Gyre Bonum Web"; src: local("TeX Gyre Bonum Bold Italic"), url("/fonts/texgyrebonum-bolditalic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
+.que.stack .formulation, .que.stack .outcome { font-family: "TeX Gyre Bonum Web", "TeX Gyre Bonum", serif; }
