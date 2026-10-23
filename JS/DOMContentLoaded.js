@@ -373,7 +373,26 @@ document.addEventListener ( "DOMContentLoaded", () => {
 
   }; // update
 
-  mf.addEventListener("input", () => update());
+  // MathLive 0.108 robi migawkę cofania dla poleceń delete* PRZED usunięciem
+  // (dla wstawiania — PO). Skutek: na szczycie stosu leży kopia stanu sprzed
+  // ⌫/⌦, a stanu po usunięciu nie ma wcale — ↷ po ↶ nie przywraca usunięcia,
+  // a kilka ⌫ pod rząd cofa się naraz. Po każdym usunięciu podmieniamy tę
+  // kopię na stan bieżący (każde ⌫/⌦ to osobny krok, jak przy insertach).
+  // ⌫/⌦, które niczego nie usuwa (tylko przesuwa kursor), nie zostawia
+  // pustego kroku cofania — dlatego wołane też z handlePbtn.
+  function fixUndoAfterDelete() {
+    try {
+      const f = mf._mathfield, u = f && f.undoManager; if (!u || u.index < 0) return;
+      const key = (st) => JSON.stringify(st.content);
+      const cur = key(f.model.getState());
+      if (u.index > 0 && key(u.stack[u.index]) === key(u.stack[u.index - 1])) u.pop();
+      if (key(u.stack[u.index]) !== cur) f.snapshot();
+    } catch (_) {}
+  }
+  mf.addEventListener("input", (e) => {
+    if ((e.inputType || "").startsWith("delete")) fixUndoAfterDelete();
+    update();
+  });
 
 
   // MathLive scala (koalescuje) kolejne wywołania "insert" o tym samym
@@ -465,8 +484,8 @@ document.addEventListener ( "DOMContentLoaded", () => {
         else setCapsState("off");
         return;
       }
-      if (cmd === "bs"        ) { try { mf.executeCommand("deleteBackward"); update(); } catch (_) {} return; }
-      if (cmd === "del"       ) { try { mf.executeCommand("deleteForward");  update(); } catch (_) {} return; }
+      if (cmd === "bs"        ) { try { mf.executeCommand("deleteBackward"); fixUndoAfterDelete(); update(); } catch (_) {} return; }
+      if (cmd === "del"       ) { try { mf.executeCommand("deleteForward"); fixUndoAfterDelete();  update(); } catch (_) {} return; }
       if (cmd === "undo"      ) { try { mf.executeCommand("undo");           update(); } catch (_) {} return; }
       if (cmd === "redo"      ) { try { mf.executeCommand("redo");           update(); } catch (_) {} return; }
       if (cmd === "clear"     ) { try {  if (mf.selectionIsCollapsed === false) { breakUndoCoalescing(); mf.executeCommand("insert", ""); update(); } } catch (_) {}  return; }
