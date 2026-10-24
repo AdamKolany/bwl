@@ -38,3 +38,8 @@ Erstes Ereignis jeder Seite: `typ = 'moodle'` mit `q` (idnumber der Frage) und `
 
 - `logo.php` – Rosette (6 Arme, hell) als Favicon, kompaktes Logo (Kopfzeile, 28 px) und Logo (Anmeldeseite, 90 px); Bilder vorher nach /tmp/rosette-6B-192.png und -512.png (aus Filme/_Quellen/favicon)
 - `fav_moodle.php <png>` – nur das Moodle-Favicon setzen (jetzt PTR1, ein Penrose-Dreieck ohne Schatten)
+
+## Anmeldung (2026-10-25)
+
+- Sitzung 7 Tage: `sessiontimeout = 604800` (cfg.php); Passwort-Auge auf der Anmeldeseite: `loginpasswordtoggle = 1`.
+- Gleiches Konto `mua` wie in ILIAS (Zugangsdaten in ZUGANG.txt).

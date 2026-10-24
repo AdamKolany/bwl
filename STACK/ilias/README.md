@@ -42,3 +42,8 @@ Keine Änderung am gemeinsamen Teil nötig.
   8 Tests „<Thema>“: je 5 Zufallsfragen aus dem Themenpool, online, Prüfungsansicht, sofortiges Feedback
   (Punkte, Rückmeldung, beste Lösung) per „Check“ – wie die Moodle-Tests.
 - Zusätzlich der Gesamtpool „bwl-Aufgabenauswahl (STACK)“ (ref_id 86, 117 Fragen) im Wurzelverzeichnis.
+
+## Anmeldung
+
+- Sitzung 7 Tage: `[session] expire = "604800"` in `public/data/mathe/client.ini.php`, dazu `session.gc_maxlifetime = 604800` in `/etc/php/8.3/apache2/conf.d/91-ilias.ini`.
+- Admin `mua` wie in Moodle.
