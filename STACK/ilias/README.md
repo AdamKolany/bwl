@@ -30,4 +30,15 @@ Keine Änderung am gemeinsamen Teil nötig.
    `category`-Einträge enthalten, die aktuelle Frage wird durch die erste der Datei ersetzt.
 5. Fehlerprotokolle: `error_path` in `ilias.ini.php` war leer → `/srv/wwwservers/iliasdata/errors`.
 
-Fragenpool: „bwl-Aufgabenauswahl (STACK)“ (ref_id 86), 117 Fragen. Ein Test-Objekt ist noch nicht angelegt.
+6. Breite: Plugin-CSS `templates/css/styles.css` (wird nur auf Seiten mit STACK-Fragen geladen) um einen Block
+   ergänzt: linke Hauptleiste aus, Innenränder der Frage klein (`ilias-wide.css`). Tests laufen zusätzlich in der
+   Prüfungsansicht (Kiosk, ohne Menü).
+7. Zufallstests: Pools müssen online sein (`object_data.offline = 0`), sonst bietet der Test sie nicht an; nach dem
+   Anlegen der Regel „Synchronize Questions from Pool“, erst danach lässt sich der Test online schalten.
+
+## Inhalt
+
+- Kategorie „bwl-STACK (Formeleditor)“ (ref_id 87): 8 Fragenpools „Pool: <Thema>“ (je 15 bzw. 12 Fragen) und
+  8 Tests „<Thema>“: je 5 Zufallsfragen aus dem Themenpool, online, Prüfungsansicht, sofortiges Feedback
+  (Punkte, Rückmeldung, beste Lösung) per „Check“ – wie die Moodle-Tests.
+- Zusätzlich der Gesamtpool „bwl-Aufgabenauswahl (STACK)“ (ref_id 86, 117 Fragen) im Wurzelverzeichnis.

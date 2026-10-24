@@ -1,0 +1,6 @@
+/* ---- mathe-c10-mua: bwl-Formeleditor braucht die volle Breite (nur auf Seiten mit STACK-Fragen geladen) ---- */
+.il-maincontrols-mainbar, .il-maincontrols-slate { display: none !important; }
+.il-layout-page-content { margin-left: 0 !important; width: 100% !important; left: 0 !important; }
+.il_ass_question_preview_container, .ilc_page_cont_PageContainer { padding-left: 4px !important; padding-right: 4px !important; }
+.ilc_question_Standard { padding-left: 8px !important; padding-right: 8px !important; }
+.ilc_question_Standard { font-size: 1.35rem; }
