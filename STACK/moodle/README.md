@@ -10,7 +10,8 @@ Zugangsdaten: `/srv/wwwservers/moodle/ZUGANG.txt` (nur superuser). Kurs „bwl-S
   weil die STACK-iframe den Ursprung "null" hat und Schriften/Skripte sonst nicht lädt)
 - `theme-boost.scss` → Website-Administration › Darstellung › Boost › Raw SCSS
   (`php admin/cli/cfg.php --component=theme_boost --name=scss --set="$(cat theme-boost.scss)"`):
-  Tests in voller Breite, Aufgabentext in TeX Gyre Bonum 1.5rem, Formeln 112 %
+  Tests in voller Breite, Aufgabentext in TeX Gyre Bonum 1.5rem, Formeln 112 %; beim Lösen/in der Vorschau alles an den Seiten weg
+  (Drawer, Fragen-Infokasten, Brotkrumen), damit der Editor auch auf dem iPad passt
 - `kurs.php <kurzname> "<Name>" <xml> [lehrende] [teilnehmende]` – Kurs anlegen, XML importieren, Tests anlegen, einschreiben
 - `tests.php <kurzname> [N]` – alle Tests eines Kurses neu: je Thema N Zufallsfragen (Standard 5; löscht Versuche)
 - `bwlimport.php [xml]` – erste Version für den Kurs bwl-STACK (heute durch kurs.php ersetzt)

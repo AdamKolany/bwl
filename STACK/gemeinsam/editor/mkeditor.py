@@ -34,6 +34,28 @@ page = f"""<!DOCTYPE html>
 <script src="/stackbwl/max2tex.js"></script>
 {scripts}
 <script src="/stackbwl/bridge.js"></script>
+<style> #palette .btnrow {{ flex-wrap: nowrap !important; }} #palette .btnrow.algebraRow {{ padding: 0 !important; }} </style>
+<script>
+// In der Moodle-Spalte ist der Editor oft schmaler als jedes bwl-Layout (iPad: < 900 px, dann greift weder die
+// Tablet-Regel noch paletteFit, das bwl nur am PC ausführt). Hier deshalb immer: Zeilen einzeilig, gemeinsam per
+// zoom so skaliert, dass die breiteste in die Palette passt (gleiche Rechnung wie paletteFit in DOMContentLoaded.js).
+(function () {{
+  function fit() {{
+    const pal = document.getElementById("palette"); if (!pal) return;
+    const mf = document.getElementById("mf"); const nav = pal.querySelector(".btnrow.navrow");
+    const rows = [...pal.querySelectorAll(".btnrow")].filter((r) => r !== nav);
+    rows.forEach((r) => (r.style.zoom = ""));
+    const extent = (r) => {{ const k = [...r.children].map((c) => c.getBoundingClientRect()).filter((b) => b.width);
+      return k.length ? Math.max(...k.map((b) => b.right)) - Math.min(...k.map((b) => b.left)) : 0; }};
+    const widest = Math.max(...rows.map(extent)); if (!(widest > 0)) return;
+    const z = Math.min(1.4, (pal.clientWidth * 0.97 - 4) / widest);   // etwas Luft für Rahmen/Rundung
+    rows.forEach((r) => (r.style.zoom = z.toFixed(4)));
+    if (nav && mf) {{ nav.style.zoom = ""; if (nav.scrollWidth > pal.clientWidth) nav.style.zoom = (pal.clientWidth / nav.scrollWidth).toFixed(4); }}
+  }}
+  addEventListener("load", () => setTimeout(fit, 50)); addEventListener("resize", () => setTimeout(fit, 50));
+  setTimeout(fit, 800);
+}})();
+</script>
 <script>document.addEventListener("DOMContentLoaded", function () {{ document.querySelectorAll(".mathbtn").forEach(function (el) {{ const tex = el.dataset.tex; if (tex) katex.render(tex, el, {{ throwOnError: false }}); }}); }});</script>
 </div></div></body></html>
 """

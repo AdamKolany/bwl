@@ -13,3 +13,14 @@
 @font-face { font-family: "TeX Gyre Bonum Web"; src: local("TeX Gyre Bonum Italic"), url("/fonts/texgyrebonum-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
 @font-face { font-family: "TeX Gyre Bonum Web"; src: local("TeX Gyre Bonum Bold Italic"), url("/fonts/texgyrebonum-bolditalic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
 .que.stack .formulation, .que.stack .outcome { font-family: "TeX Gyre Bonum Web", "TeX Gyre Bonum", serif; }
+
+/* Test lösen / Fragenvorschau: alles an den Seiten weg, die Frage bekommt die ganze Breite (bwl-Editor) */
+#page-mod-quiz-attempt, #page-question-bank-previewquestion-preview {
+  .drawer, .drawer-toggles, [data-region="fixed-drawer"] { display: none !important; }
+  #page.drawers.show-drawer-left, #page.drawers.show-drawer-right, #page.drawers { margin-left: 0 !important; margin-right: 0 !important; }
+  #page.drawers .main-inner { max-width: 100% !important; padding-left: .5rem; padding-right: .5rem; }
+  #page-header, .secondary-navigation, #page-navbar, .breadcrumb { display: none !important; }
+  .que .info { display: none !important; }
+  .que .content { margin: 0 !important; }
+  .que .formulation { padding: .5rem .75rem; }
+}
