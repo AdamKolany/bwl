@@ -11,7 +11,7 @@ geht als Maxima-Text in das STACK-Antwortfeld, bewertet wird von STACK/Maxima. E
 | `gemeinsam/aufgaben/` | Export der Aufgaben aus der DB `bwl`, Umrechnung, Prüfung aller Musterlösungen mit Maxima | unverändert |
 | `gemeinsam/fragen/` | `stackxml.js` (Fragegerüst mit Editor, Bewertung), `mkxml.js` (bwl), `mkalle.js` (Testmaterial) – Moodle-XML, das auch ILIAS' STACK-Plugin importiert | unverändert (ggf. Editor-URL) |
 | `moodle/` | Import, Kurs/Tests anlegen, Fragetexte aktualisieren, Apache- und Theme-Einstellungen | nur Moodle |
-| `ilias/` | Plan für den ILIAS-Test | nur ILIAS |
+| `ilias/` | ILIAS 10 + STACK-Plugin: Installation, Stolpersteine (funktioniert) | nur ILIAS |
 
 Wie es zusammenspielt: Fragetext → `[[iframe]]` (STACK, sandboxed) → darin `<iframe src=…/stackbwl/editor.html>`
 (bwl-Tastatur) → `bridge.js` schickt Maxima per `postMessage` → Relais im Fragetext → `stack_js.request_access_to_input("ans1")`.

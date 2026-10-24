@@ -1,0 +1,12 @@
+# ILIAS auf kleinem Server (2 GB RAM, Moodle/Postgres daneben)
+[mysqld]
+innodb_buffer_pool_size = 128M
+innodb_log_file_size = 64M
+max_connections = 40
+performance_schema = OFF
+key_buffer_size = 8M
+tmp_table_size = 16M
+max_heap_table_size = 16M
+sql_mode = ""
+character-set-server = utf8mb3
+collation-server = utf8mb3_general_ci

@@ -1,0 +1,49 @@
+{
+  "common": {
+    "client_id": "mathe",
+    "master_password": "<siehe ZUGANG.txt>",
+    "server_timezone": "Europe/Berlin"
+  },
+  "database": {
+    "type": "innodb",
+    "host": "localhost",
+    "port": 3306,
+    "database": "ilias",
+    "user": "ilias",
+    "password": "<siehe ZUGANG.txt>",
+    "create_database": false
+  },
+  "filesystem": {
+    "data_dir": "/srv/wwwservers/iliasdata"
+  },
+  "http": {
+    "path": "http://mathe-c10-mua.inw.hs-merseburg.de/ilias"
+  },
+  "language": {
+    "default_language": "de",
+    "install_languages": [
+      "de",
+      "en"
+    ]
+  },
+  "systemfolder": {
+    "client": {
+      "name": "Mathe C10 – ILIAS-Test"
+    },
+    "contact": {
+      "firstname": "Adam",
+      "lastname": "Kolany",
+      "email": "muah@hs-merseburg.de"
+    }
+  },
+  "utilities": {
+    "path_to_convert": "/usr/bin/convert"
+  },
+  "mathjax": {
+    "client_enabled": true,
+    "client_polyfill_url": "",
+    "client_script_url": "http://mathe-c10-mua.inw.hs-merseburg.de/ilias/assets/js/cdn-mathjax2-tex-mml-chtml-safe.js",
+    "client_limiter": 0,
+    "server_enabled": false
+  }
+}
