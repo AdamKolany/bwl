@@ -139,7 +139,8 @@
   .btnrow.algebraRow { flex: 0 0 auto; width: fit-content; max-width: 99%; margin: 0 auto; gap: 16px; padding: 0 32px; }
   .algGrp { display: inline-flex; gap: 4px; }
 
-  .btnrow.letterrow .pbtn { font-size: calc(1.33vw * 1.40625); width: 2.12625vw; box-sizing: border-box; }
+  /* 2026-10-24: Tasten breiter, Buchstaben kleiner – Großbuchstaben und kursives m/W ragten über den Rand */
+  .btnrow.letterrow .pbtn { font-size: calc(1.33vw * 1.28); width: 2.25vw; box-sizing: border-box; }
 
   .mathbtn { display: inline-block; line-height: 1; font-size: 2.1vw; transform: scale(1.0);}    .mathbtn.tr { font-size: 0.7em; }
 
@@ -369,8 +370,8 @@
       flex-shrink: 1;
       padding-left: 1pt;
       padding-right: 1pt;
-      font-size: calc(1.61vw * 1.40625);
-      width: calc(1.8225vw + 2.25pt);
+      font-size: calc(1.61vw * 1.15);          /* 2026-10-24: war × 1.40625, Buchstaben ragten heraus */
+      width: calc(1.98vw + 2.25pt);             /* war 1.8225vw + 2.25pt */
       padding-top: 0.275vw;
       padding-bottom: 0.275vw;
       box-sizing: border-box;
