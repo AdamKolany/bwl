@@ -61,3 +61,7 @@ zeigen dorthin.
   Endkarte, Ton nachbearbeitet: Entrauschen, Declick, Kompressor, loudnorm;
   `mksrt.py` erzeugt die verschobenen Untertitel). `SKIPBUB=1` überspringt das
   Rendern der Blasen.
+
+## Version 3b (`v3b/`, v03_06 – v03_14)
+
+Escher-Dreieck statt Penrose, Rosette mit 8 Armen (geflochten), neue Endkarte (Ente als Ellipse → Rechteck), Favicon. Details: `v3b/README.md`.
