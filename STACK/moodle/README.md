@@ -37,3 +37,4 @@ Erstes Ereignis jeder Seite: `typ = 'moodle'` mit `q` (idnumber der Frage) und `
     select u.username, a.id attempt, a.quiz from mdl_quiz_attempts a join mdl_user u on u.id = a.userid where a.uniqueid = <usage>;
 
 - `logo.php` – Rosette (6 Arme, hell) als Favicon, kompaktes Logo (Kopfzeile, 28 px) und Logo (Anmeldeseite, 90 px); Bilder vorher nach /tmp/rosette-6B-192.png und -512.png (aus Filme/_Quellen/favicon)
+- `fav_moodle.php <png>` – nur das Moodle-Favicon setzen (jetzt PTR1, ein Penrose-Dreieck ohne Schatten)
