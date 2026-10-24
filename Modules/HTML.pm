@@ -14,7 +14,7 @@ sub page_header {
   my $head = <<HEAD;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8"> $console
-    <link rel="icon" type="image/png" sizes="192x192" href="/js/bwl/favicon-ptr1.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/js/bwl/favicon-ptr1.png?v=1792878428">
     <script src="/js/bwl/eventLog.js?v=$evLogV"></script>
     <link rel="stylesheet" href="/js/mathlive/mathlive-fonts.css">
     <link rel="stylesheet" href="/js/mathlive/mathlive-static.css">

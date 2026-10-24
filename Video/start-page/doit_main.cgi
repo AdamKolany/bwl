@@ -24,7 +24,7 @@ print start_html(
 	 meta({ -http_equiv => 'Content-Type', -content => 'text/html; charset=UTF-8' }),
 	 meta({ -http_equiv => 'content-language', -content => 'de' }),
 	 meta({ -http_equiv => 'pragma', -content => 'no-cache' }),
-	 Link({ -rel => 'icon', -type => 'image/png', -sizes => '192x192', -href => '/js/bwl/favicon-ros6.png' }),
+	 Link({ -rel => 'icon', -type => 'image/png', -sizes => '192x192', -href => '/js/bwl/favicon-ptr1.png?v=1792878428' }),
 	 Link({ -rel => 'preconnect', -href => 'https://fonts.googleapis.com' }),
 	 Link({ -rel => 'preconnect', -href => 'https://fonts.gstatic.com', -crossorigin => 'true' }),
 	 Link({ -rel => 'stylesheet', -href => 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap' }),
@@ -41,7 +41,7 @@ print qq{
 <ul id="menu" style="line-height:2vh;">
  <!-- <li>$bullet<a href="histmat/test.cgi" target="histmat"> Wissenstest zur Geschichte der Mathematik </a> -->
  <li>$bullet<a href="bwl/doit.cgi" target="bwl"> Mathematik für Betriebswirte (Testfragen)</a>
- <li>$bullet<a href="/filme/Tastatur-Schulung.mp4" target="film"> Einführungsvideo: Formeln eingeben mit der Bildschirmtastatur </a>
+ <li>$bullet<a href="/filme/Tastatur-Schulung.mp4" target="film"> Formeln eingeben mit der Bildschirmtastatur (Erklärungsvideo) </a>
 <!-- <li>$bullet<a href="abitur/doit.cgi" target="abitest"> Abiturtest </a> -->
 </ul>
 };
