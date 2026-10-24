@@ -8,12 +8,13 @@
   "use strict";
   if (window.__evlog) return;
 
-  const ENDPOINT = (location.pathname || "doit.cgi") + "?action=log";
+  // Einbettung (z. B. bwl-Editor in Moodle/STACK): Ziel und Seitenkennung vorab über window.__evlogEndpoint/__evlogAction setzbar
+  const ENDPOINT = window.__evlogEndpoint || ((location.pathname || "doit.cgi") + "?action=log");
   const FLUSH_MS = 5000, MAX_BUF = 400;
   const t0 = Date.now();
   const pageId = t0.toString(36) + Math.random().toString(36).slice(2, 7);
   const qs = new URLSearchParams(location.search);
-  const page = { action: qs.get("action") || "menu", nr: qs.get("nr") || null };
+  const page = { action: window.__evlogAction || qs.get("action") || "menu", nr: qs.get("nr") || null };
   let seq = 0, buf = [];
 
   function log(type, data) {

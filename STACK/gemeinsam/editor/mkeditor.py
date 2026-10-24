@@ -2,7 +2,9 @@
 import re, sys
 s = open(sys.argv[1], encoding="utf-8").read()
 head = s[s.index("<head"):s.index("</head>")]
-head = re.sub(r"<script[^>]*eventLog\.js[^>]*></script>", "", head)
+# Ereignisprotokoll wie in bwl, aber an doit.cgi und als Seite "moodle" gekennzeichnet (Kontext schreibt bridge.js dazu)
+head = re.sub(r"(<script[^>]*eventLog\.js[^>]*></script>)",
+              r'<script>window.__evlogEndpoint = "/cgi-bin/teste/bwl/doit.cgi?action=log"; window.__evlogAction = "moodle";</script>\1', head)
 head = re.sub(r"<script[^>]*jsdelivr[^>]*></script>", "", head)
 head = re.sub(r"<script[^>]*mathjax4[^>]*></script>", "", head)
 

@@ -7,6 +7,9 @@
   const hint = qs.get("hint") || "";
   const mf = document.getElementById("mf");
   if (mf) mf.textContent = hint ? hint + " " : "";              // Präfix wie in bwl, z. B. f'(x)=
+  const evlog = (typ, d) => { try { if (window.__evlog) window.__evlog.log(typ, d); } catch (_) {} };
+  // Kontext fürs Ereignisprotokoll: Frage (idnumber) und Moodle-Versuch/Slot (STACK-quid „q<usage>:<slot>_…“)
+  evlog("moodle", { q: qs.get("q") || null, ctx: qs.get("ctx") || null, hint });
   let last = null, ce = null;
   function toMaxima(latex) {
     let t = latex.trim();
@@ -28,6 +31,7 @@
     try { maxima = toMaxima(latex); } catch (e) { err = String(e.message || e); }
     const st = document.getElementById("stackStatus");
     if (st) st.textContent = err ? "unvollständig" : maxima;
+    evlog("stack.answer", { latex, maxima, err: err || undefined });
     parent.postMessage(JSON.stringify({ type: "bwl-answer", maxima, latex, err }), "*");
   }
   setInterval(send, 300);
@@ -38,6 +42,7 @@
     if (!mf || !mf.setValue || !window.max2tex) return false;
     let tex = ""; if (maxima) { try { tex = max2tex(maxima); } catch (_) { return true; } }   // unvollständig: Editor lassen
     mf.setValue((hint ? hint + " " : "") + tex);
+    evlog("stack.restore", { maxima, tex });
     last = null;                                                  // wiederhergestellter Stand = neuer Ausgangszustand
     return true;
   }

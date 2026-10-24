@@ -20,3 +20,17 @@ Zugangsdaten: `/srv/wwwservers/moodle/ZUGANG.txt` (nur superuser). Kurs „bwl-S
 Alle PHP-Skripte: `sudo -u www-data php <skript> <pfad/zu/bwl-stack.xml>` (XML muss für www-data lesbar sein).
 
 Kurse: `bwl-STACK` (verbindlich, 117 Fragen, 8 Tests) und `bwl-STACK-alt` (Testmaterial, 268 Fragen, 22 Tests), je 5 Zufallsfragen pro Test.
+
+## Ereignisprotokoll (bwl event_log) aus Moodle
+
+Der Editor schreibt wie bwl in die Tabelle `event_log` der DB **bwl**, Seite `action = 'moodle'`.
+Erstes Ereignis jeder Seite: `typ = 'moodle'` mit `q` (idnumber der Frage) und `ctx` = `q<usage>:<slot>_-quid_log`
+(usage = Moodle-Frageverwendung des Versuchs). Dazu `stack.answer` (LaTeX → Maxima bzw. Fehler) und `stack.restore`.
+
+    -- letzte Moodle-Seiten mit Frage und Kontext (DB bwl)
+    select page_id, min(server_ts), max(data->>'q') q, max(data->>'ctx') ctx, count(*)
+      from event_log where action = 'moodle' group by page_id order by 2 desc limit 20;
+    -- alle Ereignisse einer Seite
+    select client_ts::time(3), typ, data from event_log where page_id = '<page_id>' order by seq;
+    -- Kontext → Benutzer (DB moodle): usage-Nummer aus ctx einsetzen
+    select u.username, a.id attempt, a.quiz from mdl_quiz_attempts a join mdl_user u on u.id = a.userid where a.uniqueid = <usage>;

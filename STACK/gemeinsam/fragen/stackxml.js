@@ -35,7 +35,7 @@ function qtext(o) {
   return `<p>${q}</p>
 [[iframe width="100%" height="560px" title="bwl-Formeleditor"]]
 [[style]] html, body { margin: 0; padding: 0; overflow: hidden; } #bwled { border: 0; width: 100%; height: 552px; display: block; } [[/style]]
-<iframe id="bwled" src="${EDITOR}?hint=${encodeURIComponent(hint)}"></iframe>
+<iframe id="bwled" src="${EDITOR}?hint=${encodeURIComponent(hint)}&q=${encodeURIComponent(o.idnumber || "")}&ctx=[[quid id='log'/]]"></iframe>
 <a href="#" id="txtlink" style="font: 13px sans-serif; color: #0f6cbf; margin-left: 4px;">Texteingabe ▾</a>
 <script type="module">
 import stack_js from '[[cors src="stackjsiframe.min.js"/]]';
@@ -65,6 +65,7 @@ window.addEventListener("message", (e) => {
 }
 // o: {q, hint, ta}; p: prt(…); z: {name, idnumber, muster, decimals, forbidfloat, testvalue}
 function question(o, p, z) {
+  o = Object.assign({}, o, { idnumber: z.idnumber });
   return `<question type="stack">
   <name><text>${esc(z.name)}</text></name>
   <questiontext format="html"><text>${cd(qtext(o))}</text></questiontext>
