@@ -52,3 +52,5 @@ Keine Änderung am gemeinsamen Teil nötig.
   `mathe-c10-mua,149.205.23.140,149.205.132.24,100.109.86.39`.
 - Favicon: `public/assets/images/logo/favicon.ico` durch das Penrose-Dreieck (PTR1, 16–128 px) ersetzt, Original als
   `favicon.ico.ilias-orig`; nach einem ILIAS-Update (`build`/`npm`) prüfen.
+  Damit Browser es neu laden: in `components/ILIAS/GlobalScreen/src/Scope/Layout/Provider/PagePart/StandardPagePartProvider.php`
+  `getFaviconPath()` hängt `?v=ptr1-2` an (Einzeiler, kommentiert; Original `/srv/wwwservers/ilias/StandardPagePartProvider.php.orig`).
