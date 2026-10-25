@@ -36,7 +36,7 @@ Erstes Ereignis jeder Seite: `typ = 'moodle'` mit `q` (idnumber der Frage) und `
     -- Kontext → Benutzer (DB moodle): usage-Nummer aus ctx einsetzen
     select u.username, a.id attempt, a.quiz from mdl_quiz_attempts a join mdl_user u on u.id = a.userid where a.uniqueid = <usage>;
 
-- `logo.php` – Rosette (6 Arme, hell) als Favicon, kompaktes Logo (Kopfzeile, 28 px) und Logo (Anmeldeseite, 90 px); Bilder vorher nach /tmp/rosette-6B-192.png und -512.png (aus Filme/_Quellen/favicon)
+- `logo.php <bild.png>` – kompaktes Logo (Kopfzeile, 28 px) und Logo (Anmeldeseite, 90 px); aktuell das Penrose-Dreieck `ptr1-512.png` (Filme/_Quellen/favicon), Favicon ebenfalls Dreieck über `fav_moodle.php` (vorher Rosette 6B)
 - `fav_moodle.php <png>` – nur das Moodle-Favicon setzen (jetzt PTR1, ein Penrose-Dreieck ohne Schatten)
 
 ## Anmeldung (2026-10-25)

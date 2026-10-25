@@ -1,11 +1,11 @@
 <?php
-// Rosette als Favicon, kompaktes Logo (Kopfzeile) und Logo (Anmeldeseite) in Moodle setzen
+// Logo (Anmeldeseite) und kompaktes Logo (Kopfzeile) in Moodle setzen: php logo.php /pfad/bild.png
+// (Favicon separat: fav_moodle.php). Aktuell: Penrose-Dreieck ptr1-512.png; vorher Rosette 6B.
 define("CLI_SCRIPT", true);
 require("/srv/wwwservers/moodle/moodle/config.php");
-$ctx = context_system::instance(); $fs = get_file_storage();
-foreach (["favicon" => "/tmp/rosette-6B-192.png", "logocompact" => "/tmp/rosette-6B-512.png", "logo" => "/tmp/rosette-6B-512.png"] as $area => $src) {
+$src = $argv[1]; $ctx = context_system::instance(); $fs = get_file_storage(); $name = basename($src);
+foreach (["logocompact", "logo"] as $area) {
     $fs->delete_area_files($ctx->id, "core_admin", $area, 0);
-    $name = "rosette-" . basename($src);
     $fs->create_file_from_pathname(["contextid" => $ctx->id, "component" => "core_admin", "filearea" => $area, "itemid" => 0,
         "filepath" => "/", "filename" => $name], $src);
     set_config($area, "/" . $name, "core_admin");
