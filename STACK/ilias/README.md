@@ -50,3 +50,5 @@ Keine Änderung am gemeinsamen Teil nötig.
 - Erlaubte Hostnamen: ILIAS kennt nur den Host aus `http_path` (voller Name) und weist `http://mathe-c10-mua/…` mit
   „not in the allowed_hosts list“ ab. Zusätzlich eingetragen (Tabelle `settings`, `common/allowed_hosts`):
   `mathe-c10-mua,149.205.23.140,149.205.132.24,100.109.86.39`.
+- Favicon: `public/assets/images/logo/favicon.ico` durch das Penrose-Dreieck (PTR1, 16–128 px) ersetzt, Original als
+  `favicon.ico.ilias-orig`; nach einem ILIAS-Update (`build`/`npm`) prüfen.
