@@ -47,3 +47,6 @@ Keine Änderung am gemeinsamen Teil nötig.
 
 - Sitzung 7 Tage: `[session] expire = "604800"` in `public/data/mathe/client.ini.php`, dazu `session.gc_maxlifetime = 604800` in `/etc/php/8.3/apache2/conf.d/91-ilias.ini`.
 - Admin `mua` wie in Moodle.
+- Erlaubte Hostnamen: ILIAS kennt nur den Host aus `http_path` (voller Name) und weist `http://mathe-c10-mua/…` mit
+  „not in the allowed_hosts list“ ab. Zusätzlich eingetragen (Tabelle `settings`, `common/allowed_hosts`):
+  `mathe-c10-mua,149.205.23.140,149.205.132.24,100.109.86.39`.
